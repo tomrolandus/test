@@ -68,7 +68,8 @@ public class Game {
 	}
 
 	private void initiatePentomino(Pentomino pent) {
-		board.putPentomino(pent, board.getWidth() / 2, 0);
+		int[] startLocation = {board.getWidth() / 2, 0};
+		board.putPentomino(pent, startLocation);
 	}
 
 	private void countScore(int amountOfRows) {
@@ -87,20 +88,23 @@ public class Game {
 	}
 	
 	public void moveCurrentPentLeft(){
-		board.movePentomino(currentPent, -1, 0);
+		int[] oneLeft = {0,-1};
+		board.movePentomino(oneLeft);
 	}
 	
 	public void moveCurrentPentRight(){
-		board.movePentomino(currentPent, 1, 0);
+		int[] oneRight = {0,1};
+		board.movePentomino(oneRight);
 	}
 	
 	public void moveCurrentPentDown(){
+		final int[] oneDown = {1,0};
 		while(!fboard.checkFloorCollision(currentPent, board.getLocation(currentPent)))
-			board.movePentomino(currentPent,0,1);
+			board.movePentomino(oneDown);
 	}
 
 	public void start() {
-
+		
 		timer = new Timer();
 
 		class LevelUp extends TimerTask {
@@ -132,7 +136,7 @@ public class Game {
 				}
 
 				public void run() {
-					Game.this.board.movePentomino(Game.this.currentPent, 0, 1);
+					Game.this.moveCurrentPentDown();
 					Game.this.timer.schedule(this, Game.this.dropSpeed);
 				}
 			}

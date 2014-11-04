@@ -1,15 +1,14 @@
-import java.util.HashMap;
 
 public class Board {
 	int width, height;
-	HashMap<Pentomino, int[]> pentominoes;
+	Pentomino pent;
+	int[] location;
 	char[][] grid;
 	
 
 	public Board(int width, int height) {
 		this.width = width;
 		this.height = height;
-		pentominoes = new HashMap<Pentomino, int[]>();
 	}
 
 	public Board() {
@@ -20,8 +19,12 @@ public class Board {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	public Pentomino getPentomino(){
+		return pent;
+	}
 
-	public void putPentomino(Pentomino pent, int x, int y) {
+	public void putPentomino(Pentomino pent, int[] location) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -31,7 +34,7 @@ public class Board {
 		return 0;
 	}
 
-	public void movePentomino(Pentomino currentPent, int i, int j) {
+	public void movePentomino(int[] relativeLocation) {
 		// TODO Auto-generated method stub
 		
 	}
