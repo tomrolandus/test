@@ -15,8 +15,8 @@ public class FinalBoard {
 		}
 	}
 	/**
-	 * This method will remove a row
-	 * @param row gives the full row that has to be removed
+	 * This method will remove a row and drop rows above it down accordingly.
+	 * @param row the full row that has to be removed
 	 */
 	public void removeLine(int row) {
 		for (int rw = row; rw >= 0; rw--)
@@ -30,7 +30,7 @@ public class FinalBoard {
 	/**
 	 * Checks if a given row is full or not.
 	 * @param row the row to check for fullness
-	 * @return False if the row is not full and TRUE if the row is full.
+	 * @return boolean false if the row is not full and true if the row is full.
 	 */
 	public boolean checkFullRow(int row) {
 		for(int c = 0; c < grid[row].length; c++)
@@ -45,31 +45,37 @@ public class FinalBoard {
 	 * @param col
 	 * @return
 	 */
-	/*public boolean checkFloorCollision(Pentomino pent, int row, int col) {
+	public boolean checkFloorCollision(Pentomino pent, int[] location) {
+		//NOTE:	if you commit/push some unfinished work that still contains errors, please comment it
+		//		out because otherwise all kinds of errors start showing up in our code.
+		//		In other words: if you don't finish a method, make sure it works as a dummy before committing.
+		
+		/*
 		int[][] pentom = pent.getShape();
 		for(int i = 0; i < pentom.length; i++)
 			for(int j = 0; j < pentom[i].length; j++)
-				if(pentom[i][j] == 1 && grid[row-1][j] == )
-	
+				if(pentom[i][j] == 1 && grid[row-1][j] == ){
+					//not done yet
+				}
 				
 					
-					
+		*/		
 				
 		return false;
-	}*/
+	}
 	/**
 	 * This method places the pentomino on the finalBoard
 	 * @param pent The pentomino that has to be placed.
 	 * @param row The row of the pentomino that has to be placed.
 	 * @param col The column of the pentomino that has to be placed.
 	 */
-	public void putPentomino(Pentomino pent, int row, int col)
+	public void putPentomino(Pentomino pent, int[] location)
 	{
 		int[][] pento = pent.getShape();
 		for(int i = 0; i<pento.length; i++)
 			for(int j = 0; i<pento[i].length; j++)
 				if(pento[i][j] == 1)
-				grid[row+i][col+j] = pent.getType();
+				grid[location[0]+i][location[1]+j] = pent.getType();
 
 	}
 	/**
