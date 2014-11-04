@@ -40,26 +40,18 @@ public class FinalBoard {
 	}
 	/**
 	 * This method checks if the pentomino that is sliding down collides with something.
-	 * @param pent
-	 * @param row
-	 * @param col
-	 * @return
+	 * @param pent Is the pent that is sliding down.
+	 * @param location is the location of the top left corner of the Pentomino. The first number is the row and the second number is the column.
+	 * @return boolean True if it collides. False if it doesn't collide.
 	 */
 	public boolean checkFloorCollision(Pentomino pent, int[] location) {
-		//NOTE:	if you commit/push some unfinished work that still contains errors, please comment it
-		//		out because otherwise all kinds of errors start showing up in our code.
-		//		In other words: if you don't finish a method, make sure it works as a dummy before committing.
 		
-		/*
-		int[][] pentom = pent.getShape();
-		for(int i = 0; i < pentom.length; i++)
-			for(int j = 0; j < pentom[i].length; j++)
-				if(pentom[i][j] == 1 && grid[row-1][j] == ){
-					//not done yet
-				}
-				
-					
-		*/		
+		int[][] shape = pent.getShape();
+		for(int row = 0; row < shape.length; row++)
+			for(int col = 0; col < shape[row].length; col++)
+				if(shape[row][col] != 0 && grid[location[0] + row + 1][location[1] + col] != 0)
+					return true;
+			
 				
 		return false;
 	}
