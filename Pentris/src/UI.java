@@ -35,7 +35,7 @@ public class UI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("UIframe"); // NOI18N
 
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pentris/image/tetris_logo.gif"))); // NOI18N
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("tetris_logo.gif"))); // NOI18N
 
         exitButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         exitButton.setText("Exit");
