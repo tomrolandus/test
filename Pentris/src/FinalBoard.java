@@ -15,8 +15,8 @@ public class FinalBoard {
 		}
 	}
 	/**
-	 * This method will remove a row
-	 * @param row gives the full row that has to be removed
+	 * This method will remove a row and drop rows above it down accordingly.
+	 * @param row the full row that has to be removed
 	 */
 	public void removeLine(int row) {
 		for (int rw = row; rw >= 0; rw--)
@@ -30,7 +30,7 @@ public class FinalBoard {
 	/**
 	 * Checks if a given row is full or not.
 	 * @param row the row to check for fullness
-	 * @return False if the row is not full and TRUE if the row is full.
+	 * @return boolean false if the row is not full and true if the row is full.
 	 */
 	public boolean checkFullRow(int row) {
 		for(int c = 0; c < grid[row].length; c++)
