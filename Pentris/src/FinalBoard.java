@@ -45,18 +45,18 @@ public class FinalBoard {
 	 * @param col
 	 * @return
 	 */
-	public boolean checkFloorCollision(Pentomino pent, int row, int col) {
+	/*public boolean checkFloorCollision(Pentomino pent, int row, int col) {
 		int[][] pentom = pent.getShape();
 		for(int i = 0; i < pentom.length; i++)
 			for(int j = 0; j < pentom[i].length; j++)
 				if(pentom[i][j] == 1 && grid[row-1][j] == )
-					//not done yet
+	
 				
 					
 					
 				
 		return false;
-	}
+	}*/
 	/**
 	 * This method places the pentomino on the finalBoard
 	 * @param pent The pentomino that has to be placed.
@@ -74,7 +74,7 @@ public class FinalBoard {
 	}
 	/**
 	 * Checks if the top of the board has been reached by a pentomino.
-	 * @return TRUE if the top has been reached. False if the top has not yet been reached.
+	 * @return  TRUE if the top has been reached. False if the top has not yet been reached.
 	 */
 	public boolean checkHitCeiling() {
 		for(int i = 0; i < grid.length; i++)
