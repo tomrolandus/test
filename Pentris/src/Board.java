@@ -1,18 +1,21 @@
 
 public class Board {
-	int width, height;
-	Pentomino pent;
-	int[] location;
-	char[][] grid;
+	private int width, height;
+	private Pentomino pent;
+	private int[] location;
+	final private static int DEFAULT_WIDTH = 5;
+	final private static int DEFAULT_HEIGTH = 15;
 	
 
 	public Board(int width, int height) {
 		this.width = width;
 		this.height = height;
+		pent = null;
+		this.location = new int[2];
 	}
 	
 	public Board() {
-		this(5, 15);
+		this(DEFAULT_WIDTH, DEFAULT_HEIGHT);		
 	}
 	
 	public int getWidth() {
@@ -24,8 +27,8 @@ public class Board {
 	}
 
 	public void putPentomino(Pentomino pent, int[] location) {
-		// TODO Auto-generated method stub
-		
+		this.pent = pent;
+		this.location = location;
 	}
 
 	public int getHeight() {
@@ -33,18 +36,11 @@ public class Board {
 	}
 
 	public void movePentomino(int[] relativeLocation) {
-		// TODO Auto-generated method stub
+		for(int loc: location)
+			location[loc] = location[loc] + relativeLocation[loc];
 	}
 	
-	public int[] getLocation(Pentomino pent) {
-		return null;
+	public int[] getLocation() {
+		return location;
 	}
-
-	public void putPentomino(Pentomino pent, int row, int col) {
-		grid[width][height] = pent;
-	}
-
-	public void movePentomino(int row, int col) {		
-		grid[row][col] = pent;
-	}	
 }
