@@ -45,15 +45,21 @@ public class FinalBoard {
 	 * @param col
 	 * @return
 	 */
-	public boolean checkFloorCollision(Pentomino pent, int row, int col) {
+	public boolean checkFloorCollision(Pentomino pent, int[] location) {
+		//NOTE:	if you commit/push some unfinished work that still contains errors, please comment it
+		//		out because otherwise all kinds of errors start showing up in our code.
+		//		In other words: if you don't finish a method, make sure it works as a dummy before committing.
+		
+		/*
 		int[][] pentom = pent.getShape();
 		for(int i = 0; i < pentom.length; i++)
 			for(int j = 0; j < pentom[i].length; j++)
-				if(pentom[i][j] == 1 && grid[row-1][j] == )
+				if(pentom[i][j] == 1 && grid[row-1][j] == ){
 					//not done yet
+				}
 				
 					
-					
+		*/		
 				
 		return false;
 	}
@@ -63,13 +69,13 @@ public class FinalBoard {
 	 * @param row The row of the pentomino that has to be placed.
 	 * @param col The column of the pentomino that has to be placed.
 	 */
-	public void putPentomino(Pentomino pent, int row, int col)
+	public void putPentomino(Pentomino pent, int[] location)
 	{
 		int[][] pento = pent.getShape();
 		for(int i = 0; i<pento.length; i++)
 			for(int j = 0; i<pento[i].length; j++)
 				if(pento[i][j] == 1)
-				grid[row+i][col+j] = pent.getType();
+				grid[location[0]+i][location[1]+j] = pent.getType();
 
 	}
 	/**
