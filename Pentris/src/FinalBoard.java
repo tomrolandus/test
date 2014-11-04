@@ -75,7 +75,7 @@ public class FinalBoard {
 	 * @return  TRUE if the top has been reached. False if the top has not yet been reached.
 	 */
 	public boolean checkHitCeiling() {
-		for(int i = 0; i < grid.length; i++)
+		for(int i = 0; i < grid[i].length; i++)
 			if(grid[0][i] != 0) return true;
 		return false;
 	}
