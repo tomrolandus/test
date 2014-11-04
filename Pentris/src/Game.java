@@ -20,6 +20,11 @@ public class Game {
 	private static final long LEVEL_INTERVAL = 20000; // twenty seconds
 	private static final long INITIAL_DROP_SPEED = 1500; // 1.5 seconds
 
+	
+	public Game(){
+		this(new Board(), Pentomino.getAllPentominoes(), 0);
+	}
+	
 	public Game(Board board, ArrayList<Pentomino> pentominoes, int level) {
 		this.board = board;
 		this.pentominoes = pentominoes;
@@ -29,7 +34,7 @@ public class Game {
 		this.level = level;
 		this.fboard = new FinalBoard(board.getWidth(), board.getHeight());
 	}
-
+	
 	public int getLevel() {
 		return this.level;
 	}

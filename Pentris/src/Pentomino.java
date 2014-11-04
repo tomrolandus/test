@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
 The Pentomino class creates every possible pentomino. 
 	
@@ -23,6 +25,66 @@ public class Pentomino {
 	private int[][] pent;
 	//This variable holds the char which connects to the required pentomino.
 	private char type;
+	
+	public static ArrayList<Pentomino> getAllPentominoes(){
+		return getAllPentominoes(true);
+	}
+	
+	public static ArrayList<Pentomino> getAllPentominoes(boolean mirrors){
+		ArrayList<Pentomino> result = new ArrayList<Pentomino>();
+		Pentomino[] pentominoes;
+		if(mirrors){
+			pentominoes = new Pentomino[18];
+			pentominoes[0] = new Pentomino('f');
+			pentominoes[1] = new Pentomino('f');
+			pentominoes[2] = new Pentomino('p');
+			pentominoes[3] = new Pentomino('p');
+			pentominoes[4] = new Pentomino('x');
+			pentominoes[5] = new Pentomino('v');
+			pentominoes[6] = new Pentomino('w');
+			pentominoes[7] = new Pentomino('y');
+			pentominoes[8] = new Pentomino('y');
+			pentominoes[9] = new Pentomino('i');
+			pentominoes[10] = new Pentomino('t');
+			pentominoes[11] = new Pentomino('z');
+			pentominoes[12] = new Pentomino('z');
+			pentominoes[13] = new Pentomino('u');
+			pentominoes[14] = new Pentomino('n');
+			pentominoes[15] = new Pentomino('n');
+			pentominoes[16] = new Pentomino('l');
+			pentominoes[17] = new Pentomino('l');
+			
+			pentominoes[1].mirror();
+			pentominoes[3].mirror();
+			pentominoes[12].mirror();
+			pentominoes[15].mirror();
+			pentominoes[17].mirror();
+			
+			
+		}else{
+			pentominoes = new Pentomino[12];
+			pentominoes[0] = new Pentomino('f');
+			pentominoes[1] = new Pentomino('p');
+			pentominoes[2] = new Pentomino('x');
+			pentominoes[3] = new Pentomino('v');
+			pentominoes[4] = new Pentomino('w');
+			pentominoes[5] = new Pentomino('y');
+			pentominoes[6] = new Pentomino('i');
+			pentominoes[7] = new Pentomino('t');
+			pentominoes[8] = new Pentomino('z');
+			pentominoes[9] = new Pentomino('u');
+			pentominoes[10] = new Pentomino('n');
+			pentominoes[11] = new Pentomino('l');
+		}
+		
+		for(Pentomino pent : pentominoes)
+			result.add(pent);
+		
+		return result;
+	}
+	
+	
+	
 	/**
 		Creates the object based on what shape the users wants it to be 
 
