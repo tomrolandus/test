@@ -11,7 +11,7 @@ public class Board {
 		this.width = width;
 		this.height = height;
 		pent = null;
-		this.location = new int[2];
+		this.location = null;
 	}
 	
 	public Board() {
@@ -36,8 +36,8 @@ public class Board {
 	}
 
 	public void movePentomino(int[] relativeLocation) {
-		for(int loc: location)
-			location[loc] = location[loc] + relativeLocation[loc];
+		location[0] = location[0] + relativeLocation[0];
+		location[1] = location[1] + relativeLocation[1];
 	}
 	
 	public int[] getLocation() {
