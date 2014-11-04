@@ -99,7 +99,7 @@ public class Game {
 	
 	public void moveCurrentPentDown(){
 		final int[] oneDown = {1,0};
-		while(!fboard.checkFloorCollision(currentPent, board.getLocation(currentPent)))
+		while(!fboard.checkFloorCollision(currentPent, board.getLocation()))
 			board.movePentomino(oneDown);
 	}
 
@@ -141,19 +141,19 @@ public class Game {
 				}
 			}
 
-			while (!fboard.checkFloorCollision(currentPent, board.getLocation(currentPent))) {
+			while (!fboard.checkFloorCollision(currentPent, board.getLocation())) {
 				MoveDown moveDown = new MoveDown();
 				timer.schedule(moveDown, dropSpeed);
 			}
 
 			
 			//put pentomino on the final board
-			fboard.putPentomino(currentPent, board.getLocation(currentPent));
+			fboard.putPentomino(currentPent, board.getLocation());
 			
 			//Delete rows and count score
 			ArrayList<Integer> rowsToRemove = new ArrayList<Integer>();
 			for (int row = 0; row < currentPent.getHeight(); row++) {
-				row += board.getLocation(currentPent)[1]; //get row in which the pentomino will be placed
+				row += board.getLocation()[1]; //get row in which the pentomino will be placed
 				if (fboard.checkFullRow(row)) rowsToRemove.add(row);
 			}
 			deleteRows(rowsToRemove);

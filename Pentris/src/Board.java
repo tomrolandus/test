@@ -15,7 +15,7 @@ public class Board {
 	}
 	
 	public Board() {
-		this(DEFAULT_WIDTH, DEFAULT_HEIGHT);		
+		this(DEFAULT_WIDTH, DEFAULT_HEIGTH);		
 	}
 	
 	public int getWidth() {

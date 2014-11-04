@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class HighScore {
 
     //Keeps working score here
-    private final ArrayList<String[]> FINAL_SCORE = new ArrayList<>();
+    private final ArrayList<String[]> FINAL_SCORE = new ArrayList<String[]>();
 
     /**
      * Add the intended score with name into the arrayList
