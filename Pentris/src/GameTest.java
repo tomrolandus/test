@@ -17,8 +17,6 @@ public class GameTest {
 		Game game = new Game();
 		game.start();
 		System.out.println(game.getScore());
-		
-		
 	}
 
 }

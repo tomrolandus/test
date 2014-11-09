@@ -10,7 +10,7 @@ public class FinalBoard {
 	 * @param width
 	 *            the width of the board
 	 */
-	public FinalBoard(int height, int width) {
+	public FinalBoard(int width, int height) {
 		grid = new char[height][width];
 		for (int row = 0; row < height; row++) {
 			for (int col = 0; col < width; col++) {
@@ -65,7 +65,7 @@ public class FinalBoard {
 		int[][] shape = pent.getShape();
 		for (int row = 0; row < shape.length; row++)
 			for (int col = 0; col < shape[row].length; col++) {
-				if (row + location[0] >= grid.length ) return true;
+				if (row + location[0] + 1 >= grid.length ) return true;
 				if (shape[row][col] != 0
 						&& grid[location[0] + row + 1][location[1] + col] != 0)
 					return true;
@@ -92,7 +92,7 @@ public class FinalBoard {
 	public void putPentomino(Pentomino pent, int[] location) {
 		int[][] pento = pent.getShape();
 		for (int i = 0; i < pento.length; i++)
-			for (int j = 0; i < pento[i].length; j++)
+			for (int j = 0; j < pento[i].length; j++)
 				if (pento[i][j] == 1)
 					grid[location[0] + i][location[1] + j] = pent.getType();
 
@@ -109,6 +109,15 @@ public class FinalBoard {
 			if (grid[0][i] != 0)
 				return true;
 		return false;
+	}
+	
+	public boolean checkPlacement(Pentomino pent, int[] location){
+		int[][] shape = pent.getShape();
+		for(int row = 0; row < shape.length; row++)
+			for(int col = 0; col < shape[row].length; col++)
+				if(shape[row][col] != 0 && grid[row + location[0]][col + location[1]] != 0)
+					return false;
+		return true;
 	}
 
 }

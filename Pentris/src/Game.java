@@ -18,7 +18,7 @@ public class Game {
 	private static final int LINE_SCORE = 1;
 	private static final double BONUS_SCORE = 1;
 	private static final long LEVEL_INTERVAL = 20000; // twenty seconds
-	private static final long INITIAL_DROP_SPEED = 1500; // 1.5 seconds
+	private static final long INITIAL_DROP_SPEED = 20; // 2 seconds
 
 	
 	public Game(){
@@ -79,7 +79,7 @@ public class Game {
 	}
 
 	private void nextLevel() {
-		dropSpeed *= LEVEL_INCREASE;
+		//dropSpeed *= LEVEL_INCREASE;
 		level++;
 	}
 	
@@ -114,37 +114,33 @@ public class Game {
 
 			public void run() {
 				nextLevel();
-				Game.this.timer.schedule(this, Game.LEVEL_INTERVAL);
 			}
 		}
-
+		
 		LevelUp levelUp = new LevelUp();
-		timer.schedule(levelUp, LEVEL_INTERVAL);
-
+		timer.scheduleAtFixedRate(levelUp, LEVEL_INTERVAL, LEVEL_INTERVAL);
+		
+		game:
 		while (!this.checkGameOver()) {
 
 			
 			//Initialize pentomino in the top middle of the screen
 			this.currentPent = this.chooseNextPentomino();
 			initiatePentomino(currentPent);
-
 			
-			//move pentomino down until it hits the floor
-			class MoveDown extends TimerTask {
-				public MoveDown() {
-					super();
-				}
+			if(!fboard.checkPlacement(currentPent, board.getLocation()))
+				break game;
 
-				public void run() {
-					Game.this.moveCurrentPentDown();
-					Game.this.timer.schedule(this, Game.this.dropSpeed);
+			while(!fboard.checkFloorCollision(currentPent, board.getLocation())){
+				try{
+					Thread.sleep(dropSpeed);
+				}catch(InterruptedException e){
+					e.printStackTrace();
 				}
+				int[] oneDown = {1,0};
+				board.movePentomino(oneDown);
 			}
 
-			while (!fboard.checkFloorCollision(currentPent, board.getLocation())) {
-				MoveDown moveDown = new MoveDown();
-				timer.schedule(moveDown, dropSpeed);
-			}
 
 			
 			//put pentomino on the final board
@@ -156,14 +152,17 @@ public class Game {
 				row += board.getLocation()[1]; //get row in which the pentomino will be placed
 				if (fboard.checkFullRow(row)) rowsToRemove.add(row);
 			}
-			deleteRows(rowsToRemove);
-
+			if(!rowsToRemove.isEmpty())
+				deleteRows(rowsToRemove);
+			
 		}
-
+		System.out.println("Game Over!");
 	}
 
 	private boolean checkGameOver() {
-		return fboard.checkHitCeiling();
+		if(fboard.checkHitCeiling())
+			return true;
+		return false;
 	}
 
 }
