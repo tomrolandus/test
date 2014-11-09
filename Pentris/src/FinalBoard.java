@@ -64,14 +64,19 @@ public class FinalBoard {
 
 		int[][] shape = pent.getShape();
 		for (int row = 0; row < shape.length; row++)
-			for (int col = 0; col < shape[row].length; col++)
-				if (location[0] + row < grid.length){
-					if (shape[row][col] != 0
-							&& grid[location[0] + row + 1][location[1] + col] != 0)
-						return true;
-				}
+			for (int col = 0; col < shape[row].length; col++) {
+				if (row + location[0] >= grid.length ) return true;
+				if (shape[row][col] != 0
+						&& grid[location[0] + row + 1][location[1] + col] != 0)
+					return true;
+			}
 
 		return false;
+	}
+
+	public boolean checkFloorCollision(Pentomino pent, int row, int col) {
+		int[] location = { row, col };
+		return checkFloorCollision(pent, location);
 	}
 
 	/**
