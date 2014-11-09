@@ -36,6 +36,19 @@ public class UI extends javax.swing.JFrame {
         jTextFieldTest = new javax.swing.JTextField();
         scoreLabel = new javax.swing.JLabel();
         score = new javax.swing.JLabel();
+        
+        /*
+         * What about something like this?:
+         * 
+         * jPanel[][] panels = new jPanel[15][5];
+         * 
+         * for( int row = 0; row < panels.length; row ++ )
+         * 	for( int col = 0; col < panels[row].length; col ++)
+         * 		panels[row][col] = new javax.swing.jPanel();
+         * 
+         */
+        
+        
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -124,7 +137,7 @@ public class UI extends javax.swing.JFrame {
             }
         });
 
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pentris/image/Pentris6.png"))); // NOI18N
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("Pentris6.png"))); // NOI18N
 
         exitButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         exitButton.setText("Exit");
@@ -142,7 +155,7 @@ public class UI extends javax.swing.JFrame {
             }
         });
 
-        muteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pentris/image/Sound.png"))); // NOI18N
+        muteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("Sound.png"))); // NOI18N
         muteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 muteButtonActionPerformed(evt);
@@ -156,6 +169,7 @@ public class UI extends javax.swing.JFrame {
 
         score.setText("0");
 
+        
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setFocusable(false);
         jPanel1.setPreferredSize(new java.awt.Dimension(45, 45));

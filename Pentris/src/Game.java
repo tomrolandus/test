@@ -18,7 +18,7 @@ public class Game {
 	private static final int LINE_SCORE = 1;
 	private static final double BONUS_SCORE = 1;
 	private static final long LEVEL_INTERVAL = 20000; // twenty seconds
-	private static final long INITIAL_DROP_SPEED = 20; // 2 seconds
+	private static final long INITIAL_DROP_SPEED = 2000; // 2 seconds
 
 	
 	public Game(){
