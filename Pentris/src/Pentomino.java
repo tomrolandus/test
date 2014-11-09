@@ -8,18 +8,18 @@ public class Pentomino {
 	
 	// The following code has every possible pentomino saved as an array. The array type is integer to ensure that it would be easy to input into grid 
 	// (plus it has benefit to see a clash will occur) 
-	final private static int[][] F = {{0,1,1},{1,1,0},{0,1,0}};
-	final private static int[][] P = {{1,1},{1,1},{1,0}};
-	final private static int[][] X = {{0,1,0},{1,1,1},{0,1,0}};
-	final private static int[][] V = {{1,0,0},{1,0,0},{1,1,1}};
-	final private static int[][] W = {{1,0,0},{1,1,0},{0,1,1}};
-	final private static int[][] Y = {{0,1},{1,1},{0,1},{0,1}};
-	final private static int[][] I = {{1},{1},{1},{1},{1}};
-	final private static int[][] T = {{1,1,1},{0,1,0},{0,1,0}};
-	final private static int[][] Z = {{1,1,0},{0,1,0},{0,1,1}};
-	final private static int[][] U = {{1,0,1},{1,1,1}};
-	final private static int[][] N = {{1,1,0,0},{0,1,1,1}};
-	final private static int[][] L = {{0,0,0,1},{1,1,1,1}};
+	final private static int[][] F = {{0,1,1},{1,1,0},{0,1,0}}; //red
+	final private static int[][] P = {{1,1},{1,1},{1,0}}; //blue
+	final private static int[][] X = {{0,1,0},{1,1,1},{0,1,0}}; //green
+	final private static int[][] V = {{1,0,0},{1,0,0},{1,1,1}}; //cyan
+	final private static int[][] W = {{1,0,0},{1,1,0},{0,1,1}}; //gray
+	final private static int[][] Y = {{0,1},{1,1},{0,1},{0,1}}; //magenta
+	final private static int[][] I = {{1},{1},{1},{1},{1}}; //orange
+	final private static int[][] T = {{1,1,1},{0,1,0},{0,1,0}}; //pink
+	final private static int[][] Z = {{1,1,0},{0,1,0},{0,1,1}}; //yellow
+	final private static int[][] U = {{1,0,1},{1,1,1}}; //black
+	final private static int[][] N = {{1,1,0,0},{0,1,1,1}}; //darkGray
+	final private static int[][] L = {{0,0,0,1},{1,1,1,1}}; //lightGray
 	
 	//This variable is a holder for each shape of the instance.
 	private int[][] pent;

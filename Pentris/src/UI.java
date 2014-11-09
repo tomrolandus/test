@@ -1,3 +1,5 @@
+import static com.sun.corba.se.impl.naming.cosnaming.NamingUtils.debug;
+import java.awt.Color;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -8,14 +10,13 @@ import javafx.scene.media.MediaPlayer;
 public class UI extends javax.swing.JFrame {
 
     /**
-     * Creates new form UI
-     * In the process of making the music work
+     * Creates new form UI In the process of making the music work
      */
     public UI() {
-        /**String songloc = "bip.mp3";
-        Media hit = new Media(songloc);
-        MediaPlayer mediaPlayer = new MediaPlayer(hit);
-        mediaPlayer.play();*/
+        /**
+         * String songloc = "bip.mp3"; Media hit = new Media(songloc);
+         * MediaPlayer mediaPlayer = new MediaPlayer(hit); mediaPlayer.play();
+         */
         initComponents();
     }
 
@@ -30,12 +31,100 @@ public class UI extends javax.swing.JFrame {
 
         logoLabel = new javax.swing.JLabel();
         exitButton = new javax.swing.JButton();
+        testButton = new javax.swing.JButton();
         muteButton = new javax.swing.JButton();
+        jTextFieldTest = new javax.swing.JTextField();
+        scoreLabel = new javax.swing.JLabel();
+        score = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
+        jPanel15 = new javax.swing.JPanel();
+        jPanel16 = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
+        jPanel18 = new javax.swing.JPanel();
+        jPanel19 = new javax.swing.JPanel();
+        jPanel20 = new javax.swing.JPanel();
+        jPanel21 = new javax.swing.JPanel();
+        jPanel22 = new javax.swing.JPanel();
+        jPanel23 = new javax.swing.JPanel();
+        jPanel24 = new javax.swing.JPanel();
+        jPanel25 = new javax.swing.JPanel();
+        jPanel26 = new javax.swing.JPanel();
+        jPanel27 = new javax.swing.JPanel();
+        jPanel28 = new javax.swing.JPanel();
+        jPanel29 = new javax.swing.JPanel();
+        jPanel30 = new javax.swing.JPanel();
+        jPanel31 = new javax.swing.JPanel();
+        jPanel32 = new javax.swing.JPanel();
+        jPanel33 = new javax.swing.JPanel();
+        jPanel34 = new javax.swing.JPanel();
+        jPanel35 = new javax.swing.JPanel();
+        jPanel36 = new javax.swing.JPanel();
+        jPanel37 = new javax.swing.JPanel();
+        jPanel38 = new javax.swing.JPanel();
+        jPanel39 = new javax.swing.JPanel();
+        jPanel40 = new javax.swing.JPanel();
+        jPanel41 = new javax.swing.JPanel();
+        jPanel42 = new javax.swing.JPanel();
+        jPanel43 = new javax.swing.JPanel();
+        jPanel44 = new javax.swing.JPanel();
+        jPanel45 = new javax.swing.JPanel();
+        jPanel46 = new javax.swing.JPanel();
+        jPanel47 = new javax.swing.JPanel();
+        jPanel48 = new javax.swing.JPanel();
+        jPanel49 = new javax.swing.JPanel();
+        jPanel50 = new javax.swing.JPanel();
+        jPanel51 = new javax.swing.JPanel();
+        jPanel52 = new javax.swing.JPanel();
+        jPanel53 = new javax.swing.JPanel();
+        jPanel54 = new javax.swing.JPanel();
+        jPanel55 = new javax.swing.JPanel();
+        jPanel56 = new javax.swing.JPanel();
+        jPanel57 = new javax.swing.JPanel();
+        jPanel58 = new javax.swing.JPanel();
+        jPanel59 = new javax.swing.JPanel();
+        jPanel60 = new javax.swing.JPanel();
+        jPanel61 = new javax.swing.JPanel();
+        jPanel62 = new javax.swing.JPanel();
+        jPanel63 = new javax.swing.JPanel();
+        jPanel64 = new javax.swing.JPanel();
+        jPanel65 = new javax.swing.JPanel();
+        jPanel66 = new javax.swing.JPanel();
+        jPanel67 = new javax.swing.JPanel();
+        jPanel68 = new javax.swing.JPanel();
+        jPanel69 = new javax.swing.JPanel();
+        jPanel70 = new javax.swing.JPanel();
+        jPanel71 = new javax.swing.JPanel();
+        jPanel72 = new javax.swing.JPanel();
+        jPanel73 = new javax.swing.JPanel();
+        jPanel74 = new javax.swing.JPanel();
+        jPanel75 = new javax.swing.JPanel();
+        newGameButton = new javax.swing.JButton();
+        jLabelDebug1 = new javax.swing.JLabel();
+        jPanel76 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("UIframe"); // NOI18N
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                leftPressed(evt);
+            }
+        });
 
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("tetris_logo.gif"))); // NOI18N
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pentris/image/Pentris6.png"))); // NOI18N
 
         exitButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         exitButton.setText("Exit");
@@ -46,47 +135,4563 @@ public class UI extends javax.swing.JFrame {
             }
         });
 
-        muteButton.setText("Mute");
+        testButton.setText("Test");
+        testButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                testButtonActionPerformed(evt);
+            }
+        });
+
+        muteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pentris/image/Sound.png"))); // NOI18N
+        muteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                muteButtonActionPerformed(evt);
+            }
+        });
+
+        jTextFieldTest.setText("enter char here");
+        jTextFieldTest.setToolTipText("it will place first char of the string inputted into board; just to check the colour");
+
+        scoreLabel.setText("Score:");
+
+        score.setText("0");
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setFocusable(false);
+        jPanel1.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setFocusable(false);
+        jPanel2.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setFocusable(false);
+        jPanel3.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setFocusable(false);
+        jPanel4.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setFocusable(false);
+        jPanel5.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setFocusable(false);
+        jPanel6.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setFocusable(false);
+        jPanel7.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setFocusable(false);
+        jPanel8.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setFocusable(false);
+        jPanel9.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel10.setFocusable(false);
+        jPanel10.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setFocusable(false);
+        jPanel11.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel12.setFocusable(false);
+        jPanel12.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel13.setFocusable(false);
+        jPanel13.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel14.setFocusable(false);
+        jPanel14.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel15.setFocusable(false);
+        jPanel15.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel16.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel16.setFocusable(false);
+        jPanel16.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel17.setFocusable(false);
+        jPanel17.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel18.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel18.setFocusable(false);
+        jPanel18.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel19.setFocusable(false);
+        jPanel19.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
+        jPanel19.setLayout(jPanel19Layout);
+        jPanel19Layout.setHorizontalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel19Layout.setVerticalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel20.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel20.setFocusable(false);
+        jPanel20.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
+        jPanel20.setLayout(jPanel20Layout);
+        jPanel20Layout.setHorizontalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel20Layout.setVerticalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel21.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel21.setFocusable(false);
+        jPanel21.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
+        jPanel21.setLayout(jPanel21Layout);
+        jPanel21Layout.setHorizontalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel21Layout.setVerticalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel22.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel22.setFocusable(false);
+        jPanel22.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
+        jPanel22.setLayout(jPanel22Layout);
+        jPanel22Layout.setHorizontalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel22Layout.setVerticalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel23.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel23.setFocusable(false);
+        jPanel23.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
+        jPanel23.setLayout(jPanel23Layout);
+        jPanel23Layout.setHorizontalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel23Layout.setVerticalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel24.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel24.setFocusable(false);
+        jPanel24.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
+        jPanel24.setLayout(jPanel24Layout);
+        jPanel24Layout.setHorizontalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel24Layout.setVerticalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel25.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel25.setFocusable(false);
+        jPanel25.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
+        jPanel25.setLayout(jPanel25Layout);
+        jPanel25Layout.setHorizontalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel25Layout.setVerticalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel26.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel26.setFocusable(false);
+        jPanel26.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
+        jPanel26.setLayout(jPanel26Layout);
+        jPanel26Layout.setHorizontalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel26Layout.setVerticalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel27.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel27.setFocusable(false);
+        jPanel27.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
+        jPanel27.setLayout(jPanel27Layout);
+        jPanel27Layout.setHorizontalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel27Layout.setVerticalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel28.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel28.setFocusable(false);
+        jPanel28.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
+        jPanel28.setLayout(jPanel28Layout);
+        jPanel28Layout.setHorizontalGroup(
+            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel28Layout.setVerticalGroup(
+            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel29.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel29.setFocusable(false);
+        jPanel29.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
+        jPanel29.setLayout(jPanel29Layout);
+        jPanel29Layout.setHorizontalGroup(
+            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel29Layout.setVerticalGroup(
+            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel30.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel30.setFocusable(false);
+        jPanel30.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel30Layout = new javax.swing.GroupLayout(jPanel30);
+        jPanel30.setLayout(jPanel30Layout);
+        jPanel30Layout.setHorizontalGroup(
+            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel30Layout.setVerticalGroup(
+            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel31.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel31.setFocusable(false);
+        jPanel31.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel31Layout = new javax.swing.GroupLayout(jPanel31);
+        jPanel31.setLayout(jPanel31Layout);
+        jPanel31Layout.setHorizontalGroup(
+            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel31Layout.setVerticalGroup(
+            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel32.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel32.setFocusable(false);
+        jPanel32.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
+        jPanel32.setLayout(jPanel32Layout);
+        jPanel32Layout.setHorizontalGroup(
+            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel32Layout.setVerticalGroup(
+            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel33.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel33.setFocusable(false);
+        jPanel33.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel33Layout = new javax.swing.GroupLayout(jPanel33);
+        jPanel33.setLayout(jPanel33Layout);
+        jPanel33Layout.setHorizontalGroup(
+            jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel33Layout.setVerticalGroup(
+            jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel34.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel34.setFocusable(false);
+        jPanel34.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel34Layout = new javax.swing.GroupLayout(jPanel34);
+        jPanel34.setLayout(jPanel34Layout);
+        jPanel34Layout.setHorizontalGroup(
+            jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel34Layout.setVerticalGroup(
+            jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel35.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel35.setFocusable(false);
+        jPanel35.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel35Layout = new javax.swing.GroupLayout(jPanel35);
+        jPanel35.setLayout(jPanel35Layout);
+        jPanel35Layout.setHorizontalGroup(
+            jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel35Layout.setVerticalGroup(
+            jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel36.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel36.setFocusable(false);
+        jPanel36.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel36Layout = new javax.swing.GroupLayout(jPanel36);
+        jPanel36.setLayout(jPanel36Layout);
+        jPanel36Layout.setHorizontalGroup(
+            jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel36Layout.setVerticalGroup(
+            jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel37.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel37.setFocusable(false);
+        jPanel37.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
+        jPanel37.setLayout(jPanel37Layout);
+        jPanel37Layout.setHorizontalGroup(
+            jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel37Layout.setVerticalGroup(
+            jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel38.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel38.setFocusable(false);
+        jPanel38.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel38Layout = new javax.swing.GroupLayout(jPanel38);
+        jPanel38.setLayout(jPanel38Layout);
+        jPanel38Layout.setHorizontalGroup(
+            jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel38Layout.setVerticalGroup(
+            jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel39.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel39.setFocusable(false);
+        jPanel39.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel39Layout = new javax.swing.GroupLayout(jPanel39);
+        jPanel39.setLayout(jPanel39Layout);
+        jPanel39Layout.setHorizontalGroup(
+            jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel39Layout.setVerticalGroup(
+            jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel40.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel40.setFocusable(false);
+        jPanel40.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel40Layout = new javax.swing.GroupLayout(jPanel40);
+        jPanel40.setLayout(jPanel40Layout);
+        jPanel40Layout.setHorizontalGroup(
+            jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel40Layout.setVerticalGroup(
+            jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel41.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel41.setFocusable(false);
+        jPanel41.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel41Layout = new javax.swing.GroupLayout(jPanel41);
+        jPanel41.setLayout(jPanel41Layout);
+        jPanel41Layout.setHorizontalGroup(
+            jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel41Layout.setVerticalGroup(
+            jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel42.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel42.setFocusable(false);
+        jPanel42.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel42Layout = new javax.swing.GroupLayout(jPanel42);
+        jPanel42.setLayout(jPanel42Layout);
+        jPanel42Layout.setHorizontalGroup(
+            jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel42Layout.setVerticalGroup(
+            jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel43.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel43.setFocusable(false);
+        jPanel43.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel43Layout = new javax.swing.GroupLayout(jPanel43);
+        jPanel43.setLayout(jPanel43Layout);
+        jPanel43Layout.setHorizontalGroup(
+            jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel43Layout.setVerticalGroup(
+            jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel44.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel44.setFocusable(false);
+        jPanel44.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel44Layout = new javax.swing.GroupLayout(jPanel44);
+        jPanel44.setLayout(jPanel44Layout);
+        jPanel44Layout.setHorizontalGroup(
+            jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel44Layout.setVerticalGroup(
+            jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel45.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel45.setFocusable(false);
+        jPanel45.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel45Layout = new javax.swing.GroupLayout(jPanel45);
+        jPanel45.setLayout(jPanel45Layout);
+        jPanel45Layout.setHorizontalGroup(
+            jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel45Layout.setVerticalGroup(
+            jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel46.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel46.setFocusable(false);
+        jPanel46.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel46Layout = new javax.swing.GroupLayout(jPanel46);
+        jPanel46.setLayout(jPanel46Layout);
+        jPanel46Layout.setHorizontalGroup(
+            jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel46Layout.setVerticalGroup(
+            jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel47.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel47.setFocusable(false);
+        jPanel47.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel47Layout = new javax.swing.GroupLayout(jPanel47);
+        jPanel47.setLayout(jPanel47Layout);
+        jPanel47Layout.setHorizontalGroup(
+            jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel47Layout.setVerticalGroup(
+            jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel48.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel48.setFocusable(false);
+        jPanel48.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel48Layout = new javax.swing.GroupLayout(jPanel48);
+        jPanel48.setLayout(jPanel48Layout);
+        jPanel48Layout.setHorizontalGroup(
+            jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel48Layout.setVerticalGroup(
+            jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel49.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel49.setFocusable(false);
+        jPanel49.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel49Layout = new javax.swing.GroupLayout(jPanel49);
+        jPanel49.setLayout(jPanel49Layout);
+        jPanel49Layout.setHorizontalGroup(
+            jPanel49Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel49Layout.setVerticalGroup(
+            jPanel49Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel50.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel50.setFocusable(false);
+        jPanel50.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel50Layout = new javax.swing.GroupLayout(jPanel50);
+        jPanel50.setLayout(jPanel50Layout);
+        jPanel50Layout.setHorizontalGroup(
+            jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel50Layout.setVerticalGroup(
+            jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel51.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel51.setFocusable(false);
+        jPanel51.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel51Layout = new javax.swing.GroupLayout(jPanel51);
+        jPanel51.setLayout(jPanel51Layout);
+        jPanel51Layout.setHorizontalGroup(
+            jPanel51Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel51Layout.setVerticalGroup(
+            jPanel51Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel52.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel52.setFocusable(false);
+        jPanel52.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel52Layout = new javax.swing.GroupLayout(jPanel52);
+        jPanel52.setLayout(jPanel52Layout);
+        jPanel52Layout.setHorizontalGroup(
+            jPanel52Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel52Layout.setVerticalGroup(
+            jPanel52Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel53.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel53.setFocusable(false);
+        jPanel53.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel53Layout = new javax.swing.GroupLayout(jPanel53);
+        jPanel53.setLayout(jPanel53Layout);
+        jPanel53Layout.setHorizontalGroup(
+            jPanel53Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel53Layout.setVerticalGroup(
+            jPanel53Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel54.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel54.setFocusable(false);
+        jPanel54.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel54Layout = new javax.swing.GroupLayout(jPanel54);
+        jPanel54.setLayout(jPanel54Layout);
+        jPanel54Layout.setHorizontalGroup(
+            jPanel54Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel54Layout.setVerticalGroup(
+            jPanel54Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel55.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel55.setFocusable(false);
+        jPanel55.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel55Layout = new javax.swing.GroupLayout(jPanel55);
+        jPanel55.setLayout(jPanel55Layout);
+        jPanel55Layout.setHorizontalGroup(
+            jPanel55Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel55Layout.setVerticalGroup(
+            jPanel55Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel56.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel56.setFocusable(false);
+        jPanel56.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel56Layout = new javax.swing.GroupLayout(jPanel56);
+        jPanel56.setLayout(jPanel56Layout);
+        jPanel56Layout.setHorizontalGroup(
+            jPanel56Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel56Layout.setVerticalGroup(
+            jPanel56Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel57.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel57.setFocusable(false);
+        jPanel57.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel57Layout = new javax.swing.GroupLayout(jPanel57);
+        jPanel57.setLayout(jPanel57Layout);
+        jPanel57Layout.setHorizontalGroup(
+            jPanel57Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel57Layout.setVerticalGroup(
+            jPanel57Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel58.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel58.setFocusable(false);
+        jPanel58.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel58Layout = new javax.swing.GroupLayout(jPanel58);
+        jPanel58.setLayout(jPanel58Layout);
+        jPanel58Layout.setHorizontalGroup(
+            jPanel58Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel58Layout.setVerticalGroup(
+            jPanel58Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel59.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel59.setFocusable(false);
+        jPanel59.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel59Layout = new javax.swing.GroupLayout(jPanel59);
+        jPanel59.setLayout(jPanel59Layout);
+        jPanel59Layout.setHorizontalGroup(
+            jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel59Layout.setVerticalGroup(
+            jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel60.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel60.setFocusable(false);
+        jPanel60.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel60Layout = new javax.swing.GroupLayout(jPanel60);
+        jPanel60.setLayout(jPanel60Layout);
+        jPanel60Layout.setHorizontalGroup(
+            jPanel60Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel60Layout.setVerticalGroup(
+            jPanel60Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel61.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel61.setFocusable(false);
+        jPanel61.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel61Layout = new javax.swing.GroupLayout(jPanel61);
+        jPanel61.setLayout(jPanel61Layout);
+        jPanel61Layout.setHorizontalGroup(
+            jPanel61Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel61Layout.setVerticalGroup(
+            jPanel61Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel62.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel62.setFocusable(false);
+        jPanel62.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel62Layout = new javax.swing.GroupLayout(jPanel62);
+        jPanel62.setLayout(jPanel62Layout);
+        jPanel62Layout.setHorizontalGroup(
+            jPanel62Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel62Layout.setVerticalGroup(
+            jPanel62Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel63.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel63.setFocusable(false);
+        jPanel63.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel63Layout = new javax.swing.GroupLayout(jPanel63);
+        jPanel63.setLayout(jPanel63Layout);
+        jPanel63Layout.setHorizontalGroup(
+            jPanel63Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel63Layout.setVerticalGroup(
+            jPanel63Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel64.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel64.setFocusable(false);
+        jPanel64.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel64Layout = new javax.swing.GroupLayout(jPanel64);
+        jPanel64.setLayout(jPanel64Layout);
+        jPanel64Layout.setHorizontalGroup(
+            jPanel64Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel64Layout.setVerticalGroup(
+            jPanel64Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel65.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel65.setFocusable(false);
+        jPanel65.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel65Layout = new javax.swing.GroupLayout(jPanel65);
+        jPanel65.setLayout(jPanel65Layout);
+        jPanel65Layout.setHorizontalGroup(
+            jPanel65Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel65Layout.setVerticalGroup(
+            jPanel65Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel66.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel66.setFocusable(false);
+        jPanel66.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel66Layout = new javax.swing.GroupLayout(jPanel66);
+        jPanel66.setLayout(jPanel66Layout);
+        jPanel66Layout.setHorizontalGroup(
+            jPanel66Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel66Layout.setVerticalGroup(
+            jPanel66Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel67.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel67.setFocusable(false);
+        jPanel67.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel67Layout = new javax.swing.GroupLayout(jPanel67);
+        jPanel67.setLayout(jPanel67Layout);
+        jPanel67Layout.setHorizontalGroup(
+            jPanel67Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel67Layout.setVerticalGroup(
+            jPanel67Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel68.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel68.setFocusable(false);
+        jPanel68.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel68Layout = new javax.swing.GroupLayout(jPanel68);
+        jPanel68.setLayout(jPanel68Layout);
+        jPanel68Layout.setHorizontalGroup(
+            jPanel68Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel68Layout.setVerticalGroup(
+            jPanel68Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel69.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel69.setFocusable(false);
+        jPanel69.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel69Layout = new javax.swing.GroupLayout(jPanel69);
+        jPanel69.setLayout(jPanel69Layout);
+        jPanel69Layout.setHorizontalGroup(
+            jPanel69Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel69Layout.setVerticalGroup(
+            jPanel69Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel70.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel70.setFocusable(false);
+        jPanel70.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel70Layout = new javax.swing.GroupLayout(jPanel70);
+        jPanel70.setLayout(jPanel70Layout);
+        jPanel70Layout.setHorizontalGroup(
+            jPanel70Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel70Layout.setVerticalGroup(
+            jPanel70Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel71.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel71.setFocusable(false);
+        jPanel71.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel71Layout = new javax.swing.GroupLayout(jPanel71);
+        jPanel71.setLayout(jPanel71Layout);
+        jPanel71Layout.setHorizontalGroup(
+            jPanel71Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel71Layout.setVerticalGroup(
+            jPanel71Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel72.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel72.setFocusable(false);
+        jPanel72.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel72Layout = new javax.swing.GroupLayout(jPanel72);
+        jPanel72.setLayout(jPanel72Layout);
+        jPanel72Layout.setHorizontalGroup(
+            jPanel72Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel72Layout.setVerticalGroup(
+            jPanel72Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel73.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel73.setFocusable(false);
+        jPanel73.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel73Layout = new javax.swing.GroupLayout(jPanel73);
+        jPanel73.setLayout(jPanel73Layout);
+        jPanel73Layout.setHorizontalGroup(
+            jPanel73Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel73Layout.setVerticalGroup(
+            jPanel73Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel74.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel74.setFocusable(false);
+        jPanel74.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel74Layout = new javax.swing.GroupLayout(jPanel74);
+        jPanel74.setLayout(jPanel74Layout);
+        jPanel74Layout.setHorizontalGroup(
+            jPanel74Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel74Layout.setVerticalGroup(
+            jPanel74Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jPanel75.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel75.setFocusable(false);
+        jPanel75.setPreferredSize(new java.awt.Dimension(45, 45));
+
+        javax.swing.GroupLayout jPanel75Layout = new javax.swing.GroupLayout(jPanel75);
+        jPanel75.setLayout(jPanel75Layout);
+        jPanel75Layout.setHorizontalGroup(
+            jPanel75Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+        jPanel75Layout.setVerticalGroup(
+            jPanel75Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        newGameButton.setText("New Game");
+        newGameButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newGameButtonActionPerformed(evt);
+            }
+        });
+
+        jLabelDebug1.setText("Read tool tip");
+
+        jPanel76.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout jPanel76Layout = new javax.swing.GroupLayout(jPanel76);
+        jPanel76.setLayout(jPanel76Layout);
+        jPanel76Layout.setHorizontalGroup(
+            jPanel76Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 171, Short.MAX_VALUE)
+        );
+        jPanel76Layout.setVerticalGroup(
+            jPanel76Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 172, Short.MAX_VALUE)
+        );
+
+        jLabel1.setText("Next Pentomino");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(muteButton)
-                .addGap(95, 95, 95)
-                .addComponent(logoLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
-                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(muteButton)
+                        .addGap(49, 49, 49)
+                        .addComponent(logoLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jPanel62, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel63, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel59, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel60, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel61, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jPanel54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPanel55, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPanel56, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPanel57, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPanel58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jPanel74, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel75, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel53, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jPanel66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel67, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel70, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel72, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel73, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(scoreLabel)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(score))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jPanel69, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel71, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel64, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel68, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jPanel45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPanel40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPanel41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelDebug1)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jTextFieldTest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(testButton)
+                                        .addComponent(jPanel76, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(27, 27, 27))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(newGameButton)
+                                .addGap(65, 65, 65))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addComponent(muteButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(logoLabel)))
-                .addContainerGap(606, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(logoLabel)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel76, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(scoreLabel)
+                    .addComponent(score))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel64, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel71, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel69, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel68, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel59, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel63, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel62, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel60, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel61, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel56, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel55, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel57, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newGameButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel75, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel74, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel53, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel70, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel67, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel72, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel73, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabelDebug1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldTest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(testButton)
+                        .addGap(42, 42, 42))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * This is the event if the button (exit button) is called. It will close the game
+     * This is the event if the button (exit button) is called. It will close
+     * the game
+     *
      * @param evt If the button is clicked
      */
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-        System.exit(1);
+        System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
+
+    private int testcounter1 = 0;
+    private int testcounter2 = 0;
+    private void testButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testButtonActionPerformed
+        board1[testcounter1][testcounter2] = jTextFieldTest.getText().charAt(0);
+        testcounter1++;
+        if (testcounter1 == 5) {
+            testcounter1 = 0;
+            testcounter2++;
+        }
+        if (testcounter2 == 15) {
+            testcounter1 = 0;
+            testcounter2 = 0;
+        }
+
+        refresh();
+    }//GEN-LAST:event_testButtonActionPerformed
+
+    private void leftPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_leftPressed
+        System.out.println("help");
+    }//GEN-LAST:event_leftPressed
+    
+    private void refresh(){
+        printboard();
+        if (!DEBUG1) {
+            StringBuilder builder = new StringBuilder();
+            builder.insert(0, game.getScore());
+            score.setText(builder.toString());
+        }
+    }
+
+    private void newGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameButtonActionPerformed
+        game.start();
+        System.out.println(game.getScore());
+        StringBuilder builder = new StringBuilder();
+        builder.insert(0,game.getScore());
+        score.setText(builder.toString());  
+    }//GEN-LAST:event_newGameButtonActionPerformed
+
+    private void muteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muteButtonActionPerformed
+        mute = !mute;
+        System.out.println(mute);
+    }//GEN-LAST:event_muteButtonActionPerformed
+    private void printboard() {
+      //Makes it red
+
+        //Makes it red
+        if (board1[0][0] == 'f') {
+            jPanel1.setBackground(Color.red);
+        }
+        if (board1[1][0] == 'f') {
+            jPanel2.setBackground(Color.red);
+        }
+        if (board1[2][0] == 'f') {
+            jPanel3.setBackground(Color.red);
+        }
+        if (board1[3][0] == 'f') {
+            jPanel4.setBackground(Color.red);
+        }
+        if (board1[4][0] == 'f') {
+            jPanel5.setBackground(Color.red);
+        }
+        if (board1[0][1] == 'f') {
+            jPanel6.setBackground(Color.red);
+        }
+        if (board1[1][1] == 'f') {
+            jPanel7.setBackground(Color.red);
+        }
+        if (board1[2][1] == 'f') {
+            jPanel8.setBackground(Color.red);
+        }
+        if (board1[3][1] == 'f') {
+            jPanel9.setBackground(Color.red);
+        }
+        if (board1[4][1] == 'f') {
+            jPanel10.setBackground(Color.red);
+        }
+        if (board1[0][2] == 'f') {
+            jPanel11.setBackground(Color.red);
+        }
+        if (board1[1][2] == 'f') {
+            jPanel12.setBackground(Color.red);
+        }
+        if (board1[2][2] == 'f') {
+            jPanel13.setBackground(Color.red);
+        }
+        if (board1[3][2] == 'f') {
+            jPanel14.setBackground(Color.red);
+        }
+        if (board1[4][2] == 'f') {
+            jPanel15.setBackground(Color.red);
+        }
+        if (board1[0][3] == 'f') {
+            jPanel16.setBackground(Color.red);
+        }
+        if (board1[1][3] == 'f') {
+            jPanel17.setBackground(Color.red);
+        }
+        if (board1[2][3] == 'f') {
+            jPanel18.setBackground(Color.red);
+        }
+        if (board1[3][3] == 'f') {
+            jPanel19.setBackground(Color.red);
+        }
+        if (board1[4][3] == 'f') {
+            jPanel20.setBackground(Color.red);
+        }
+        if (board1[0][4] == 'f') {
+            jPanel21.setBackground(Color.red);
+        }
+        if (board1[1][4] == 'f') {
+            jPanel22.setBackground(Color.red);
+        }
+        if (board1[2][4] == 'f') {
+            jPanel23.setBackground(Color.red);
+        }
+        if (board1[3][4] == 'f') {
+            jPanel24.setBackground(Color.red);
+        }
+        if (board1[4][4] == 'f') {
+            jPanel25.setBackground(Color.red);
+        }
+
+        if (board1[0][5] == 'f') {
+            jPanel26.setBackground(Color.red);
+        }
+        if (board1[1][5] == 'f') {
+            jPanel27.setBackground(Color.red);
+        }
+        if (board1[2][5] == 'f') {
+            jPanel28.setBackground(Color.red);
+        }
+        if (board1[3][5] == 'f') {
+            jPanel29.setBackground(Color.red);
+        }
+        if (board1[4][5] == 'f') {
+            jPanel30.setBackground(Color.red);
+        }
+        if (board1[0][6] == 'f') {
+            jPanel31.setBackground(Color.red);
+        }
+        if (board1[1][6] == 'f') {
+            jPanel32.setBackground(Color.red);
+        }
+        if (board1[2][6] == 'f') {
+            jPanel33.setBackground(Color.red);
+        }
+        if (board1[3][6] == 'f') {
+            jPanel34.setBackground(Color.red);
+        }
+        if (board1[4][6] == 'f') {
+            jPanel35.setBackground(Color.red);
+        }
+        if (board1[0][7] == 'f') {
+            jPanel36.setBackground(Color.red);
+        }
+        if (board1[1][7] == 'f') {
+            jPanel37.setBackground(Color.red);
+        }
+        if (board1[2][7] == 'f') {
+            jPanel38.setBackground(Color.red);
+        }
+        if (board1[3][7] == 'f') {
+            jPanel39.setBackground(Color.red);
+        }
+        if (board1[4][7] == 'f') {
+            jPanel40.setBackground(Color.red);
+        }
+        if (board1[0][8] == 'f') {
+            jPanel41.setBackground(Color.red);
+        }
+        if (board1[1][8] == 'f') {
+            jPanel42.setBackground(Color.red);
+        }
+        if (board1[2][8] == 'f') {
+            jPanel43.setBackground(Color.red);
+        }
+        if (board1[3][8] == 'f') {
+            jPanel44.setBackground(Color.red);
+        }
+        if (board1[4][8] == 'f') {
+            jPanel45.setBackground(Color.red);
+        }
+        if (board1[0][9] == 'f') {
+            jPanel46.setBackground(Color.red);
+        }
+        if (board1[1][9] == 'f') {
+            jPanel47.setBackground(Color.red);
+        }
+        if (board1[2][9] == 'f') {
+            jPanel48.setBackground(Color.red);
+        }
+        if (board1[3][9] == 'f') {
+            jPanel49.setBackground(Color.red);
+        }
+        if (board1[4][9] == 'f') {
+            jPanel50.setBackground(Color.red);
+        }
+
+        if (board1[0][10] == 'f') {
+            jPanel51.setBackground(Color.red);
+        }
+        if (board1[1][10] == 'f') {
+            jPanel52.setBackground(Color.red);
+        }
+        if (board1[2][10] == 'f') {
+            jPanel53.setBackground(Color.red);
+        }
+        if (board1[3][10] == 'f') {
+            jPanel54.setBackground(Color.red);
+        }
+        if (board1[4][10] == 'f') {
+            jPanel55.setBackground(Color.red);
+        }
+        if (board1[0][11] == 'f') {
+            jPanel56.setBackground(Color.red);
+        }
+        if (board1[1][11] == 'f') {
+            jPanel57.setBackground(Color.red);
+        }
+        if (board1[2][11] == 'f') {
+            jPanel58.setBackground(Color.red);
+        }
+        if (board1[3][11] == 'f') {
+            jPanel59.setBackground(Color.red);
+        }
+        if (board1[4][11] == 'f') {
+            jPanel60.setBackground(Color.red);
+        }
+        if (board1[0][12] == 'f') {
+            jPanel61.setBackground(Color.red);
+        }
+        if (board1[1][12] == 'f') {
+            jPanel62.setBackground(Color.red);
+        }
+        if (board1[2][12] == 'f') {
+            jPanel63.setBackground(Color.red);
+        }
+        if (board1[3][12] == 'f') {
+            jPanel64.setBackground(Color.red);
+        }
+        if (board1[4][12] == 'f') {
+            jPanel65.setBackground(Color.red);
+        }
+        if (board1[0][13] == 'f') {
+            jPanel66.setBackground(Color.red);
+        }
+        if (board1[1][13] == 'f') {
+            jPanel67.setBackground(Color.red);
+        }
+        if (board1[2][13] == 'f') {
+            jPanel68.setBackground(Color.red);
+        }
+        if (board1[3][13] == 'f') {
+            jPanel69.setBackground(Color.red);
+        }
+        if (board1[4][13] == 'f') {
+            jPanel70.setBackground(Color.red);
+        }
+        if (board1[0][14] == 'f') {
+            jPanel71.setBackground(Color.red);
+        }
+        if (board1[1][14] == 'f') {
+            jPanel72.setBackground(Color.red);
+        }
+        if (board1[2][14] == 'f') {
+            jPanel73.setBackground(Color.red);
+        }
+        if (board1[3][14] == 'f') {
+            jPanel74.setBackground(Color.red);
+        }
+        if (board1[4][14] == 'f') {
+            jPanel75.setBackground(Color.red);
+        }
+
+        //--------------------------------------------------------
+        // Makes it white
+        if (board1[0][0] == 0) {
+            jPanel1.setBackground(Color.white);
+        }
+        if (board1[1][0] == 0) {
+            jPanel2.setBackground(Color.white);
+        }
+        if (board1[2][0] == 0) {
+            jPanel3.setBackground(Color.white);
+        }
+        if (board1[3][0] == 0) {
+            jPanel4.setBackground(Color.white);
+        }
+        if (board1[4][0] == 0) {
+            jPanel5.setBackground(Color.white);
+        }
+        if (board1[0][1] == 0) {
+            jPanel6.setBackground(Color.white);
+        }
+        if (board1[1][1] == 0) {
+            jPanel7.setBackground(Color.white);
+        }
+        if (board1[2][1] == 0) {
+            jPanel8.setBackground(Color.white);
+        }
+        if (board1[3][1] == 0) {
+            jPanel9.setBackground(Color.white);
+        }
+        if (board1[4][1] == 0) {
+            jPanel10.setBackground(Color.white);
+        }
+        if (board1[0][2] == 0) {
+            jPanel11.setBackground(Color.white);
+        }
+        if (board1[1][2] == 0) {
+            jPanel12.setBackground(Color.white);
+        }
+        if (board1[2][2] == 0) {
+            jPanel13.setBackground(Color.white);
+        }
+        if (board1[3][2] == 0) {
+            jPanel14.setBackground(Color.white);
+        }
+        if (board1[4][2] == 0) {
+            jPanel15.setBackground(Color.white);
+        }
+        if (board1[0][3] == 0) {
+            jPanel16.setBackground(Color.white);
+        }
+        if (board1[1][3] == 0) {
+            jPanel17.setBackground(Color.white);
+        }
+        if (board1[2][3] == 0) {
+            jPanel18.setBackground(Color.white);
+        }
+        if (board1[3][3] == 0) {
+            jPanel19.setBackground(Color.white);
+        }
+        if (board1[4][3] == 0) {
+            jPanel20.setBackground(Color.white);
+        }
+        if (board1[0][4] == 0) {
+            jPanel21.setBackground(Color.white);
+        }
+        if (board1[1][4] == 0) {
+            jPanel22.setBackground(Color.white);
+        }
+        if (board1[2][4] == 0) {
+            jPanel23.setBackground(Color.white);
+        }
+        if (board1[3][4] == 0) {
+            jPanel24.setBackground(Color.white);
+        }
+        if (board1[4][4] == 0) {
+            jPanel25.setBackground(Color.white);
+        }
+
+        if (board1[0][5] == 0) {
+            jPanel26.setBackground(Color.white);
+        }
+        if (board1[1][5] == 0) {
+            jPanel27.setBackground(Color.white);
+        }
+        if (board1[2][5] == 0) {
+            jPanel28.setBackground(Color.white);
+        }
+        if (board1[3][5] == 0) {
+            jPanel29.setBackground(Color.white);
+        }
+        if (board1[4][5] == 0) {
+            jPanel30.setBackground(Color.white);
+        }
+        if (board1[0][6] == 0) {
+            jPanel31.setBackground(Color.white);
+        }
+        if (board1[1][6] == 0) {
+            jPanel32.setBackground(Color.white);
+        }
+        if (board1[2][6] == 0) {
+            jPanel33.setBackground(Color.white);
+        }
+        if (board1[3][6] == 0) {
+            jPanel34.setBackground(Color.white);
+        }
+        if (board1[4][6] == 0) {
+            jPanel35.setBackground(Color.white);
+        }
+        if (board1[0][7] == 0) {
+            jPanel36.setBackground(Color.white);
+        }
+        if (board1[1][7] == 0) {
+            jPanel37.setBackground(Color.white);
+        }
+        if (board1[2][7] == 0) {
+            jPanel38.setBackground(Color.white);
+        }
+        if (board1[3][7] == 0) {
+            jPanel39.setBackground(Color.white);
+        }
+        if (board1[4][7] == 0) {
+            jPanel40.setBackground(Color.white);
+        }
+        if (board1[0][8] == 0) {
+            jPanel41.setBackground(Color.white);
+        }
+        if (board1[1][8] == 0) {
+            jPanel42.setBackground(Color.white);
+        }
+        if (board1[2][8] == 0) {
+            jPanel43.setBackground(Color.white);
+        }
+        if (board1[3][8] == 0) {
+            jPanel44.setBackground(Color.white);
+        }
+        if (board1[4][8] == 0) {
+            jPanel45.setBackground(Color.white);
+        }
+        if (board1[0][9] == 0) {
+            jPanel46.setBackground(Color.white);
+        }
+        if (board1[1][9] == 0) {
+            jPanel47.setBackground(Color.white);
+        }
+        if (board1[2][9] == 0) {
+            jPanel48.setBackground(Color.white);
+        }
+        if (board1[3][9] == 0) {
+            jPanel49.setBackground(Color.white);
+        }
+        if (board1[4][9] == 0) {
+            jPanel50.setBackground(Color.white);
+        }
+
+        if (board1[0][10] == 0) {
+            jPanel51.setBackground(Color.white);
+        }
+        if (board1[1][10] == 0) {
+            jPanel52.setBackground(Color.white);
+        }
+        if (board1[2][10] == 0) {
+            jPanel53.setBackground(Color.white);
+        }
+        if (board1[3][10] == 0) {
+            jPanel54.setBackground(Color.white);
+        }
+        if (board1[4][10] == 0) {
+            jPanel55.setBackground(Color.white);
+        }
+        if (board1[0][11] == 0) {
+            jPanel56.setBackground(Color.white);
+        }
+        if (board1[1][11] == 0) {
+            jPanel57.setBackground(Color.white);
+        }
+        if (board1[2][11] == 0) {
+            jPanel58.setBackground(Color.white);
+        }
+        if (board1[3][11] == 0) {
+            jPanel59.setBackground(Color.white);
+        }
+        if (board1[4][11] == 0) {
+            jPanel60.setBackground(Color.white);
+        }
+        if (board1[0][12] == 0) {
+            jPanel61.setBackground(Color.white);
+        }
+        if (board1[1][12] == 0) {
+            jPanel62.setBackground(Color.white);
+        }
+        if (board1[2][12] == 0) {
+            jPanel63.setBackground(Color.white);
+        }
+        if (board1[3][12] == 0) {
+            jPanel64.setBackground(Color.white);
+        }
+        if (board1[4][12] == 0) {
+            jPanel65.setBackground(Color.white);
+        }
+        if (board1[0][13] == 0) {
+            jPanel66.setBackground(Color.white);
+        }
+        if (board1[1][13] == 0) {
+            jPanel67.setBackground(Color.white);
+        }
+        if (board1[2][13] == 0) {
+            jPanel68.setBackground(Color.white);
+        }
+        if (board1[3][13] == 0) {
+            jPanel69.setBackground(Color.white);
+        }
+        if (board1[4][13] == 0) {
+            jPanel70.setBackground(Color.white);
+        }
+        if (board1[0][14] == 0) {
+            jPanel71.setBackground(Color.white);
+        }
+        if (board1[1][14] == 0) {
+            jPanel72.setBackground(Color.white);
+        }
+        if (board1[2][14] == 0) {
+            jPanel73.setBackground(Color.white);
+        }
+        if (board1[3][14] == 0) {
+            jPanel74.setBackground(Color.white);
+        }
+        if (board1[4][14] == 0) {
+            jPanel75.setBackground(Color.white);
+        }
+        //-----------------------------------------------------
+        //makes it blue
+        if (board1[0][0] == 'p') {
+            jPanel1.setBackground(Color.blue);
+        }
+        if (board1[1][0] == 'p') {
+            jPanel2.setBackground(Color.blue);
+        }
+        if (board1[2][0] == 'p') {
+            jPanel3.setBackground(Color.blue);
+        }
+        if (board1[3][0] == 'p') {
+            jPanel4.setBackground(Color.blue);
+        }
+        if (board1[4][0] == 'p') {
+            jPanel5.setBackground(Color.blue);
+        }
+        if (board1[0][1] == 'p') {
+            jPanel6.setBackground(Color.blue);
+        }
+        if (board1[1][1] == 'p') {
+            jPanel7.setBackground(Color.blue);
+        }
+        if (board1[2][1] == 'p') {
+            jPanel8.setBackground(Color.blue);
+        }
+        if (board1[3][1] == 'p') {
+            jPanel9.setBackground(Color.blue);
+        }
+        if (board1[4][1] == 'p') {
+            jPanel10.setBackground(Color.blue);
+        }
+        if (board1[0][2] == 'p') {
+            jPanel11.setBackground(Color.blue);
+        }
+        if (board1[1][2] == 'p') {
+            jPanel12.setBackground(Color.blue);
+        }
+        if (board1[2][2] == 'p') {
+            jPanel13.setBackground(Color.blue);
+        }
+        if (board1[3][2] == 'p') {
+            jPanel14.setBackground(Color.blue);
+        }
+        if (board1[4][2] == 'p') {
+            jPanel15.setBackground(Color.blue);
+        }
+        if (board1[0][3] == 'p') {
+            jPanel16.setBackground(Color.blue);
+        }
+        if (board1[1][3] == 'p') {
+            jPanel17.setBackground(Color.blue);
+        }
+        if (board1[2][3] == 'p') {
+            jPanel18.setBackground(Color.blue);
+        }
+        if (board1[3][3] == 'p') {
+            jPanel19.setBackground(Color.blue);
+        }
+        if (board1[4][3] == 'p') {
+            jPanel20.setBackground(Color.blue);
+        }
+        if (board1[0][4] == 'p') {
+            jPanel21.setBackground(Color.blue);
+        }
+        if (board1[1][4] == 'p') {
+            jPanel22.setBackground(Color.blue);
+        }
+        if (board1[2][4] == 'p') {
+            jPanel23.setBackground(Color.blue);
+        }
+        if (board1[3][4] == 'p') {
+            jPanel24.setBackground(Color.blue);
+        }
+        if (board1[4][4] == 'p') {
+            jPanel25.setBackground(Color.blue);
+        }
+
+        if (board1[0][5] == 'p') {
+            jPanel26.setBackground(Color.blue);
+        }
+        if (board1[1][5] == 'p') {
+            jPanel27.setBackground(Color.blue);
+        }
+        if (board1[2][5] == 'p') {
+            jPanel28.setBackground(Color.blue);
+        }
+        if (board1[3][5] == 'p') {
+            jPanel29.setBackground(Color.blue);
+        }
+        if (board1[4][5] == 'p') {
+            jPanel30.setBackground(Color.blue);
+        }
+        if (board1[0][6] == 'p') {
+            jPanel31.setBackground(Color.blue);
+        }
+        if (board1[1][6] == 'p') {
+            jPanel32.setBackground(Color.blue);
+        }
+        if (board1[2][6] == 'p') {
+            jPanel33.setBackground(Color.blue);
+        }
+        if (board1[3][6] == 'p') {
+            jPanel34.setBackground(Color.blue);
+        }
+        if (board1[4][6] == 'p') {
+            jPanel35.setBackground(Color.blue);
+        }
+        if (board1[0][7] == 'p') {
+            jPanel36.setBackground(Color.blue);
+        }
+        if (board1[1][7] == 'p') {
+            jPanel37.setBackground(Color.blue);
+        }
+        if (board1[2][7] == 'p') {
+            jPanel38.setBackground(Color.blue);
+        }
+        if (board1[3][7] == 'p') {
+            jPanel39.setBackground(Color.blue);
+        }
+        if (board1[4][7] == 'p') {
+            jPanel40.setBackground(Color.blue);
+        }
+        if (board1[0][8] == 'p') {
+            jPanel41.setBackground(Color.blue);
+        }
+        if (board1[1][8] == 'p') {
+            jPanel42.setBackground(Color.blue);
+        }
+        if (board1[2][8] == 'p') {
+            jPanel43.setBackground(Color.blue);
+        }
+        if (board1[3][8] == 'p') {
+            jPanel44.setBackground(Color.blue);
+        }
+        if (board1[4][8] == 'p') {
+            jPanel45.setBackground(Color.blue);
+        }
+        if (board1[0][9] == 'p') {
+            jPanel46.setBackground(Color.blue);
+        }
+        if (board1[1][9] == 'p') {
+            jPanel47.setBackground(Color.blue);
+        }
+        if (board1[2][9] == 'p') {
+            jPanel48.setBackground(Color.blue);
+        }
+        if (board1[3][9] == 'p') {
+            jPanel49.setBackground(Color.blue);
+        }
+        if (board1[4][9] == 'p') {
+            jPanel50.setBackground(Color.blue);
+        }
+
+        if (board1[0][10] == 'p') {
+            jPanel51.setBackground(Color.blue);
+        }
+        if (board1[1][10] == 'p') {
+            jPanel52.setBackground(Color.blue);
+        }
+        if (board1[2][10] == 'p') {
+            jPanel53.setBackground(Color.blue);
+        }
+        if (board1[3][10] == 'p') {
+            jPanel54.setBackground(Color.blue);
+        }
+        if (board1[4][10] == 'p') {
+            jPanel55.setBackground(Color.blue);
+        }
+        if (board1[0][11] == 'p') {
+            jPanel56.setBackground(Color.blue);
+        }
+        if (board1[1][11] == 'p') {
+            jPanel57.setBackground(Color.blue);
+        }
+        if (board1[2][11] == 'p') {
+            jPanel58.setBackground(Color.blue);
+        }
+        if (board1[3][11] == 'p') {
+            jPanel59.setBackground(Color.blue);
+        }
+        if (board1[4][11] == 'p') {
+            jPanel60.setBackground(Color.blue);
+        }
+        if (board1[0][12] == 'p') {
+            jPanel61.setBackground(Color.blue);
+        }
+        if (board1[1][12] == 'p') {
+            jPanel62.setBackground(Color.blue);
+        }
+        if (board1[2][12] == 'p') {
+            jPanel63.setBackground(Color.blue);
+        }
+        if (board1[3][12] == 'p') {
+            jPanel64.setBackground(Color.blue);
+        }
+        if (board1[4][12] == 'p') {
+            jPanel65.setBackground(Color.blue);
+        }
+        if (board1[0][13] == 'p') {
+            jPanel66.setBackground(Color.blue);
+        }
+        if (board1[1][13] == 'p') {
+            jPanel67.setBackground(Color.blue);
+        }
+        if (board1[2][13] == 'p') {
+            jPanel68.setBackground(Color.blue);
+        }
+        if (board1[3][13] == 'p') {
+            jPanel69.setBackground(Color.blue);
+        }
+        if (board1[4][13] == 'p') {
+            jPanel70.setBackground(Color.blue);
+        }
+        if (board1[0][14] == 'p') {
+            jPanel71.setBackground(Color.blue);
+        }
+        if (board1[1][14] == 'p') {
+            jPanel72.setBackground(Color.blue);
+        }
+        if (board1[2][14] == 'p') {
+            jPanel73.setBackground(Color.blue);
+        }
+        if (board1[3][14] == 'p') {
+            jPanel74.setBackground(Color.blue);
+        }
+        if (board1[4][14] == 'p') {
+            jPanel75.setBackground(Color.blue);
+        }
+
+        //-------------------------------------------------
+        //make it green
+        if (board1[0][0] == 'x') {
+            jPanel1.setBackground(Color.green);
+        }
+        if (board1[1][0] == 'x') {
+            jPanel2.setBackground(Color.green);
+        }
+        if (board1[2][0] == 'x') {
+            jPanel3.setBackground(Color.green);
+        }
+        if (board1[3][0] == 'x') {
+            jPanel4.setBackground(Color.green);
+        }
+        if (board1[4][0] == 'x') {
+            jPanel5.setBackground(Color.green);
+        }
+        if (board1[0][1] == 'x') {
+            jPanel6.setBackground(Color.green);
+        }
+        if (board1[1][1] == 'x') {
+            jPanel7.setBackground(Color.green);
+        }
+        if (board1[2][1] == 'x') {
+            jPanel8.setBackground(Color.green);
+        }
+        if (board1[3][1] == 'x') {
+            jPanel9.setBackground(Color.green);
+        }
+        if (board1[4][1] == 'x') {
+            jPanel10.setBackground(Color.green);
+        }
+        if (board1[0][2] == 'x') {
+            jPanel11.setBackground(Color.green);
+        }
+        if (board1[1][2] == 'x') {
+            jPanel12.setBackground(Color.green);
+        }
+        if (board1[2][2] == 'x') {
+            jPanel13.setBackground(Color.green);
+        }
+        if (board1[3][2] == 'x') {
+            jPanel14.setBackground(Color.green);
+        }
+        if (board1[4][2] == 'x') {
+            jPanel15.setBackground(Color.green);
+        }
+        if (board1[0][3] == 'x') {
+            jPanel16.setBackground(Color.green);
+        }
+        if (board1[1][3] == 'x') {
+            jPanel17.setBackground(Color.green);
+        }
+        if (board1[2][3] == 'x') {
+            jPanel18.setBackground(Color.green);
+        }
+        if (board1[3][3] == 'x') {
+            jPanel19.setBackground(Color.green);
+        }
+        if (board1[4][3] == 'x') {
+            jPanel20.setBackground(Color.green);
+        }
+        if (board1[0][4] == 'x') {
+            jPanel21.setBackground(Color.green);
+        }
+        if (board1[1][4] == 'x') {
+            jPanel22.setBackground(Color.green);
+        }
+        if (board1[2][4] == 'x') {
+            jPanel23.setBackground(Color.green);
+        }
+        if (board1[3][4] == 'x') {
+            jPanel24.setBackground(Color.green);
+        }
+        if (board1[4][4] == 'x') {
+            jPanel25.setBackground(Color.green);
+        }
+
+        if (board1[0][5] == 'x') {
+            jPanel26.setBackground(Color.green);
+        }
+        if (board1[1][5] == 'x') {
+            jPanel27.setBackground(Color.green);
+        }
+        if (board1[2][5] == 'x') {
+            jPanel28.setBackground(Color.green);
+        }
+        if (board1[3][5] == 'x') {
+            jPanel29.setBackground(Color.green);
+        }
+        if (board1[4][5] == 'x') {
+            jPanel30.setBackground(Color.green);
+        }
+        if (board1[0][6] == 'x') {
+            jPanel31.setBackground(Color.green);
+        }
+        if (board1[1][6] == 'x') {
+            jPanel32.setBackground(Color.green);
+        }
+        if (board1[2][6] == 'x') {
+            jPanel33.setBackground(Color.green);
+        }
+        if (board1[3][6] == 'x') {
+            jPanel34.setBackground(Color.green);
+        }
+        if (board1[4][6] == 'x') {
+            jPanel35.setBackground(Color.green);
+        }
+        if (board1[0][7] == 'x') {
+            jPanel36.setBackground(Color.green);
+        }
+        if (board1[1][7] == 'x') {
+            jPanel37.setBackground(Color.green);
+        }
+        if (board1[2][7] == 'x') {
+            jPanel38.setBackground(Color.green);
+        }
+        if (board1[3][7] == 'x') {
+            jPanel39.setBackground(Color.green);
+        }
+        if (board1[4][7] == 'x') {
+            jPanel40.setBackground(Color.green);
+        }
+        if (board1[0][8] == 'x') {
+            jPanel41.setBackground(Color.green);
+        }
+        if (board1[1][8] == 'x') {
+            jPanel42.setBackground(Color.green);
+        }
+        if (board1[2][8] == 'x') {
+            jPanel43.setBackground(Color.green);
+        }
+        if (board1[3][8] == 'x') {
+            jPanel44.setBackground(Color.green);
+        }
+        if (board1[4][8] == 'x') {
+            jPanel45.setBackground(Color.green);
+        }
+        if (board1[0][9] == 'x') {
+            jPanel46.setBackground(Color.green);
+        }
+        if (board1[1][9] == 'x') {
+            jPanel47.setBackground(Color.green);
+        }
+        if (board1[2][9] == 'x') {
+            jPanel48.setBackground(Color.green);
+        }
+        if (board1[3][9] == 'x') {
+            jPanel49.setBackground(Color.green);
+        }
+        if (board1[4][9] == 'x') {
+            jPanel50.setBackground(Color.green);
+        }
+
+        if (board1[0][10] == 'x') {
+            jPanel51.setBackground(Color.green);
+        }
+        if (board1[1][10] == 'x') {
+            jPanel52.setBackground(Color.green);
+        }
+        if (board1[2][10] == 'x') {
+            jPanel53.setBackground(Color.green);
+        }
+        if (board1[3][10] == 'x') {
+            jPanel54.setBackground(Color.green);
+        }
+        if (board1[4][10] == 'x') {
+            jPanel55.setBackground(Color.green);
+        }
+        if (board1[0][11] == 'x') {
+            jPanel56.setBackground(Color.green);
+        }
+        if (board1[1][11] == 'x') {
+            jPanel57.setBackground(Color.green);
+        }
+        if (board1[2][11] == 'x') {
+            jPanel58.setBackground(Color.green);
+        }
+        if (board1[3][11] == 'x') {
+            jPanel59.setBackground(Color.green);
+        }
+        if (board1[4][11] == 'x') {
+            jPanel60.setBackground(Color.green);
+        }
+        if (board1[0][12] == 'x') {
+            jPanel61.setBackground(Color.green);
+        }
+        if (board1[1][12] == 'x') {
+            jPanel62.setBackground(Color.green);
+        }
+        if (board1[2][12] == 'x') {
+            jPanel63.setBackground(Color.green);
+        }
+        if (board1[3][12] == 'x') {
+            jPanel64.setBackground(Color.green);
+        }
+        if (board1[4][12] == 'x') {
+            jPanel65.setBackground(Color.green);
+        }
+        if (board1[0][13] == 'x') {
+            jPanel66.setBackground(Color.green);
+        }
+        if (board1[1][13] == 'x') {
+            jPanel67.setBackground(Color.green);
+        }
+        if (board1[2][13] == 'x') {
+            jPanel68.setBackground(Color.green);
+        }
+        if (board1[3][13] == 'x') {
+            jPanel69.setBackground(Color.green);
+        }
+        if (board1[4][13] == 'x') {
+            jPanel70.setBackground(Color.green);
+        }
+        if (board1[0][14] == 'x') {
+            jPanel71.setBackground(Color.green);
+        }
+        if (board1[1][14] == 'x') {
+            jPanel72.setBackground(Color.green);
+        }
+        if (board1[2][14] == 'x') {
+            jPanel73.setBackground(Color.green);
+        }
+        if (board1[3][14] == 'x') {
+            jPanel74.setBackground(Color.green);
+        }
+        if (board1[4][14] == 'x') {
+            jPanel75.setBackground(Color.green);
+        }
+
+        //---------------------------------------------------
+        //makes it cyan
+        if (board1[0][0] == 'v') {
+            jPanel1.setBackground(Color.cyan);
+        }
+        if (board1[1][0] == 'v') {
+            jPanel2.setBackground(Color.cyan);
+        }
+        if (board1[2][0] == 'v') {
+            jPanel3.setBackground(Color.cyan);
+        }
+        if (board1[3][0] == 'v') {
+            jPanel4.setBackground(Color.cyan);
+        }
+        if (board1[4][0] == 'v') {
+            jPanel5.setBackground(Color.cyan);
+        }
+        if (board1[0][1] == 'v') {
+            jPanel6.setBackground(Color.cyan);
+        }
+        if (board1[1][1] == 'v') {
+            jPanel7.setBackground(Color.cyan);
+        }
+        if (board1[2][1] == 'v') {
+            jPanel8.setBackground(Color.cyan);
+        }
+        if (board1[3][1] == 'v') {
+            jPanel9.setBackground(Color.cyan);
+        }
+        if (board1[4][1] == 'v') {
+            jPanel10.setBackground(Color.cyan);
+        }
+        if (board1[0][2] == 'v') {
+            jPanel11.setBackground(Color.cyan);
+        }
+        if (board1[1][2] == 'v') {
+            jPanel12.setBackground(Color.cyan);
+        }
+        if (board1[2][2] == 'v') {
+            jPanel13.setBackground(Color.cyan);
+        }
+        if (board1[3][2] == 'v') {
+            jPanel14.setBackground(Color.cyan);
+        }
+        if (board1[4][2] == 'v') {
+            jPanel15.setBackground(Color.cyan);
+        }
+        if (board1[0][3] == 'v') {
+            jPanel16.setBackground(Color.cyan);
+        }
+        if (board1[1][3] == 'v') {
+            jPanel17.setBackground(Color.cyan);
+        }
+        if (board1[2][3] == 'v') {
+            jPanel18.setBackground(Color.cyan);
+        }
+        if (board1[3][3] == 'v') {
+            jPanel19.setBackground(Color.cyan);
+        }
+        if (board1[4][3] == 'v') {
+            jPanel20.setBackground(Color.cyan);
+        }
+        if (board1[0][4] == 'v') {
+            jPanel21.setBackground(Color.cyan);
+        }
+        if (board1[1][4] == 'v') {
+            jPanel22.setBackground(Color.cyan);
+        }
+        if (board1[2][4] == 'v') {
+            jPanel23.setBackground(Color.cyan);
+        }
+        if (board1[3][4] == 'v') {
+            jPanel24.setBackground(Color.cyan);
+        }
+        if (board1[4][4] == 'v') {
+            jPanel25.setBackground(Color.cyan);
+        }
+
+        if (board1[0][5] == 'v') {
+            jPanel26.setBackground(Color.cyan);
+        }
+        if (board1[1][5] == 'v') {
+            jPanel27.setBackground(Color.cyan);
+        }
+        if (board1[2][5] == 'v') {
+            jPanel28.setBackground(Color.cyan);
+        }
+        if (board1[3][5] == 'v') {
+            jPanel29.setBackground(Color.cyan);
+        }
+        if (board1[4][5] == 'v') {
+            jPanel30.setBackground(Color.cyan);
+        }
+        if (board1[0][6] == 'v') {
+            jPanel31.setBackground(Color.cyan);
+        }
+        if (board1[1][6] == 'v') {
+            jPanel32.setBackground(Color.cyan);
+        }
+        if (board1[2][6] == 'v') {
+            jPanel33.setBackground(Color.cyan);
+        }
+        if (board1[3][6] == 'v') {
+            jPanel34.setBackground(Color.cyan);
+        }
+        if (board1[4][6] == 'v') {
+            jPanel35.setBackground(Color.cyan);
+        }
+        if (board1[0][7] == 'v') {
+            jPanel36.setBackground(Color.cyan);
+        }
+        if (board1[1][7] == 'v') {
+            jPanel37.setBackground(Color.cyan);
+        }
+        if (board1[2][7] == 'v') {
+            jPanel38.setBackground(Color.cyan);
+        }
+        if (board1[3][7] == 'v') {
+            jPanel39.setBackground(Color.cyan);
+        }
+        if (board1[4][7] == 'v') {
+            jPanel40.setBackground(Color.cyan);
+        }
+        if (board1[0][8] == 'v') {
+            jPanel41.setBackground(Color.cyan);
+        }
+        if (board1[1][8] == 'v') {
+            jPanel42.setBackground(Color.cyan);
+        }
+        if (board1[2][8] == 'v') {
+            jPanel43.setBackground(Color.cyan);
+        }
+        if (board1[3][8] == 'v') {
+            jPanel44.setBackground(Color.cyan);
+        }
+        if (board1[4][8] == 'v') {
+            jPanel45.setBackground(Color.cyan);
+        }
+        if (board1[0][9] == 'v') {
+            jPanel46.setBackground(Color.cyan);
+        }
+        if (board1[1][9] == 'v') {
+            jPanel47.setBackground(Color.cyan);
+        }
+        if (board1[2][9] == 'v') {
+            jPanel48.setBackground(Color.cyan);
+        }
+        if (board1[3][9] == 'v') {
+            jPanel49.setBackground(Color.cyan);
+        }
+        if (board1[4][9] == 'v') {
+            jPanel50.setBackground(Color.cyan);
+        }
+
+        if (board1[0][10] == 'v') {
+            jPanel51.setBackground(Color.cyan);
+        }
+        if (board1[1][10] == 'v') {
+            jPanel52.setBackground(Color.cyan);
+        }
+        if (board1[2][10] == 'v') {
+            jPanel53.setBackground(Color.cyan);
+        }
+        if (board1[3][10] == 'v') {
+            jPanel54.setBackground(Color.cyan);
+        }
+        if (board1[4][10] == 'v') {
+            jPanel55.setBackground(Color.cyan);
+        }
+        if (board1[0][11] == 'v') {
+            jPanel56.setBackground(Color.cyan);
+        }
+        if (board1[1][11] == 'v') {
+            jPanel57.setBackground(Color.cyan);
+        }
+        if (board1[2][11] == 'v') {
+            jPanel58.setBackground(Color.cyan);
+        }
+        if (board1[3][11] == 'v') {
+            jPanel59.setBackground(Color.cyan);
+        }
+        if (board1[4][11] == 'v') {
+            jPanel60.setBackground(Color.cyan);
+        }
+        if (board1[0][12] == 'v') {
+            jPanel61.setBackground(Color.cyan);
+        }
+        if (board1[1][12] == 'v') {
+            jPanel62.setBackground(Color.cyan);
+        }
+        if (board1[2][12] == 'v') {
+            jPanel63.setBackground(Color.cyan);
+        }
+        if (board1[3][12] == 'v') {
+            jPanel64.setBackground(Color.cyan);
+        }
+        if (board1[4][12] == 'v') {
+            jPanel65.setBackground(Color.cyan);
+        }
+        if (board1[0][13] == 'v') {
+            jPanel66.setBackground(Color.cyan);
+        }
+        if (board1[1][13] == 'v') {
+            jPanel67.setBackground(Color.cyan);
+        }
+        if (board1[2][13] == 'v') {
+            jPanel68.setBackground(Color.cyan);
+        }
+        if (board1[3][13] == 'v') {
+            jPanel69.setBackground(Color.cyan);
+        }
+        if (board1[4][13] == 'v') {
+            jPanel70.setBackground(Color.cyan);
+        }
+        if (board1[0][14] == 'v') {
+            jPanel71.setBackground(Color.cyan);
+        }
+        if (board1[1][14] == 'v') {
+            jPanel72.setBackground(Color.cyan);
+        }
+        if (board1[2][14] == 'v') {
+            jPanel73.setBackground(Color.cyan);
+        }
+        if (board1[3][14] == 'v') {
+            jPanel74.setBackground(Color.cyan);
+        }
+        if (board1[4][14] == 'v') {
+            jPanel75.setBackground(Color.cyan);
+        }
+
+        //-------------------------------------------------------
+        //makes it grey
+        if (board1[0][0] == 'w') {
+            jPanel1.setBackground(Color.gray);
+        }
+        if (board1[1][0] == 'w') {
+            jPanel2.setBackground(Color.gray);
+        }
+        if (board1[2][0] == 'w') {
+            jPanel3.setBackground(Color.gray);
+        }
+        if (board1[3][0] == 'w') {
+            jPanel4.setBackground(Color.gray);
+        }
+        if (board1[4][0] == 'w') {
+            jPanel5.setBackground(Color.gray);
+        }
+        if (board1[0][1] == 'w') {
+            jPanel6.setBackground(Color.gray);
+        }
+        if (board1[1][1] == 'w') {
+            jPanel7.setBackground(Color.gray);
+        }
+        if (board1[2][1] == 'w') {
+            jPanel8.setBackground(Color.gray);
+        }
+        if (board1[3][1] == 'w') {
+            jPanel9.setBackground(Color.gray);
+        }
+        if (board1[4][1] == 'w') {
+            jPanel10.setBackground(Color.gray);
+        }
+        if (board1[0][2] == 'w') {
+            jPanel11.setBackground(Color.gray);
+        }
+        if (board1[1][2] == 'w') {
+            jPanel12.setBackground(Color.gray);
+        }
+        if (board1[2][2] == 'w') {
+            jPanel13.setBackground(Color.gray);
+        }
+        if (board1[3][2] == 'w') {
+            jPanel14.setBackground(Color.gray);
+        }
+        if (board1[4][2] == 'w') {
+            jPanel15.setBackground(Color.gray);
+        }
+        if (board1[0][3] == 'w') {
+            jPanel16.setBackground(Color.gray);
+        }
+        if (board1[1][3] == 'w') {
+            jPanel17.setBackground(Color.gray);
+        }
+        if (board1[2][3] == 'w') {
+            jPanel18.setBackground(Color.gray);
+        }
+        if (board1[3][3] == 'w') {
+            jPanel19.setBackground(Color.gray);
+        }
+        if (board1[4][3] == 'w') {
+            jPanel20.setBackground(Color.gray);
+        }
+        if (board1[0][4] == 'w') {
+            jPanel21.setBackground(Color.gray);
+        }
+        if (board1[1][4] == 'w') {
+            jPanel22.setBackground(Color.gray);
+        }
+        if (board1[2][4] == 'w') {
+            jPanel23.setBackground(Color.gray);
+        }
+        if (board1[3][4] == 'w') {
+            jPanel24.setBackground(Color.gray);
+        }
+        if (board1[4][4] == 'w') {
+            jPanel25.setBackground(Color.gray);
+        }
+
+        if (board1[0][5] == 'w') {
+            jPanel26.setBackground(Color.gray);
+        }
+        if (board1[1][5] == 'w') {
+            jPanel27.setBackground(Color.gray);
+        }
+        if (board1[2][5] == 'w') {
+            jPanel28.setBackground(Color.gray);
+        }
+        if (board1[3][5] == 'w') {
+            jPanel29.setBackground(Color.gray);
+        }
+        if (board1[4][5] == 'w') {
+            jPanel30.setBackground(Color.gray);
+        }
+        if (board1[0][6] == 'w') {
+            jPanel31.setBackground(Color.gray);
+        }
+        if (board1[1][6] == 'w') {
+            jPanel32.setBackground(Color.gray);
+        }
+        if (board1[2][6] == 'w') {
+            jPanel33.setBackground(Color.gray);
+        }
+        if (board1[3][6] == 'w') {
+            jPanel34.setBackground(Color.gray);
+        }
+        if (board1[4][6] == 'w') {
+            jPanel35.setBackground(Color.gray);
+        }
+        if (board1[0][7] == 'w') {
+            jPanel36.setBackground(Color.gray);
+        }
+        if (board1[1][7] == 'w') {
+            jPanel37.setBackground(Color.gray);
+        }
+        if (board1[2][7] == 'w') {
+            jPanel38.setBackground(Color.gray);
+        }
+        if (board1[3][7] == 'w') {
+            jPanel39.setBackground(Color.gray);
+        }
+        if (board1[4][7] == 'w') {
+            jPanel40.setBackground(Color.gray);
+        }
+        if (board1[0][8] == 'w') {
+            jPanel41.setBackground(Color.gray);
+        }
+        if (board1[1][8] == 'w') {
+            jPanel42.setBackground(Color.gray);
+        }
+        if (board1[2][8] == 'w') {
+            jPanel43.setBackground(Color.gray);
+        }
+        if (board1[3][8] == 'w') {
+            jPanel44.setBackground(Color.gray);
+        }
+        if (board1[4][8] == 'w') {
+            jPanel45.setBackground(Color.gray);
+        }
+        if (board1[0][9] == 'w') {
+            jPanel46.setBackground(Color.gray);
+        }
+        if (board1[1][9] == 'w') {
+            jPanel47.setBackground(Color.gray);
+        }
+        if (board1[2][9] == 'w') {
+            jPanel48.setBackground(Color.gray);
+        }
+        if (board1[3][9] == 'w') {
+            jPanel49.setBackground(Color.gray);
+        }
+        if (board1[4][9] == 'w') {
+            jPanel50.setBackground(Color.gray);
+        }
+
+        if (board1[0][10] == 'w') {
+            jPanel51.setBackground(Color.gray);
+        }
+        if (board1[1][10] == 'w') {
+            jPanel52.setBackground(Color.gray);
+        }
+        if (board1[2][10] == 'w') {
+            jPanel53.setBackground(Color.gray);
+        }
+        if (board1[3][10] == 'w') {
+            jPanel54.setBackground(Color.gray);
+        }
+        if (board1[4][10] == 'w') {
+            jPanel55.setBackground(Color.gray);
+        }
+        if (board1[0][11] == 'w') {
+            jPanel56.setBackground(Color.gray);
+        }
+        if (board1[1][11] == 'w') {
+            jPanel57.setBackground(Color.gray);
+        }
+        if (board1[2][11] == 'w') {
+            jPanel58.setBackground(Color.gray);
+        }
+        if (board1[3][11] == 'w') {
+            jPanel59.setBackground(Color.gray);
+        }
+        if (board1[4][11] == 'w') {
+            jPanel60.setBackground(Color.gray);
+        }
+        if (board1[0][12] == 'w') {
+            jPanel61.setBackground(Color.gray);
+        }
+        if (board1[1][12] == 'w') {
+            jPanel62.setBackground(Color.gray);
+        }
+        if (board1[2][12] == 'w') {
+            jPanel63.setBackground(Color.gray);
+        }
+        if (board1[3][12] == 'w') {
+            jPanel64.setBackground(Color.gray);
+        }
+        if (board1[4][12] == 'w') {
+            jPanel65.setBackground(Color.gray);
+        }
+        if (board1[0][13] == 'w') {
+            jPanel66.setBackground(Color.gray);
+        }
+        if (board1[1][13] == 'w') {
+            jPanel67.setBackground(Color.gray);
+        }
+        if (board1[2][13] == 'w') {
+            jPanel68.setBackground(Color.gray);
+        }
+        if (board1[3][13] == 'w') {
+            jPanel69.setBackground(Color.gray);
+        }
+        if (board1[4][13] == 'w') {
+            jPanel70.setBackground(Color.gray);
+        }
+        if (board1[0][14] == 'w') {
+            jPanel71.setBackground(Color.gray);
+        }
+        if (board1[1][14] == 'w') {
+            jPanel72.setBackground(Color.gray);
+        }
+        if (board1[2][14] == 'w') {
+            jPanel73.setBackground(Color.gray);
+        }
+        if (board1[3][14] == 'w') {
+            jPanel74.setBackground(Color.gray);
+        }
+        if (board1[4][14] == 'w') {
+            jPanel75.setBackground(Color.gray);
+        }
+
+        //-------------------------------------------
+        //makes it magenta
+        if (board1[0][0] == 'y') {
+            jPanel1.setBackground(Color.magenta);
+        }
+        if (board1[1][0] == 'y') {
+            jPanel2.setBackground(Color.magenta);
+        }
+        if (board1[2][0] == 'y') {
+            jPanel3.setBackground(Color.magenta);
+        }
+        if (board1[3][0] == 'y') {
+            jPanel4.setBackground(Color.magenta);
+        }
+        if (board1[4][0] == 'y') {
+            jPanel5.setBackground(Color.magenta);
+        }
+        if (board1[0][1] == 'y') {
+            jPanel6.setBackground(Color.magenta);
+        }
+        if (board1[1][1] == 'y') {
+            jPanel7.setBackground(Color.magenta);
+        }
+        if (board1[2][1] == 'y') {
+            jPanel8.setBackground(Color.magenta);
+        }
+        if (board1[3][1] == 'y') {
+            jPanel9.setBackground(Color.magenta);
+        }
+        if (board1[4][1] == 'y') {
+            jPanel10.setBackground(Color.magenta);
+        }
+        if (board1[0][2] == 'y') {
+            jPanel11.setBackground(Color.magenta);
+        }
+        if (board1[1][2] == 'y') {
+            jPanel12.setBackground(Color.magenta);
+        }
+        if (board1[2][2] == 'y') {
+            jPanel13.setBackground(Color.magenta);
+        }
+        if (board1[3][2] == 'y') {
+            jPanel14.setBackground(Color.magenta);
+        }
+        if (board1[4][2] == 'y') {
+            jPanel15.setBackground(Color.magenta);
+        }
+        if (board1[0][3] == 'y') {
+            jPanel16.setBackground(Color.magenta);
+        }
+        if (board1[1][3] == 'y') {
+            jPanel17.setBackground(Color.magenta);
+        }
+        if (board1[2][3] == 'y') {
+            jPanel18.setBackground(Color.magenta);
+        }
+        if (board1[3][3] == 'y') {
+            jPanel19.setBackground(Color.magenta);
+        }
+        if (board1[4][3] == 'y') {
+            jPanel20.setBackground(Color.magenta);
+        }
+        if (board1[0][4] == 'y') {
+            jPanel21.setBackground(Color.magenta);
+        }
+        if (board1[1][4] == 'y') {
+            jPanel22.setBackground(Color.magenta);
+        }
+        if (board1[2][4] == 'y') {
+            jPanel23.setBackground(Color.magenta);
+        }
+        if (board1[3][4] == 'y') {
+            jPanel24.setBackground(Color.magenta);
+        }
+        if (board1[4][4] == 'y') {
+            jPanel25.setBackground(Color.magenta);
+        }
+
+        if (board1[0][5] == 'y') {
+            jPanel26.setBackground(Color.magenta);
+        }
+        if (board1[1][5] == 'y') {
+            jPanel27.setBackground(Color.magenta);
+        }
+        if (board1[2][5] == 'y') {
+            jPanel28.setBackground(Color.magenta);
+        }
+        if (board1[3][5] == 'y') {
+            jPanel29.setBackground(Color.magenta);
+        }
+        if (board1[4][5] == 'y') {
+            jPanel30.setBackground(Color.magenta);
+        }
+        if (board1[0][6] == 'y') {
+            jPanel31.setBackground(Color.magenta);
+        }
+        if (board1[1][6] == 'y') {
+            jPanel32.setBackground(Color.magenta);
+        }
+        if (board1[2][6] == 'y') {
+            jPanel33.setBackground(Color.magenta);
+        }
+        if (board1[3][6] == 'y') {
+            jPanel34.setBackground(Color.magenta);
+        }
+        if (board1[4][6] == 'y') {
+            jPanel35.setBackground(Color.magenta);
+        }
+        if (board1[0][7] == 'y') {
+            jPanel36.setBackground(Color.magenta);
+        }
+        if (board1[1][7] == 'y') {
+            jPanel37.setBackground(Color.magenta);
+        }
+        if (board1[2][7] == 'y') {
+            jPanel38.setBackground(Color.magenta);
+        }
+        if (board1[3][7] == 'y') {
+            jPanel39.setBackground(Color.magenta);
+        }
+        if (board1[4][7] == 'y') {
+            jPanel40.setBackground(Color.magenta);
+        }
+        if (board1[0][8] == 'y') {
+            jPanel41.setBackground(Color.magenta);
+        }
+        if (board1[1][8] == 'y') {
+            jPanel42.setBackground(Color.magenta);
+        }
+        if (board1[2][8] == 'y') {
+            jPanel43.setBackground(Color.magenta);
+        }
+        if (board1[3][8] == 'y') {
+            jPanel44.setBackground(Color.magenta);
+        }
+        if (board1[4][8] == 'y') {
+            jPanel45.setBackground(Color.magenta);
+        }
+        if (board1[0][9] == 'y') {
+            jPanel46.setBackground(Color.magenta);
+        }
+        if (board1[1][9] == 'y') {
+            jPanel47.setBackground(Color.magenta);
+        }
+        if (board1[2][9] == 'y') {
+            jPanel48.setBackground(Color.magenta);
+        }
+        if (board1[3][9] == 'y') {
+            jPanel49.setBackground(Color.magenta);
+        }
+        if (board1[4][9] == 'y') {
+            jPanel50.setBackground(Color.magenta);
+        }
+
+        if (board1[0][10] == 'y') {
+            jPanel51.setBackground(Color.magenta);
+        }
+        if (board1[1][10] == 'y') {
+            jPanel52.setBackground(Color.magenta);
+        }
+        if (board1[2][10] == 'y') {
+            jPanel53.setBackground(Color.magenta);
+        }
+        if (board1[3][10] == 'y') {
+            jPanel54.setBackground(Color.magenta);
+        }
+        if (board1[4][10] == 'y') {
+            jPanel55.setBackground(Color.magenta);
+        }
+        if (board1[0][11] == 'y') {
+            jPanel56.setBackground(Color.magenta);
+        }
+        if (board1[1][11] == 'y') {
+            jPanel57.setBackground(Color.magenta);
+        }
+        if (board1[2][11] == 'y') {
+            jPanel58.setBackground(Color.magenta);
+        }
+        if (board1[3][11] == 'y') {
+            jPanel59.setBackground(Color.magenta);
+        }
+        if (board1[4][11] == 'y') {
+            jPanel60.setBackground(Color.magenta);
+        }
+        if (board1[0][12] == 'y') {
+            jPanel61.setBackground(Color.magenta);
+        }
+        if (board1[1][12] == 'y') {
+            jPanel62.setBackground(Color.magenta);
+        }
+        if (board1[2][12] == 'y') {
+            jPanel63.setBackground(Color.magenta);
+        }
+        if (board1[3][12] == 'y') {
+            jPanel64.setBackground(Color.magenta);
+        }
+        if (board1[4][12] == 'y') {
+            jPanel65.setBackground(Color.magenta);
+        }
+        if (board1[0][13] == 'y') {
+            jPanel66.setBackground(Color.magenta);
+        }
+        if (board1[1][13] == 'y') {
+            jPanel67.setBackground(Color.magenta);
+        }
+        if (board1[2][13] == 'y') {
+            jPanel68.setBackground(Color.magenta);
+        }
+        if (board1[3][13] == 'y') {
+            jPanel69.setBackground(Color.magenta);
+        }
+        if (board1[4][13] == 'y') {
+            jPanel70.setBackground(Color.magenta);
+        }
+        if (board1[0][14] == 'y') {
+            jPanel71.setBackground(Color.magenta);
+        }
+        if (board1[1][14] == 'y') {
+            jPanel72.setBackground(Color.magenta);
+        }
+        if (board1[2][14] == 'y') {
+            jPanel73.setBackground(Color.magenta);
+        }
+        if (board1[3][14] == 'y') {
+            jPanel74.setBackground(Color.magenta);
+        }
+        if (board1[4][14] == 'y') {
+            jPanel75.setBackground(Color.magenta);
+        }
+
+        //--------------------------------------------
+        //makes it orange (the best color)
+        if (board1[0][0] == 'i') {
+            jPanel1.setBackground(Color.orange);
+        }
+        if (board1[1][0] == 'i') {
+            jPanel2.setBackground(Color.orange);
+        }
+        if (board1[2][0] == 'i') {
+            jPanel3.setBackground(Color.orange);
+        }
+        if (board1[3][0] == 'i') {
+            jPanel4.setBackground(Color.orange);
+        }
+        if (board1[4][0] == 'i') {
+            jPanel5.setBackground(Color.orange);
+        }
+        if (board1[0][1] == 'i') {
+            jPanel6.setBackground(Color.orange);
+        }
+        if (board1[1][1] == 'i') {
+            jPanel7.setBackground(Color.orange);
+        }
+        if (board1[2][1] == 'i') {
+            jPanel8.setBackground(Color.orange);
+        }
+        if (board1[3][1] == 'i') {
+            jPanel9.setBackground(Color.orange);
+        }
+        if (board1[4][1] == 'i') {
+            jPanel10.setBackground(Color.orange);
+        }
+        if (board1[0][2] == 'i') {
+            jPanel11.setBackground(Color.orange);
+        }
+        if (board1[1][2] == 'i') {
+            jPanel12.setBackground(Color.orange);
+        }
+        if (board1[2][2] == 'i') {
+            jPanel13.setBackground(Color.orange);
+        }
+        if (board1[3][2] == 'i') {
+            jPanel14.setBackground(Color.orange);
+        }
+        if (board1[4][2] == 'i') {
+            jPanel15.setBackground(Color.orange);
+        }
+        if (board1[0][3] == 'i') {
+            jPanel16.setBackground(Color.orange);
+        }
+        if (board1[1][3] == 'i') {
+            jPanel17.setBackground(Color.orange);
+        }
+        if (board1[2][3] == 'i') {
+            jPanel18.setBackground(Color.orange);
+        }
+        if (board1[3][3] == 'i') {
+            jPanel19.setBackground(Color.orange);
+        }
+        if (board1[4][3] == 'i') {
+            jPanel20.setBackground(Color.orange);
+        }
+        if (board1[0][4] == 'i') {
+            jPanel21.setBackground(Color.orange);
+        }
+        if (board1[1][4] == 'i') {
+            jPanel22.setBackground(Color.orange);
+        }
+        if (board1[2][4] == 'i') {
+            jPanel23.setBackground(Color.orange);
+        }
+        if (board1[3][4] == 'i') {
+            jPanel24.setBackground(Color.orange);
+        }
+        if (board1[4][4] == 'i') {
+            jPanel25.setBackground(Color.orange);
+        }
+
+        if (board1[0][5] == 'i') {
+            jPanel26.setBackground(Color.orange);
+        }
+        if (board1[1][5] == 'i') {
+            jPanel27.setBackground(Color.orange);
+        }
+        if (board1[2][5] == 'i') {
+            jPanel28.setBackground(Color.orange);
+        }
+        if (board1[3][5] == 'i') {
+            jPanel29.setBackground(Color.orange);
+        }
+        if (board1[4][5] == 'i') {
+            jPanel30.setBackground(Color.orange);
+        }
+        if (board1[0][6] == 'i') {
+            jPanel31.setBackground(Color.orange);
+        }
+        if (board1[1][6] == 'i') {
+            jPanel32.setBackground(Color.orange);
+        }
+        if (board1[2][6] == 'i') {
+            jPanel33.setBackground(Color.orange);
+        }
+        if (board1[3][6] == 'i') {
+            jPanel34.setBackground(Color.orange);
+        }
+        if (board1[4][6] == 'i') {
+            jPanel35.setBackground(Color.orange);
+        }
+        if (board1[0][7] == 'i') {
+            jPanel36.setBackground(Color.orange);
+        }
+        if (board1[1][7] == 'i') {
+            jPanel37.setBackground(Color.orange);
+        }
+        if (board1[2][7] == 'i') {
+            jPanel38.setBackground(Color.orange);
+        }
+        if (board1[3][7] == 'i') {
+            jPanel39.setBackground(Color.orange);
+        }
+        if (board1[4][7] == 'i') {
+            jPanel40.setBackground(Color.orange);
+        }
+        if (board1[0][8] == 'i') {
+            jPanel41.setBackground(Color.orange);
+        }
+        if (board1[1][8] == 'i') {
+            jPanel42.setBackground(Color.orange);
+        }
+        if (board1[2][8] == 'i') {
+            jPanel43.setBackground(Color.orange);
+        }
+        if (board1[3][8] == 'i') {
+            jPanel44.setBackground(Color.orange);
+        }
+        if (board1[4][8] == 'i') {
+            jPanel45.setBackground(Color.orange);
+        }
+        if (board1[0][9] == 'i') {
+            jPanel46.setBackground(Color.orange);
+        }
+        if (board1[1][9] == 'i') {
+            jPanel47.setBackground(Color.orange);
+        }
+        if (board1[2][9] == 'i') {
+            jPanel48.setBackground(Color.orange);
+        }
+        if (board1[3][9] == 'i') {
+            jPanel49.setBackground(Color.orange);
+        }
+        if (board1[4][9] == 'i') {
+            jPanel50.setBackground(Color.orange);
+        }
+
+        if (board1[0][10] == 'i') {
+            jPanel51.setBackground(Color.orange);
+        }
+        if (board1[1][10] == 'i') {
+            jPanel52.setBackground(Color.orange);
+        }
+        if (board1[2][10] == 'i') {
+            jPanel53.setBackground(Color.orange);
+        }
+        if (board1[3][10] == 'i') {
+            jPanel54.setBackground(Color.orange);
+        }
+        if (board1[4][10] == 'i') {
+            jPanel55.setBackground(Color.orange);
+        }
+        if (board1[0][11] == 'i') {
+            jPanel56.setBackground(Color.orange);
+        }
+        if (board1[1][11] == 'i') {
+            jPanel57.setBackground(Color.orange);
+        }
+        if (board1[2][11] == 'i') {
+            jPanel58.setBackground(Color.orange);
+        }
+        if (board1[3][11] == 'i') {
+            jPanel59.setBackground(Color.orange);
+        }
+        if (board1[4][11] == 'i') {
+            jPanel60.setBackground(Color.orange);
+        }
+        if (board1[0][12] == 'i') {
+            jPanel61.setBackground(Color.orange);
+        }
+        if (board1[1][12] == 'i') {
+            jPanel62.setBackground(Color.orange);
+        }
+        if (board1[2][12] == 'i') {
+            jPanel63.setBackground(Color.orange);
+        }
+        if (board1[3][12] == 'i') {
+            jPanel64.setBackground(Color.orange);
+        }
+        if (board1[4][12] == 'i') {
+            jPanel65.setBackground(Color.orange);
+        }
+        if (board1[0][13] == 'i') {
+            jPanel66.setBackground(Color.orange);
+        }
+        if (board1[1][13] == 'i') {
+            jPanel67.setBackground(Color.orange);
+        }
+        if (board1[2][13] == 'i') {
+            jPanel68.setBackground(Color.orange);
+        }
+        if (board1[3][13] == 'i') {
+            jPanel69.setBackground(Color.orange);
+        }
+        if (board1[4][13] == 'i') {
+            jPanel70.setBackground(Color.orange);
+        }
+        if (board1[0][14] == 'i') {
+            jPanel71.setBackground(Color.orange);
+        }
+        if (board1[1][14] == 'i') {
+            jPanel72.setBackground(Color.orange);
+        }
+        if (board1[2][14] == 'i') {
+            jPanel73.setBackground(Color.orange);
+        }
+        if (board1[3][14] == 'i') {
+            jPanel74.setBackground(Color.orange);
+        }
+        if (board1[4][14] == 'i') {
+            jPanel75.setBackground(Color.orange);
+        }
+
+        //----------------------------------------------
+        //makes pink
+        if (board1[0][0] == 't') {
+            jPanel1.setBackground(Color.pink);
+        }
+        if (board1[1][0] == 't') {
+            jPanel2.setBackground(Color.pink);
+        }
+        if (board1[2][0] == 't') {
+            jPanel3.setBackground(Color.pink);
+        }
+        if (board1[3][0] == 't') {
+            jPanel4.setBackground(Color.pink);
+        }
+        if (board1[4][0] == 't') {
+            jPanel5.setBackground(Color.pink);
+        }
+        if (board1[0][1] == 't') {
+            jPanel6.setBackground(Color.pink);
+        }
+        if (board1[1][1] == 't') {
+            jPanel7.setBackground(Color.pink);
+        }
+        if (board1[2][1] == 't') {
+            jPanel8.setBackground(Color.pink);
+        }
+        if (board1[3][1] == 't') {
+            jPanel9.setBackground(Color.pink);
+        }
+        if (board1[4][1] == 't') {
+            jPanel10.setBackground(Color.pink);
+        }
+        if (board1[0][2] == 't') {
+            jPanel11.setBackground(Color.pink);
+        }
+        if (board1[1][2] == 't') {
+            jPanel12.setBackground(Color.pink);
+        }
+        if (board1[2][2] == 't') {
+            jPanel13.setBackground(Color.pink);
+        }
+        if (board1[3][2] == 't') {
+            jPanel14.setBackground(Color.pink);
+        }
+        if (board1[4][2] == 't') {
+            jPanel15.setBackground(Color.pink);
+        }
+        if (board1[0][3] == 't') {
+            jPanel16.setBackground(Color.pink);
+        }
+        if (board1[1][3] == 't') {
+            jPanel17.setBackground(Color.pink);
+        }
+        if (board1[2][3] == 't') {
+            jPanel18.setBackground(Color.pink);
+        }
+        if (board1[3][3] == 't') {
+            jPanel19.setBackground(Color.pink);
+        }
+        if (board1[4][3] == 't') {
+            jPanel20.setBackground(Color.pink);
+        }
+        if (board1[0][4] == 't') {
+            jPanel21.setBackground(Color.pink);
+        }
+        if (board1[1][4] == 't') {
+            jPanel22.setBackground(Color.pink);
+        }
+        if (board1[2][4] == 't') {
+            jPanel23.setBackground(Color.pink);
+        }
+        if (board1[3][4] == 't') {
+            jPanel24.setBackground(Color.pink);
+        }
+        if (board1[4][4] == 't') {
+            jPanel25.setBackground(Color.pink);
+        }
+
+        if (board1[0][5] == 't') {
+            jPanel26.setBackground(Color.pink);
+        }
+        if (board1[1][5] == 't') {
+            jPanel27.setBackground(Color.pink);
+        }
+        if (board1[2][5] == 't') {
+            jPanel28.setBackground(Color.pink);
+        }
+        if (board1[3][5] == 't') {
+            jPanel29.setBackground(Color.pink);
+        }
+        if (board1[4][5] == 't') {
+            jPanel30.setBackground(Color.pink);
+        }
+        if (board1[0][6] == 't') {
+            jPanel31.setBackground(Color.pink);
+        }
+        if (board1[1][6] == 't') {
+            jPanel32.setBackground(Color.pink);
+        }
+        if (board1[2][6] == 't') {
+            jPanel33.setBackground(Color.pink);
+        }
+        if (board1[3][6] == 't') {
+            jPanel34.setBackground(Color.pink);
+        }
+        if (board1[4][6] == 't') {
+            jPanel35.setBackground(Color.pink);
+        }
+        if (board1[0][7] == 't') {
+            jPanel36.setBackground(Color.pink);
+        }
+        if (board1[1][7] == 't') {
+            jPanel37.setBackground(Color.pink);
+        }
+        if (board1[2][7] == 't') {
+            jPanel38.setBackground(Color.pink);
+        }
+        if (board1[3][7] == 't') {
+            jPanel39.setBackground(Color.pink);
+        }
+        if (board1[4][7] == 't') {
+            jPanel40.setBackground(Color.pink);
+        }
+        if (board1[0][8] == 't') {
+            jPanel41.setBackground(Color.pink);
+        }
+        if (board1[1][8] == 't') {
+            jPanel42.setBackground(Color.pink);
+        }
+        if (board1[2][8] == 't') {
+            jPanel43.setBackground(Color.pink);
+        }
+        if (board1[3][8] == 't') {
+            jPanel44.setBackground(Color.pink);
+        }
+        if (board1[4][8] == 't') {
+            jPanel45.setBackground(Color.pink);
+        }
+        if (board1[0][9] == 't') {
+            jPanel46.setBackground(Color.pink);
+        }
+        if (board1[1][9] == 't') {
+            jPanel47.setBackground(Color.pink);
+        }
+        if (board1[2][9] == 't') {
+            jPanel48.setBackground(Color.pink);
+        }
+        if (board1[3][9] == 't') {
+            jPanel49.setBackground(Color.pink);
+        }
+        if (board1[4][9] == 't') {
+            jPanel50.setBackground(Color.pink);
+        }
+
+        if (board1[0][10] == 't') {
+            jPanel51.setBackground(Color.pink);
+        }
+        if (board1[1][10] == 't') {
+            jPanel52.setBackground(Color.pink);
+        }
+        if (board1[2][10] == 't') {
+            jPanel53.setBackground(Color.pink);
+        }
+        if (board1[3][10] == 't') {
+            jPanel54.setBackground(Color.pink);
+        }
+        if (board1[4][10] == 't') {
+            jPanel55.setBackground(Color.pink);
+        }
+        if (board1[0][11] == 't') {
+            jPanel56.setBackground(Color.pink);
+        }
+        if (board1[1][11] == 't') {
+            jPanel57.setBackground(Color.pink);
+        }
+        if (board1[2][11] == 't') {
+            jPanel58.setBackground(Color.pink);
+        }
+        if (board1[3][11] == 't') {
+            jPanel59.setBackground(Color.pink);
+        }
+        if (board1[4][11] == 't') {
+            jPanel60.setBackground(Color.pink);
+        }
+        if (board1[0][12] == 't') {
+            jPanel61.setBackground(Color.pink);
+        }
+        if (board1[1][12] == 't') {
+            jPanel62.setBackground(Color.pink);
+        }
+        if (board1[2][12] == 't') {
+            jPanel63.setBackground(Color.pink);
+        }
+        if (board1[3][12] == 't') {
+            jPanel64.setBackground(Color.pink);
+        }
+        if (board1[4][12] == 't') {
+            jPanel65.setBackground(Color.pink);
+        }
+        if (board1[0][13] == 't') {
+            jPanel66.setBackground(Color.pink);
+        }
+        if (board1[1][13] == 't') {
+            jPanel67.setBackground(Color.pink);
+        }
+        if (board1[2][13] == 't') {
+            jPanel68.setBackground(Color.pink);
+        }
+        if (board1[3][13] == 't') {
+            jPanel69.setBackground(Color.pink);
+        }
+        if (board1[4][13] == 't') {
+            jPanel70.setBackground(Color.pink);
+        }
+        if (board1[0][14] == 't') {
+            jPanel71.setBackground(Color.pink);
+        }
+        if (board1[1][14] == 't') {
+            jPanel72.setBackground(Color.pink);
+        }
+        if (board1[2][14] == 't') {
+            jPanel73.setBackground(Color.pink);
+        }
+        if (board1[3][14] == 't') {
+            jPanel74.setBackground(Color.pink);
+        }
+        if (board1[4][14] == 't') {
+            jPanel75.setBackground(Color.pink);
+        }
+
+        //----------------------------------------------
+        //makes yellow
+        if (board1[0][0] == 'z') {
+            jPanel1.setBackground(Color.yellow);
+        }
+        if (board1[1][0] == 'z') {
+            jPanel2.setBackground(Color.yellow);
+        }
+        if (board1[2][0] == 'z') {
+            jPanel3.setBackground(Color.yellow);
+        }
+        if (board1[3][0] == 'z') {
+            jPanel4.setBackground(Color.yellow);
+        }
+        if (board1[4][0] == 'z') {
+            jPanel5.setBackground(Color.yellow);
+        }
+        if (board1[0][1] == 'z') {
+            jPanel6.setBackground(Color.yellow);
+        }
+        if (board1[1][1] == 'z') {
+            jPanel7.setBackground(Color.yellow);
+        }
+        if (board1[2][1] == 'z') {
+            jPanel8.setBackground(Color.yellow);
+        }
+        if (board1[3][1] == 'z') {
+            jPanel9.setBackground(Color.yellow);
+        }
+        if (board1[4][1] == 'z') {
+            jPanel10.setBackground(Color.yellow);
+        }
+        if (board1[0][2] == 'z') {
+            jPanel11.setBackground(Color.yellow);
+        }
+        if (board1[1][2] == 'z') {
+            jPanel12.setBackground(Color.yellow);
+        }
+        if (board1[2][2] == 'z') {
+            jPanel13.setBackground(Color.yellow);
+        }
+        if (board1[3][2] == 'z') {
+            jPanel14.setBackground(Color.yellow);
+        }
+        if (board1[4][2] == 'z') {
+            jPanel15.setBackground(Color.yellow);
+        }
+        if (board1[0][3] == 'z') {
+            jPanel16.setBackground(Color.yellow);
+        }
+        if (board1[1][3] == 'z') {
+            jPanel17.setBackground(Color.yellow);
+        }
+        if (board1[2][3] == 'z') {
+            jPanel18.setBackground(Color.yellow);
+        }
+        if (board1[3][3] == 'z') {
+            jPanel19.setBackground(Color.yellow);
+        }
+        if (board1[4][3] == 'z') {
+            jPanel20.setBackground(Color.yellow);
+        }
+        if (board1[0][4] == 'z') {
+            jPanel21.setBackground(Color.yellow);
+        }
+        if (board1[1][4] == 'z') {
+            jPanel22.setBackground(Color.yellow);
+        }
+        if (board1[2][4] == 'z') {
+            jPanel23.setBackground(Color.yellow);
+        }
+        if (board1[3][4] == 'z') {
+            jPanel24.setBackground(Color.yellow);
+        }
+        if (board1[4][4] == 'z') {
+            jPanel25.setBackground(Color.yellow);
+        }
+
+        if (board1[0][5] == 'z') {
+            jPanel26.setBackground(Color.yellow);
+        }
+        if (board1[1][5] == 'z') {
+            jPanel27.setBackground(Color.yellow);
+        }
+        if (board1[2][5] == 'z') {
+            jPanel28.setBackground(Color.yellow);
+        }
+        if (board1[3][5] == 'z') {
+            jPanel29.setBackground(Color.yellow);
+        }
+        if (board1[4][5] == 'z') {
+            jPanel30.setBackground(Color.yellow);
+        }
+        if (board1[0][6] == 'z') {
+            jPanel31.setBackground(Color.yellow);
+        }
+        if (board1[1][6] == 'z') {
+            jPanel32.setBackground(Color.yellow);
+        }
+        if (board1[2][6] == 'z') {
+            jPanel33.setBackground(Color.yellow);
+        }
+        if (board1[3][6] == 'z') {
+            jPanel34.setBackground(Color.yellow);
+        }
+        if (board1[4][6] == 'z') {
+            jPanel35.setBackground(Color.yellow);
+        }
+        if (board1[0][7] == 'z') {
+            jPanel36.setBackground(Color.yellow);
+        }
+        if (board1[1][7] == 'z') {
+            jPanel37.setBackground(Color.yellow);
+        }
+        if (board1[2][7] == 'z') {
+            jPanel38.setBackground(Color.yellow);
+        }
+        if (board1[3][7] == 'z') {
+            jPanel39.setBackground(Color.yellow);
+        }
+        if (board1[4][7] == 'z') {
+            jPanel40.setBackground(Color.yellow);
+        }
+        if (board1[0][8] == 'z') {
+            jPanel41.setBackground(Color.yellow);
+        }
+        if (board1[1][8] == 'z') {
+            jPanel42.setBackground(Color.yellow);
+        }
+        if (board1[2][8] == 'z') {
+            jPanel43.setBackground(Color.yellow);
+        }
+        if (board1[3][8] == 'z') {
+            jPanel44.setBackground(Color.yellow);
+        }
+        if (board1[4][8] == 'z') {
+            jPanel45.setBackground(Color.yellow);
+        }
+        if (board1[0][9] == 'z') {
+            jPanel46.setBackground(Color.yellow);
+        }
+        if (board1[1][9] == 'z') {
+            jPanel47.setBackground(Color.yellow);
+        }
+        if (board1[2][9] == 'z') {
+            jPanel48.setBackground(Color.yellow);
+        }
+        if (board1[3][9] == 'z') {
+            jPanel49.setBackground(Color.yellow);
+        }
+        if (board1[4][9] == 'z') {
+            jPanel50.setBackground(Color.yellow);
+        }
+
+        if (board1[0][10] == 'z') {
+            jPanel51.setBackground(Color.yellow);
+        }
+        if (board1[1][10] == 'z') {
+            jPanel52.setBackground(Color.yellow);
+        }
+        if (board1[2][10] == 'z') {
+            jPanel53.setBackground(Color.yellow);
+        }
+        if (board1[3][10] == 'z') {
+            jPanel54.setBackground(Color.yellow);
+        }
+        if (board1[4][10] == 'z') {
+            jPanel55.setBackground(Color.yellow);
+        }
+        if (board1[0][11] == 'z') {
+            jPanel56.setBackground(Color.yellow);
+        }
+        if (board1[1][11] == 'z') {
+            jPanel57.setBackground(Color.yellow);
+        }
+        if (board1[2][11] == 'z') {
+            jPanel58.setBackground(Color.yellow);
+        }
+        if (board1[3][11] == 'z') {
+            jPanel59.setBackground(Color.yellow);
+        }
+        if (board1[4][11] == 'z') {
+            jPanel60.setBackground(Color.yellow);
+        }
+        if (board1[0][12] == 'z') {
+            jPanel61.setBackground(Color.yellow);
+        }
+        if (board1[1][12] == 'z') {
+            jPanel62.setBackground(Color.yellow);
+        }
+        if (board1[2][12] == 'z') {
+            jPanel63.setBackground(Color.yellow);
+        }
+        if (board1[3][12] == 'z') {
+            jPanel64.setBackground(Color.yellow);
+        }
+        if (board1[4][12] == 'z') {
+            jPanel65.setBackground(Color.yellow);
+        }
+        if (board1[0][13] == 'z') {
+            jPanel66.setBackground(Color.yellow);
+        }
+        if (board1[1][13] == 'z') {
+            jPanel67.setBackground(Color.yellow);
+        }
+        if (board1[2][13] == 'z') {
+            jPanel68.setBackground(Color.yellow);
+        }
+        if (board1[3][13] == 'z') {
+            jPanel69.setBackground(Color.yellow);
+        }
+        if (board1[4][13] == 'z') {
+            jPanel70.setBackground(Color.yellow);
+        }
+        if (board1[0][14] == 'z') {
+            jPanel71.setBackground(Color.yellow);
+        }
+        if (board1[1][14] == 'z') {
+            jPanel72.setBackground(Color.yellow);
+        }
+        if (board1[2][14] == 'z') {
+            jPanel73.setBackground(Color.yellow);
+        }
+        if (board1[3][14] == 'z') {
+            jPanel74.setBackground(Color.yellow);
+        }
+        if (board1[4][14] == 'z') {
+            jPanel75.setBackground(Color.yellow);
+        }
+
+        //----------------------------------------------
+        //makes black
+        if (board1[0][0] == 'u') {
+            jPanel1.setBackground(Color.black);
+        }
+        if (board1[1][0] == 'u') {
+            jPanel2.setBackground(Color.black);
+        }
+        if (board1[2][0] == 'u') {
+            jPanel3.setBackground(Color.black);
+        }
+        if (board1[3][0] == 'u') {
+            jPanel4.setBackground(Color.black);
+        }
+        if (board1[4][0] == 'u') {
+            jPanel5.setBackground(Color.black);
+        }
+        if (board1[0][1] == 'u') {
+            jPanel6.setBackground(Color.black);
+        }
+        if (board1[1][1] == 'u') {
+            jPanel7.setBackground(Color.black);
+        }
+        if (board1[2][1] == 'u') {
+            jPanel8.setBackground(Color.black);
+        }
+        if (board1[3][1] == 'u') {
+            jPanel9.setBackground(Color.black);
+        }
+        if (board1[4][1] == 'u') {
+            jPanel10.setBackground(Color.black);
+        }
+        if (board1[0][2] == 'u') {
+            jPanel11.setBackground(Color.black);
+        }
+        if (board1[1][2] == 'u') {
+            jPanel12.setBackground(Color.black);
+        }
+        if (board1[2][2] == 'u') {
+            jPanel13.setBackground(Color.black);
+        }
+        if (board1[3][2] == 'u') {
+            jPanel14.setBackground(Color.black);
+        }
+        if (board1[4][2] == 'u') {
+            jPanel15.setBackground(Color.black);
+        }
+        if (board1[0][3] == 'u') {
+            jPanel16.setBackground(Color.black);
+        }
+        if (board1[1][3] == 'u') {
+            jPanel17.setBackground(Color.black);
+        }
+        if (board1[2][3] == 'u') {
+            jPanel18.setBackground(Color.black);
+        }
+        if (board1[3][3] == 'u') {
+            jPanel19.setBackground(Color.black);
+        }
+        if (board1[4][3] == 'u') {
+            jPanel20.setBackground(Color.black);
+        }
+        if (board1[0][4] == 'u') {
+            jPanel21.setBackground(Color.black);
+        }
+        if (board1[1][4] == 'u') {
+            jPanel22.setBackground(Color.black);
+        }
+        if (board1[2][4] == 'u') {
+            jPanel23.setBackground(Color.black);
+        }
+        if (board1[3][4] == 'u') {
+            jPanel24.setBackground(Color.black);
+        }
+        if (board1[4][4] == 'u') {
+            jPanel25.setBackground(Color.black);
+        }
+
+        if (board1[0][5] == 'u') {
+            jPanel26.setBackground(Color.black);
+        }
+        if (board1[1][5] == 'u') {
+            jPanel27.setBackground(Color.black);
+        }
+        if (board1[2][5] == 'u') {
+            jPanel28.setBackground(Color.black);
+        }
+        if (board1[3][5] == 'u') {
+            jPanel29.setBackground(Color.black);
+        }
+        if (board1[4][5] == 'u') {
+            jPanel30.setBackground(Color.black);
+        }
+        if (board1[0][6] == 'u') {
+            jPanel31.setBackground(Color.black);
+        }
+        if (board1[1][6] == 'u') {
+            jPanel32.setBackground(Color.black);
+        }
+        if (board1[2][6] == 'u') {
+            jPanel33.setBackground(Color.black);
+        }
+        if (board1[3][6] == 'u') {
+            jPanel34.setBackground(Color.black);
+        }
+        if (board1[4][6] == 'u') {
+            jPanel35.setBackground(Color.black);
+        }
+        if (board1[0][7] == 'u') {
+            jPanel36.setBackground(Color.black);
+        }
+        if (board1[1][7] == 'u') {
+            jPanel37.setBackground(Color.black);
+        }
+        if (board1[2][7] == 'u') {
+            jPanel38.setBackground(Color.black);
+        }
+        if (board1[3][7] == 'u') {
+            jPanel39.setBackground(Color.black);
+        }
+        if (board1[4][7] == 'u') {
+            jPanel40.setBackground(Color.black);
+        }
+        if (board1[0][8] == 'u') {
+            jPanel41.setBackground(Color.black);
+        }
+        if (board1[1][8] == 'u') {
+            jPanel42.setBackground(Color.black);
+        }
+        if (board1[2][8] == 'u') {
+            jPanel43.setBackground(Color.black);
+        }
+        if (board1[3][8] == 'u') {
+            jPanel44.setBackground(Color.black);
+        }
+        if (board1[4][8] == 'u') {
+            jPanel45.setBackground(Color.black);
+        }
+        if (board1[0][9] == 'u') {
+            jPanel46.setBackground(Color.black);
+        }
+        if (board1[1][9] == 'u') {
+            jPanel47.setBackground(Color.black);
+        }
+        if (board1[2][9] == 'u') {
+            jPanel48.setBackground(Color.black);
+        }
+        if (board1[3][9] == 'u') {
+            jPanel49.setBackground(Color.black);
+        }
+        if (board1[4][9] == 'u') {
+            jPanel50.setBackground(Color.black);
+        }
+
+        if (board1[0][10] == 'u') {
+            jPanel51.setBackground(Color.black);
+        }
+        if (board1[1][10] == 'u') {
+            jPanel52.setBackground(Color.black);
+        }
+        if (board1[2][10] == 'u') {
+            jPanel53.setBackground(Color.black);
+        }
+        if (board1[3][10] == 'u') {
+            jPanel54.setBackground(Color.black);
+        }
+        if (board1[4][10] == 'u') {
+            jPanel55.setBackground(Color.black);
+        }
+        if (board1[0][11] == 'u') {
+            jPanel56.setBackground(Color.black);
+        }
+        if (board1[1][11] == 'u') {
+            jPanel57.setBackground(Color.black);
+        }
+        if (board1[2][11] == 'u') {
+            jPanel58.setBackground(Color.black);
+        }
+        if (board1[3][11] == 'u') {
+            jPanel59.setBackground(Color.black);
+        }
+        if (board1[4][11] == 'u') {
+            jPanel60.setBackground(Color.black);
+        }
+        if (board1[0][12] == 'u') {
+            jPanel61.setBackground(Color.black);
+        }
+        if (board1[1][12] == 'u') {
+            jPanel62.setBackground(Color.black);
+        }
+        if (board1[2][12] == 'u') {
+            jPanel63.setBackground(Color.black);
+        }
+        if (board1[3][12] == 'u') {
+            jPanel64.setBackground(Color.black);
+        }
+        if (board1[4][12] == 'u') {
+            jPanel65.setBackground(Color.black);
+        }
+        if (board1[0][13] == 'u') {
+            jPanel66.setBackground(Color.black);
+        }
+        if (board1[1][13] == 'u') {
+            jPanel67.setBackground(Color.black);
+        }
+        if (board1[2][13] == 'u') {
+            jPanel68.setBackground(Color.black);
+        }
+        if (board1[3][13] == 'u') {
+            jPanel69.setBackground(Color.black);
+        }
+        if (board1[4][13] == 'u') {
+            jPanel70.setBackground(Color.black);
+        }
+        if (board1[0][14] == 'u') {
+            jPanel71.setBackground(Color.black);
+        }
+        if (board1[1][14] == 'u') {
+            jPanel72.setBackground(Color.black);
+        }
+        if (board1[2][14] == 'u') {
+            jPanel73.setBackground(Color.black);
+        }
+        if (board1[3][14] == 'u') {
+            jPanel74.setBackground(Color.black);
+        }
+        if (board1[4][14] == 'u') {
+            jPanel75.setBackground(Color.black);
+        }
+
+        //----------------------------------------------
+        //makes darkGray
+        if (board1[0][0] == 'n') {
+            jPanel1.setBackground(Color.darkGray);
+        }
+        if (board1[1][0] == 'n') {
+            jPanel2.setBackground(Color.darkGray);
+        }
+        if (board1[2][0] == 'n') {
+            jPanel3.setBackground(Color.darkGray);
+        }
+        if (board1[3][0] == 'n') {
+            jPanel4.setBackground(Color.darkGray);
+        }
+        if (board1[4][0] == 'n') {
+            jPanel5.setBackground(Color.darkGray);
+        }
+        if (board1[0][1] == 'n') {
+            jPanel6.setBackground(Color.darkGray);
+        }
+        if (board1[1][1] == 'n') {
+            jPanel7.setBackground(Color.darkGray);
+        }
+        if (board1[2][1] == 'n') {
+            jPanel8.setBackground(Color.darkGray);
+        }
+        if (board1[3][1] == 'n') {
+            jPanel9.setBackground(Color.darkGray);
+        }
+        if (board1[4][1] == 'n') {
+            jPanel10.setBackground(Color.darkGray);
+        }
+        if (board1[0][2] == 'n') {
+            jPanel11.setBackground(Color.darkGray);
+        }
+        if (board1[1][2] == 'n') {
+            jPanel12.setBackground(Color.darkGray);
+        }
+        if (board1[2][2] == 'n') {
+            jPanel13.setBackground(Color.darkGray);
+        }
+        if (board1[3][2] == 'n') {
+            jPanel14.setBackground(Color.darkGray);
+        }
+        if (board1[4][2] == 'n') {
+            jPanel15.setBackground(Color.darkGray);
+        }
+        if (board1[0][3] == 'n') {
+            jPanel16.setBackground(Color.darkGray);
+        }
+        if (board1[1][3] == 'n') {
+            jPanel17.setBackground(Color.darkGray);
+        }
+        if (board1[2][3] == 'n') {
+            jPanel18.setBackground(Color.darkGray);
+        }
+        if (board1[3][3] == 'n') {
+            jPanel19.setBackground(Color.darkGray);
+        }
+        if (board1[4][3] == 'n') {
+            jPanel20.setBackground(Color.darkGray);
+        }
+        if (board1[0][4] == 'n') {
+            jPanel21.setBackground(Color.darkGray);
+        }
+        if (board1[1][4] == 'n') {
+            jPanel22.setBackground(Color.darkGray);
+        }
+        if (board1[2][4] == 'n') {
+            jPanel23.setBackground(Color.darkGray);
+        }
+        if (board1[3][4] == 'n') {
+            jPanel24.setBackground(Color.darkGray);
+        }
+        if (board1[4][4] == 'n') {
+            jPanel25.setBackground(Color.darkGray);
+        }
+
+        if (board1[0][5] == 'n') {
+            jPanel26.setBackground(Color.darkGray);
+        }
+        if (board1[1][5] == 'n') {
+            jPanel27.setBackground(Color.darkGray);
+        }
+        if (board1[2][5] == 'n') {
+            jPanel28.setBackground(Color.darkGray);
+        }
+        if (board1[3][5] == 'n') {
+            jPanel29.setBackground(Color.darkGray);
+        }
+        if (board1[4][5] == 'n') {
+            jPanel30.setBackground(Color.darkGray);
+        }
+        if (board1[0][6] == 'n') {
+            jPanel31.setBackground(Color.darkGray);
+        }
+        if (board1[1][6] == 'n') {
+            jPanel32.setBackground(Color.darkGray);
+        }
+        if (board1[2][6] == 'n') {
+            jPanel33.setBackground(Color.darkGray);
+        }
+        if (board1[3][6] == 'n') {
+            jPanel34.setBackground(Color.darkGray);
+        }
+        if (board1[4][6] == 'n') {
+            jPanel35.setBackground(Color.darkGray);
+        }
+        if (board1[0][7] == 'n') {
+            jPanel36.setBackground(Color.darkGray);
+        }
+        if (board1[1][7] == 'n') {
+            jPanel37.setBackground(Color.darkGray);
+        }
+        if (board1[2][7] == 'n') {
+            jPanel38.setBackground(Color.darkGray);
+        }
+        if (board1[3][7] == 'n') {
+            jPanel39.setBackground(Color.darkGray);
+        }
+        if (board1[4][7] == 'n') {
+            jPanel40.setBackground(Color.darkGray);
+        }
+        if (board1[0][8] == 'n') {
+            jPanel41.setBackground(Color.darkGray);
+        }
+        if (board1[1][8] == 'n') {
+            jPanel42.setBackground(Color.darkGray);
+        }
+        if (board1[2][8] == 'n') {
+            jPanel43.setBackground(Color.darkGray);
+        }
+        if (board1[3][8] == 'n') {
+            jPanel44.setBackground(Color.darkGray);
+        }
+        if (board1[4][8] == 'n') {
+            jPanel45.setBackground(Color.darkGray);
+        }
+        if (board1[0][9] == 'n') {
+            jPanel46.setBackground(Color.darkGray);
+        }
+        if (board1[1][9] == 'n') {
+            jPanel47.setBackground(Color.darkGray);
+        }
+        if (board1[2][9] == 'n') {
+            jPanel48.setBackground(Color.darkGray);
+        }
+        if (board1[3][9] == 'n') {
+            jPanel49.setBackground(Color.darkGray);
+        }
+        if (board1[4][9] == 'n') {
+            jPanel50.setBackground(Color.darkGray);
+        }
+
+        if (board1[0][10] == 'n') {
+            jPanel51.setBackground(Color.darkGray);
+        }
+        if (board1[1][10] == 'n') {
+            jPanel52.setBackground(Color.darkGray);
+        }
+        if (board1[2][10] == 'n') {
+            jPanel53.setBackground(Color.darkGray);
+        }
+        if (board1[3][10] == 'n') {
+            jPanel54.setBackground(Color.darkGray);
+        }
+        if (board1[4][10] == 'n') {
+            jPanel55.setBackground(Color.darkGray);
+        }
+        if (board1[0][11] == 'n') {
+            jPanel56.setBackground(Color.darkGray);
+        }
+        if (board1[1][11] == 'n') {
+            jPanel57.setBackground(Color.darkGray);
+        }
+        if (board1[2][11] == 'n') {
+            jPanel58.setBackground(Color.darkGray);
+        }
+        if (board1[3][11] == 'n') {
+            jPanel59.setBackground(Color.darkGray);
+        }
+        if (board1[4][11] == 'n') {
+            jPanel60.setBackground(Color.darkGray);
+        }
+        if (board1[0][12] == 'n') {
+            jPanel61.setBackground(Color.darkGray);
+        }
+        if (board1[1][12] == 'n') {
+            jPanel62.setBackground(Color.darkGray);
+        }
+        if (board1[2][12] == 'n') {
+            jPanel63.setBackground(Color.darkGray);
+        }
+        if (board1[3][12] == 'n') {
+            jPanel64.setBackground(Color.darkGray);
+        }
+        if (board1[4][12] == 'n') {
+            jPanel65.setBackground(Color.darkGray);
+        }
+        if (board1[0][13] == 'n') {
+            jPanel66.setBackground(Color.darkGray);
+        }
+        if (board1[1][13] == 'n') {
+            jPanel67.setBackground(Color.darkGray);
+        }
+        if (board1[2][13] == 'n') {
+            jPanel68.setBackground(Color.darkGray);
+        }
+        if (board1[3][13] == 'n') {
+            jPanel69.setBackground(Color.darkGray);
+        }
+        if (board1[4][13] == 'n') {
+            jPanel70.setBackground(Color.darkGray);
+        }
+        if (board1[0][14] == 'n') {
+            jPanel71.setBackground(Color.darkGray);
+        }
+        if (board1[1][14] == 'n') {
+            jPanel72.setBackground(Color.darkGray);
+        }
+        if (board1[2][14] == 'n') {
+            jPanel73.setBackground(Color.darkGray);
+        }
+        if (board1[3][14] == 'n') {
+            jPanel74.setBackground(Color.darkGray);
+        }
+        if (board1[4][14] == 'n') {
+            jPanel75.setBackground(Color.darkGray);
+        }
+
+        //----------------------------------------------
+        //makes lightGray
+        if (board1[0][0] == 'l') {
+            jPanel1.setBackground(Color.lightGray);
+        }
+        if (board1[1][0] == 'l') {
+            jPanel2.setBackground(Color.lightGray);
+        }
+        if (board1[2][0] == 'l') {
+            jPanel3.setBackground(Color.lightGray);
+        }
+        if (board1[3][0] == 'l') {
+            jPanel4.setBackground(Color.lightGray);
+        }
+        if (board1[4][0] == 'l') {
+            jPanel5.setBackground(Color.lightGray);
+        }
+        if (board1[0][1] == 'l') {
+            jPanel6.setBackground(Color.lightGray);
+        }
+        if (board1[1][1] == 'l') {
+            jPanel7.setBackground(Color.lightGray);
+        }
+        if (board1[2][1] == 'l') {
+            jPanel8.setBackground(Color.lightGray);
+        }
+        if (board1[3][1] == 'l') {
+            jPanel9.setBackground(Color.lightGray);
+        }
+        if (board1[4][1] == 'l') {
+            jPanel10.setBackground(Color.lightGray);
+        }
+        if (board1[0][2] == 'l') {
+            jPanel11.setBackground(Color.lightGray);
+        }
+        if (board1[1][2] == 'l') {
+            jPanel12.setBackground(Color.lightGray);
+        }
+        if (board1[2][2] == 'l') {
+            jPanel13.setBackground(Color.lightGray);
+        }
+        if (board1[3][2] == 'l') {
+            jPanel14.setBackground(Color.lightGray);
+        }
+        if (board1[4][2] == 'l') {
+            jPanel15.setBackground(Color.lightGray);
+        }
+        if (board1[0][3] == 'l') {
+            jPanel16.setBackground(Color.lightGray);
+        }
+        if (board1[1][3] == 'l') {
+            jPanel17.setBackground(Color.lightGray);
+        }
+        if (board1[2][3] == 'l') {
+            jPanel18.setBackground(Color.lightGray);
+        }
+        if (board1[3][3] == 'l') {
+            jPanel19.setBackground(Color.lightGray);
+        }
+        if (board1[4][3] == 'l') {
+            jPanel20.setBackground(Color.lightGray);
+        }
+        if (board1[0][4] == 'l') {
+            jPanel21.setBackground(Color.lightGray);
+        }
+        if (board1[1][4] == 'l') {
+            jPanel22.setBackground(Color.lightGray);
+        }
+        if (board1[2][4] == 'l') {
+            jPanel23.setBackground(Color.lightGray);
+        }
+        if (board1[3][4] == 'l') {
+            jPanel24.setBackground(Color.lightGray);
+        }
+        if (board1[4][4] == 'l') {
+            jPanel25.setBackground(Color.lightGray);
+        }
+
+        if (board1[0][5] == 'l') {
+            jPanel26.setBackground(Color.lightGray);
+        }
+        if (board1[1][5] == 'l') {
+            jPanel27.setBackground(Color.lightGray);
+        }
+        if (board1[2][5] == 'l') {
+            jPanel28.setBackground(Color.lightGray);
+        }
+        if (board1[3][5] == 'l') {
+            jPanel29.setBackground(Color.lightGray);
+        }
+        if (board1[4][5] == 'l') {
+            jPanel30.setBackground(Color.lightGray);
+        }
+        if (board1[0][6] == 'l') {
+            jPanel31.setBackground(Color.lightGray);
+        }
+        if (board1[1][6] == 'l') {
+            jPanel32.setBackground(Color.lightGray);
+        }
+        if (board1[2][6] == 'l') {
+            jPanel33.setBackground(Color.lightGray);
+        }
+        if (board1[3][6] == 'l') {
+            jPanel34.setBackground(Color.lightGray);
+        }
+        if (board1[4][6] == 'l') {
+            jPanel35.setBackground(Color.lightGray);
+        }
+        if (board1[0][7] == 'l') {
+            jPanel36.setBackground(Color.lightGray);
+        }
+        if (board1[1][7] == 'l') {
+            jPanel37.setBackground(Color.lightGray);
+        }
+        if (board1[2][7] == 'l') {
+            jPanel38.setBackground(Color.lightGray);
+        }
+        if (board1[3][7] == 'l') {
+            jPanel39.setBackground(Color.lightGray);
+        }
+        if (board1[4][7] == 'l') {
+            jPanel40.setBackground(Color.lightGray);
+        }
+        if (board1[0][8] == 'l') {
+            jPanel41.setBackground(Color.lightGray);
+        }
+        if (board1[1][8] == 'l') {
+            jPanel42.setBackground(Color.lightGray);
+        }
+        if (board1[2][8] == 'l') {
+            jPanel43.setBackground(Color.lightGray);
+        }
+        if (board1[3][8] == 'l') {
+            jPanel44.setBackground(Color.lightGray);
+        }
+        if (board1[4][8] == 'l') {
+            jPanel45.setBackground(Color.lightGray);
+        }
+        if (board1[0][9] == 'l') {
+            jPanel46.setBackground(Color.lightGray);
+        }
+        if (board1[1][9] == 'l') {
+            jPanel47.setBackground(Color.lightGray);
+        }
+        if (board1[2][9] == 'l') {
+            jPanel48.setBackground(Color.lightGray);
+        }
+        if (board1[3][9] == 'l') {
+            jPanel49.setBackground(Color.lightGray);
+        }
+        if (board1[4][9] == 'l') {
+            jPanel50.setBackground(Color.lightGray);
+        }
+
+        if (board1[0][10] == 'l') {
+            jPanel51.setBackground(Color.lightGray);
+        }
+        if (board1[1][10] == 'l') {
+            jPanel52.setBackground(Color.lightGray);
+        }
+        if (board1[2][10] == 'l') {
+            jPanel53.setBackground(Color.lightGray);
+        }
+        if (board1[3][10] == 'l') {
+            jPanel54.setBackground(Color.lightGray);
+        }
+        if (board1[4][10] == 'l') {
+            jPanel55.setBackground(Color.lightGray);
+        }
+        if (board1[0][11] == 'l') {
+            jPanel56.setBackground(Color.lightGray);
+        }
+        if (board1[1][11] == 'l') {
+            jPanel57.setBackground(Color.lightGray);
+        }
+        if (board1[2][11] == 'l') {
+            jPanel58.setBackground(Color.lightGray);
+        }
+        if (board1[3][11] == 'l') {
+            jPanel59.setBackground(Color.lightGray);
+        }
+        if (board1[4][11] == 'l') {
+            jPanel60.setBackground(Color.lightGray);
+        }
+        if (board1[0][12] == 'l') {
+            jPanel61.setBackground(Color.lightGray);
+        }
+        if (board1[1][12] == 'l') {
+            jPanel62.setBackground(Color.lightGray);
+        }
+        if (board1[2][12] == 'l') {
+            jPanel63.setBackground(Color.lightGray);
+        }
+        if (board1[3][12] == 'l') {
+            jPanel64.setBackground(Color.lightGray);
+        }
+        if (board1[4][12] == 'l') {
+            jPanel65.setBackground(Color.lightGray);
+        }
+        if (board1[0][13] == 'l') {
+            jPanel66.setBackground(Color.lightGray);
+        }
+        if (board1[1][13] == 'l') {
+            jPanel67.setBackground(Color.lightGray);
+        }
+        if (board1[2][13] == 'l') {
+            jPanel68.setBackground(Color.lightGray);
+        }
+        if (board1[3][13] == 'l') {
+            jPanel69.setBackground(Color.lightGray);
+        }
+        if (board1[4][13] == 'l') {
+            jPanel70.setBackground(Color.lightGray);
+        }
+        if (board1[0][14] == 'l') {
+            jPanel71.setBackground(Color.lightGray);
+        }
+        if (board1[1][14] == 'l') {
+            jPanel72.setBackground(Color.lightGray);
+        }
+        if (board1[2][14] == 'l') {
+            jPanel73.setBackground(Color.lightGray);
+        }
+        if (board1[3][14] == 'l') {
+            jPanel74.setBackground(Color.lightGray);
+        }
+        if (board1[4][14] == 'l') {
+            jPanel75.setBackground(Color.lightGray);
+        }
+
+    }
 
     /**
      * @param args the command line arguments
@@ -126,7 +4731,102 @@ public class UI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton exitButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelDebug1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel30;
+    private javax.swing.JPanel jPanel31;
+    private javax.swing.JPanel jPanel32;
+    private javax.swing.JPanel jPanel33;
+    private javax.swing.JPanel jPanel34;
+    private javax.swing.JPanel jPanel35;
+    private javax.swing.JPanel jPanel36;
+    private javax.swing.JPanel jPanel37;
+    private javax.swing.JPanel jPanel38;
+    private javax.swing.JPanel jPanel39;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel40;
+    private javax.swing.JPanel jPanel41;
+    private javax.swing.JPanel jPanel42;
+    private javax.swing.JPanel jPanel43;
+    private javax.swing.JPanel jPanel44;
+    private javax.swing.JPanel jPanel45;
+    private javax.swing.JPanel jPanel46;
+    private javax.swing.JPanel jPanel47;
+    private javax.swing.JPanel jPanel48;
+    private javax.swing.JPanel jPanel49;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel50;
+    private javax.swing.JPanel jPanel51;
+    private javax.swing.JPanel jPanel52;
+    private javax.swing.JPanel jPanel53;
+    private javax.swing.JPanel jPanel54;
+    private javax.swing.JPanel jPanel55;
+    private javax.swing.JPanel jPanel56;
+    private javax.swing.JPanel jPanel57;
+    private javax.swing.JPanel jPanel58;
+    private javax.swing.JPanel jPanel59;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel60;
+    private javax.swing.JPanel jPanel61;
+    private javax.swing.JPanel jPanel62;
+    private javax.swing.JPanel jPanel63;
+    private javax.swing.JPanel jPanel64;
+    private javax.swing.JPanel jPanel65;
+    private javax.swing.JPanel jPanel66;
+    private javax.swing.JPanel jPanel67;
+    private javax.swing.JPanel jPanel68;
+    private javax.swing.JPanel jPanel69;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel70;
+    private javax.swing.JPanel jPanel71;
+    private javax.swing.JPanel jPanel72;
+    private javax.swing.JPanel jPanel73;
+    private javax.swing.JPanel jPanel74;
+    private javax.swing.JPanel jPanel75;
+    private javax.swing.JPanel jPanel76;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JTextField jTextFieldTest;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JButton muteButton;
+    private javax.swing.JButton newGameButton;
+    private javax.swing.JLabel score;
+    private javax.swing.JLabel scoreLabel;
+    private javax.swing.JButton testButton;
     // End of variables declaration//GEN-END:variables
+    private static char[][] board1 = new char[5][15];
+    Game game = new Game();
+    private final boolean DEBUG1 = true;
+    private boolean mute = false;
+    //private final javax.swing.JPanel[][] comp = {
+    //    {jPanel1,jPanel2,jPanel3,jPanel4,jPanel5},
+    //    {jPanel6,jPanel7,jPanel8,jPanel9,jPanel10},
+    //    {jPanel11,jPanel12,jPanel13,jPanel14,jPanel15},
+    //    {jPanel16,jPanel17,jPanel18,jPanel9,jPanel20},
+    //    {jPanel21,jPanel22,jPanel23,jPanel24,jPanel25}
+    // };
+
 }
