@@ -128,5 +128,22 @@ public class FinalBoard {
 			System.out.println();
 		}
 	}
+	
+	public String toString(){
+		String result = "";
+		
+		for(int row = 0; row < grid.length; row ++){
+			for(int col = 0; col < grid[row].length; col++)
+				if (grid[row][col] == 0) result += "0";
+				else result += grid[row][col];
+			result += "\n";
+		}
+		
+		return result;
+	}
+	
+	public char[][] getGrid(){
+		return grid;
+	}
 
 }
