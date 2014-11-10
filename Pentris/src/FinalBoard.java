@@ -120,4 +120,13 @@ public class FinalBoard {
 		return true;
 	}
 
+	public void print() {
+		for(int row = 0; row < grid.length; row ++){
+			for(int col = 0; col < grid[row].length; col++)
+				if (grid[row][col] == 0) System.out.print("0");
+				else System.out.print(grid[row][col]);
+			System.out.println();
+		}
+	}
+
 }

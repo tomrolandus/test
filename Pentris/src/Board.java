@@ -4,10 +4,10 @@ public class Board {
 	private Pentomino pent;
 	private int[] location;
 	final private static int DEFAULT_WIDTH = 5;
-	final private static int DEFAULT_HEIGTH = 15;
+	final private static int DEFAULT_HEIGHT = 15;
 	
 
-	public Board(int width, int height) {
+	public Board(int height, int width) {
 		this.width = width;
 		this.height = height;
 		pent = null;
@@ -15,7 +15,7 @@ public class Board {
 	}
 	
 	public Board() {
-		this(DEFAULT_WIDTH, DEFAULT_HEIGTH);		
+		this(DEFAULT_HEIGHT, DEFAULT_WIDTH);		
 	}
 	
 	public int getWidth() {
@@ -27,6 +27,7 @@ public class Board {
 	}
 
 	public void putPentomino(Pentomino pent, int[] location) {
+		System.out.println("put");
 		this.pent = pent;
 		this.location = location;
 	}
@@ -36,6 +37,7 @@ public class Board {
 	}
 
 	public void movePentomino(int[] relativeLocation) {
+		System.out.println("move");
 		location[0] = location[0] + relativeLocation[0];
 		location[1] = location[1] + relativeLocation[1];
 	}
