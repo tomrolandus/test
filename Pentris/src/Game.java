@@ -208,7 +208,10 @@ public class Game extends Observable {
 	}
 
 	private boolean checkGameOver() {
-		return fboard.checkHitCeiling();
+		if (fboard.checkHitCeiling()) {
+			return true;
+		}
+		return false;
 	}
 
 }
