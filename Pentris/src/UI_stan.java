@@ -86,7 +86,8 @@ public class UI_stan extends JFrame implements Observer {
                     return Color.darkGray;
                 case 'l':
                     return Color.lightGray;
-                    
+                case 'w':
+                    return Color.cyan;
             }
 		
 	}
