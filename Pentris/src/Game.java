@@ -81,7 +81,7 @@ public class Game extends Observable {
 	}
 
 	private void nextLevel() {
-		dropSpeed *= LEVEL_INCREASE;
+		//dropSpeed *= LEVEL_INCREASE;
 		level++;
 		System.out.println("Level Up");
 	}
