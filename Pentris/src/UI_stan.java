@@ -32,27 +32,23 @@ public class UI_stan extends JFrame implements Observer {
 
 		JPanel panel = new JPanel(new GridLayout(0, width));
 
-		//initiate panels
 		for (int row = 0; row < panels.length; row++)
 			for (int col = 0; col < panels[row].length; col++)
 				panels[row][col] = new JPanel();
 
-		//initiate colors
 		for (int row = 0; row < panels.length; row++)
 			for (int col = 0; col < panels[row].length; col++)
 				panels[row][col].setBackground(new Color(game.getFinalBoard()
 						.getGrid()[row][col] % 255));
 
-		//add panels to bigger panel
 		for (int row = 0; row < panels.length; row++)
 			for (int col = 0; col < panels[row].length; col++)
 				panel.add(panels[row][col]);
 
-		//add bigger panel to pane
 		contentPane.add(panel);
 
 		setTitle("Pentris");
-		setSize(100, 300);
+		setSize(500, 500);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
@@ -64,7 +60,34 @@ public class UI_stan extends JFrame implements Observer {
 	}
 
 	public Color getColor(char type) {
-		return new Color(type % 255, type % 255, type % 255);
+            switch(type){
+                default:
+                    return Color.white;
+                case 'f':
+                    return Color.red;
+                case 'p':
+                    return Color.blue;
+                case 'x':
+                    return Color.green;
+                case 'v':
+                    return Color.gray;
+                case 'y':
+                    return Color.magenta;
+                case 'i':
+                    return Color.orange;
+                case 't':
+                    return Color.pink;
+                case 'z':
+                    return Color.yellow;
+                case 'u':
+                    return Color.black;
+                case 'n':
+                    return Color.darkGray;
+                case 'l':
+                    return Color.lightGray;
+                    
+            }
+		
 	}
 
 	public void update(Observable obs, Object obj) {
@@ -83,7 +106,6 @@ public class UI_stan extends JFrame implements Observer {
 						panels[row][col].setBackground(getColor((char)0));
 
 				}
-			System.out.println("update");
 			ex.repaint();
 		}
 	}

@@ -25,7 +25,6 @@ public class Board {
 	}
 
 	public void putPentomino(Pentomino pent, int[] location) {
-		System.out.println("put");
 		this.pent = pent;
 		this.location = location;
 	}
@@ -35,7 +34,6 @@ public class Board {
 	}
 
 	public void movePentomino(int[] relativeLocation) {
-		System.out.println("move");
 		location[0] = location[0] + relativeLocation[0];
 		location[1] = location[1] + relativeLocation[1];
 	}
