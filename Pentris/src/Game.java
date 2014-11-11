@@ -185,8 +185,8 @@ public class Game extends Observable {
 				// Delete rows and count score
 				ArrayList<Integer> rowsToRemove = new ArrayList<Integer>();
 				for (int row = 0; row < currentPent.getHeight(); row++) {
-					row += board.getLocation()[1]; // get row in which the
-													// pentomino will be placed
+					row += board.getLocation()[1];  // get row in which the
+												    // pentomino will be placed
 					if (fboard.checkFullRow(row))
 						rowsToRemove.add(row);
 				}
@@ -198,7 +198,7 @@ public class Game extends Observable {
 				timer.purge();
 				timer = new Timer();
 			}
-			break game;
+			
 		}
 	}
 	

@@ -58,6 +58,11 @@ public class UI_stan extends JFrame implements Observer {
 		game.addObserver(ex);
 		ex.setVisible(true);
 		game.start();
+		while(true){
+			game = new Game();
+			game.addObserver(ex);
+			game.start();
+		}
 	}
 
 	public Color getColor(char type) {
@@ -140,8 +145,6 @@ public class UI_stan extends JFrame implements Observer {
 
 		@Override
 		public void keyReleased(KeyEvent e) {
-			System.out.println("keyReleased="
-					+ KeyEvent.getKeyText(e.getKeyCode()));
 		}
 	}
 
