@@ -5,7 +5,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -33,19 +32,23 @@ public class UI_stan extends JFrame implements Observer {
 
 		JPanel panel = new JPanel(new GridLayout(0, width));
 
+		//initiate panels
 		for (int row = 0; row < panels.length; row++)
 			for (int col = 0; col < panels[row].length; col++)
 				panels[row][col] = new JPanel();
 
+		//initiate colors
 		for (int row = 0; row < panels.length; row++)
 			for (int col = 0; col < panels[row].length; col++)
 				panels[row][col].setBackground(new Color(game.getFinalBoard()
 						.getGrid()[row][col] % 255));
 
+		//add panels to bigger panel
 		for (int row = 0; row < panels.length; row++)
 			for (int col = 0; col < panels[row].length; col++)
 				panel.add(panels[row][col]);
 
+		//add bigger panel to pane
 		contentPane.add(panel);
 
 		setTitle("Pentris");
