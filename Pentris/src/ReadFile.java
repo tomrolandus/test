@@ -56,7 +56,7 @@ public class ReadFile {
         //simple loop to read and input the string into the array
         for (int i = 0; i < numberOfLines; i++) {
             textData[i] = textReader.readLine();
-            System.out.println(textData[i]);
+            //System.out.println(textData[i]);
         }
         //closes and flushes part of memory
         textReader.close();
