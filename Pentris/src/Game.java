@@ -9,16 +9,16 @@ public class Game extends Observable {
 	private Board board;
 	private FinalBoard fboard;
 	private ArrayList<Pentomino> pentominoes;
-	private Timer timer;
 	private int score;
 	private long dropSpeed;
+	private Timer timer;
 	private int level;
 	private Pentomino currentPent;
 
 	private static final double LEVEL_INCREASE = 0.8;
 	private static final int LINE_SCORE = 1;
 	private static final double BONUS_SCORE = 1;
-	private static final long LEVEL_INTERVAL = 20000; // twenty seconds
+	private static final long LEVEL_INTERVAL = 40000; // twenty seconds
 	private static final long INITIAL_DROP_SPEED = 500; // 2 seconds
 
 	public Game() {
@@ -116,7 +116,7 @@ public class Game extends Observable {
 
 	public void start() {
 
-		timer = new Timer();
+		Timer levelTimer = new Timer();
 
 		class LevelUp extends TimerTask {
 			public LevelUp() {
@@ -129,8 +129,10 @@ public class Game extends Observable {
 		}
 
 		LevelUp levelUp = new LevelUp();
-		timer.scheduleAtFixedRate(levelUp, LEVEL_INTERVAL, LEVEL_INTERVAL);
+		levelTimer.scheduleAtFixedRate(levelUp, LEVEL_INTERVAL, LEVEL_INTERVAL);
 
+		
+		timer = new Timer();
 		boolean firstMove = true;
 		boolean newPent = true;
 		game: while (!this.checkGameOver()) {
@@ -156,11 +158,13 @@ public class Game extends Observable {
 					MoveDown moveDown = new MoveDown();
 					int[] oneDown = { 1, 0 };
 					board.movePentomino(oneDown);
+					
 					setChanged();
 					notifyObservers();
+					
 					if (!fboard.checkFloorCollision(currentPent,
 							board.getLocation()))
-						timer.schedule(moveDown, dropSpeed);
+						Game.this.timer.schedule(moveDown, dropSpeed);
 				}
 			}
 
@@ -198,13 +202,13 @@ public class Game extends Observable {
 					deleteRows(rowsToRemove);
 				firstMove=true;
 				newPent=true;
+				timer.cancel();
+				timer.purge();
+				timer = new Timer();
 			}
 
 		}
 		System.out.println("Game Over!");
-		timer.cancel();
-		timer.purge();
-		fboard.print();
 	}
 
 	private boolean checkGameOver() {
