@@ -213,7 +213,7 @@ public class Pentomino {
 		return width
 	*/
 	public int getWidth(){
-		return pent.length;
+		return pent[0].length;
 	}
 
 	/**
@@ -222,7 +222,7 @@ public class Pentomino {
 		@return height
 	*/
 	public int getHeight(){
-		return pent[0].length;
+		return pent.length;
 	}
 
 
