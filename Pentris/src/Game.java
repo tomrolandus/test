@@ -87,9 +87,12 @@ public class Game extends Observable {
 	}
 
 	public void rotateCurrentPent() {
-		currentPent.rotate();
+            if (board.getLocation()[1]+currentPent.getWidth()<5){
+                currentPent.rotate();
 		setChanged();
 		notifyObservers();
+            }
+		
 	}
 
 	public void moveCurrentPentLeft() {
@@ -175,17 +178,6 @@ public class Game extends Observable {
 				firstMove=false;
 			}
 
-			// while(!fboard.checkFloorCollision(currentPent,
-			// board.getLocation())){
-			// try{
-			// Thread.sleep(dropSpeed);
-			// }catch(InterruptedException e){
-			// e.printStackTrace();
-			// }
-			// int[] oneDown = {1,0};
-			// board.movePentomino(oneDown);
-			// }
-
 			if (fboard.checkFloorCollision(currentPent, board.getLocation())) {
 				// put pentomino on the final board
 				fboard.putPentomino(currentPent, board.getLocation());
@@ -206,10 +198,10 @@ public class Game extends Observable {
 				timer.purge();
 				timer = new Timer();
 			}
-
+			break game;
 		}
-		System.out.println("Game Over!");
 	}
+	
 
 	private boolean checkGameOver() {
 		return fboard.checkHitCeiling();

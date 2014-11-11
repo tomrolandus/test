@@ -17,14 +17,11 @@ public class UI_stan extends JFrame implements Observer {
 	JPanel[][] panels = new JPanel[15][width];
 
 	public UI_stan() {
-		game = new Game();
-		initUI();
-		game.addObserver(this);
-
 		KeyListener listener = new MyKeyListener();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		addKeyListener(listener);
 		setFocusable(true);
+		initUI();
 	}
 
 	private void initUI() {
@@ -32,21 +29,22 @@ public class UI_stan extends JFrame implements Observer {
 		Container contentPane = getContentPane();
 
 		JPanel panel = new JPanel(new GridLayout(0, width));
+		if (game != null) {
+			for (int row = 0; row < panels.length; row++)
+				for (int col = 0; col < panels[row].length; col++)
+					panels[row][col] = new JPanel();
 
-		for (int row = 0; row < panels.length; row++)
-			for (int col = 0; col < panels[row].length; col++)
-				panels[row][col] = new JPanel();
+			for (int row = 0; row < panels.length; row++)
+				for (int col = 0; col < panels[row].length; col++)
+					panels[row][col].setBackground(new Color(game
+							.getFinalBoard().getGrid()[row][col] % 255));
 
-		for (int row = 0; row < panels.length; row++)
-			for (int col = 0; col < panels[row].length; col++)
-				panels[row][col].setBackground(new Color(game.getFinalBoard()
-						.getGrid()[row][col] % 255));
+			for (int row = 0; row < panels.length; row++)
+				for (int col = 0; col < panels[row].length; col++)
+					panel.add(panels[row][col]);
 
-		for (int row = 0; row < panels.length; row++)
-			for (int col = 0; col < panels[row].length; col++)
-				panel.add(panels[row][col]);
-
-		contentPane.add(panel);
+			contentPane.add(panel);
+		}
 
 		setTitle("Pentris");
 		setSize(200, 600);
@@ -55,41 +53,43 @@ public class UI_stan extends JFrame implements Observer {
 	}
 
 	public static void main(String[] args) {
+		game = new Game();
 		ex = new UI_stan();
+		game.addObserver(ex);
 		ex.setVisible(true);
 		game.start();
 	}
 
 	public Color getColor(char type) {
-            switch(type){
-                default:
-                    return Color.white;
-                case 'f':
-                    return Color.red;
-                case 'p':
-                    return Color.blue;
-                case 'x':
-                    return Color.green;
-                case 'v':
-                    return Color.gray;
-                case 'y':
-                    return Color.magenta;
-                case 'i':
-                    return Color.orange;
-                case 't':
-                    return Color.pink;
-                case 'z':
-                    return Color.yellow;
-                case 'u':
-                    return Color.black;
-                case 'n':
-                    return Color.darkGray;
-                case 'l':
-                    return Color.lightGray;
-                case 'w':
-                    return Color.cyan;
-            }
-		
+		switch (type) {
+		default:
+			return Color.white;
+		case 'f':
+			return Color.red;
+		case 'p':
+			return Color.blue;
+		case 'x':
+			return Color.green;
+		case 'v':
+			return Color.gray;
+		case 'y':
+			return Color.magenta;
+		case 'i':
+			return Color.orange;
+		case 't':
+			return Color.pink;
+		case 'z':
+			return Color.yellow;
+		case 'u':
+			return Color.black;
+		case 'n':
+			return Color.darkGray;
+		case 'l':
+			return Color.lightGray;
+		case 'w':
+			return Color.cyan;
+		}
+
 	}
 
 	public void update(Observable obs, Object obj) {
@@ -101,11 +101,13 @@ public class UI_stan extends JFrame implements Observer {
 			for (int row = 0; row < panels.length; row++)
 				for (int col = 0; col < panels[row].length; col++) {
 					if (finalBoard[row][col] != 0)
-						panels[row][col].setBackground(getColor(finalBoard[row][col]));
+						panels[row][col]
+								.setBackground(getColor(finalBoard[row][col]));
 					else if (board[row][col] != 0)
-						panels[row][col].setBackground(getColor(board[row][col]));
+						panels[row][col]
+								.setBackground(getColor(board[row][col]));
 					else
-						panels[row][col].setBackground(getColor((char)0));
+						panels[row][col].setBackground(getColor((char) 0));
 
 				}
 			ex.repaint();
