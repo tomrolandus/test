@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -85,7 +86,8 @@ public class UI_stan extends JFrame implements Observer {
                     return Color.darkGray;
                 case 'l':
                     return Color.lightGray;
-                    
+                case 'w':
+                    return Color.cyan;
             }
 		
 	}
