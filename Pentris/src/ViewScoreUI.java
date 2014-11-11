@@ -10,14 +10,14 @@ public class ViewScoreUI extends javax.swing.JFrame {
     public ViewScoreUI() {
         initComponents();
 
-        int size = UI.score1.scorelength();
+        int size = score1.scorelength();
         //System.out.println(size);
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < 2; j++) {
                 if (j == 0) {
-                    nameTextArea.append(UI.score1.getScore(i)[0] + '\n');
+                    nameTextArea.append(score1.getScore(i)[0] + '\n');
                 } else {
-                    scoreTextArea.append(UI.score1.getScore(i)[1] + '\n');
+                    scoreTextArea.append(score1.getScore(i)[1] + '\n');
                 }
             }
         }
@@ -175,4 +175,5 @@ public class ViewScoreUI extends javax.swing.JFrame {
     private javax.swing.JLabel scoreLabel;
     private javax.swing.JTextArea scoreTextArea;
     // End of variables declaration//GEN-END:variables
+HighScore score1 = new HighScore();
 }
