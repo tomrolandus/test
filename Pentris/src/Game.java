@@ -87,9 +87,12 @@ public class Game extends Observable {
 	}
 
 	public void rotateCurrentPent() {
-		currentPent.rotate();
+            if (board.getLocation()[1]+currentPent.getWidth()<5){
+                currentPent.rotate();
 		setChanged();
 		notifyObservers();
+            }
+		
 	}
 
 	public void moveCurrentPentLeft() {
