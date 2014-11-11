@@ -49,7 +49,7 @@ public class UI_stan extends JFrame implements Observer {
 		contentPane.add(panel);
 
 		setTitle("Pentris");
-		setSize(500, 500);
+		setSize(200, 600);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}

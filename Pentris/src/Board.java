@@ -34,7 +34,7 @@ public class Board {
 	}
 
 	public void movePentomino(int[] relativeLocation) {
-		if((location[1] + relativeLocation[1]) > DEFAULT_WIDTH || (location[1] + relativeLocation[1]) < 0){
+		if((location[1] + relativeLocation[1]) >= DEFAULT_WIDTH || (location[1] + relativeLocation[1]) < 0){
 			return;
 		}	
 		else{
