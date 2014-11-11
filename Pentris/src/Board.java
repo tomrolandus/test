@@ -38,8 +38,13 @@ public class Board {
 
 	public void movePentomino(int[] relativeLocation) {
 		System.out.println("move");
-		location[0] = location[0] + relativeLocation[0];
-		location[1] = location[1] + relativeLocation[1];
+		if((location[1] + relativeLocation[1]) > DEFAULT_WIDTH || (location[1] + relativeLocation[1]) < 0){
+			return;
+		}	
+		else{
+			location[0] = location[0] + relativeLocation[0];
+			location[1] = location[1] + relativeLocation[1];
+		}
 	}
 	
 	public int[] getLocation() {
