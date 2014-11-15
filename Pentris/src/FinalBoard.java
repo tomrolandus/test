@@ -142,8 +142,7 @@ public class FinalBoard {
 		return result;
 	}
 	
-	public char[][] getGrid(){
+	public char[][] getFinalBoard(){
 		return grid;
 	}
-
 }

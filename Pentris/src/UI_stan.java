@@ -37,7 +37,7 @@ public class UI_stan extends JFrame implements Observer {
 			for (int row = 0; row < panels.length; row++)
 				for (int col = 0; col < panels[row].length; col++)
 					panels[row][col].setBackground(new Color(game
-							.getFinalBoard().getGrid()[row][col] % 255));
+							.getFinalBoard().getFinalBoard()[row][col] % 255));
 
 			for (int row = 0; row < panels.length; row++)
 				for (int col = 0; col < panels[row].length; col++)
@@ -100,7 +100,7 @@ public class UI_stan extends JFrame implements Observer {
 	public void update(Observable obs, Object obj) {
 		if (obs == game) {
 
-			char[][] finalBoard = game.getFinalBoard().getGrid();
+			char[][] finalBoard = game.getFinalBoard().getFinalBoard();
 			char[][] board = game.getBoard().getGrid();
 
 			for (int row = 0; row < panels.length; row++)
