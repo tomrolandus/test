@@ -7,7 +7,9 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Random;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class UI_stan extends JFrame implements Observer {
@@ -15,6 +17,7 @@ public class UI_stan extends JFrame implements Observer {
 	int width = 5;
 	private static UI_stan ex;
 	JPanel[][] panels = new JPanel[15][width];
+	JLabel score;
 
 	public UI_stan() {
 		KeyListener listener = new MyKeyListener();
@@ -27,8 +30,12 @@ public class UI_stan extends JFrame implements Observer {
 	private void initUI() {
 
 		Container contentPane = getContentPane();
-
+		
+		JPanel main = new JPanel();
+		main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
+		JPanel scorePanel = new JPanel();
 		JPanel panel = new JPanel(new GridLayout(0, width));
+		
 		if (game != null) {
 			for (int row = 0; row < panels.length; row++)
 				for (int col = 0; col < panels[row].length; col++)
@@ -42,9 +49,13 @@ public class UI_stan extends JFrame implements Observer {
 			for (int row = 0; row < panels.length; row++)
 				for (int col = 0; col < panels[row].length; col++)
 					panel.add(panels[row][col]);
-
-			contentPane.add(panel);
 		}
+		
+		score = new JLabel("Score: 0");
+		
+		main.add(score);
+		main.add(panel);
+		contentPane.add(main);
 
 		setTitle("Pentris");
 		setSize(200, 600);
@@ -115,6 +126,7 @@ public class UI_stan extends JFrame implements Observer {
 						panels[row][col].setBackground(getColor((char) 0));
 
 				}
+			score.setText("Score: " + Integer.toString(game.getScore()));
 			ex.repaint();
 		}
 	}
