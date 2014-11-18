@@ -18,6 +18,7 @@ public class UI_stan extends JFrame implements Observer {
 	private static UI_stan ex;
 	JPanel[][] panels = new JPanel[15][width];
 	JLabel score;
+	static JLabel[] highScores = new JLabel[10];
 
 	public UI_stan() {
 		KeyListener listener = new MyKeyListener();
@@ -33,8 +34,9 @@ public class UI_stan extends JFrame implements Observer {
 		
 		JPanel main = new JPanel();
 		main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
-		JPanel scorePanel = new JPanel();
+		
 		JPanel panel = new JPanel(new GridLayout(0, width));
+		
 		
 		if (game != null) {
 			for (int row = 0; row < panels.length; row++)
@@ -53,17 +55,29 @@ public class UI_stan extends JFrame implements Observer {
 		
 		score = new JLabel("Score: 0");
 		
+		
+		JPanel scorePanel = new JPanel(new GridLayout(0,1));
+		for(int i = 0; i < 10; i++){
+			highScores[i] = new JLabel(i + ". " );
+			scorePanel.add(highScores[i]);
+		}
+		JPanel gameScore = new JPanel(new GridLayout(0,2));
+		
 		main.add(score);
-		main.add(panel);
+		gameScore.add(panel);
+		gameScore.add(scorePanel);
+		main.add(gameScore);
 		contentPane.add(main);
-
+		
+		
 		setTitle("Pentris");
-		setSize(200, 600);
+		setSize(400, 600);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
 	public static void main(String[] args) {
+		HighScore h = new HighScore();
 		game = new Game();
 		ex = new UI_stan();
 		game.addObserver(ex);
@@ -73,6 +87,10 @@ public class UI_stan extends JFrame implements Observer {
 			game = new Game();
 			game.addObserver(ex);
 			game.start();
+			h.addScore("Me", game.getScore());
+			for(int i = 0; i < Math.min(10, h.getSize()); i++)
+				highScores[i].setText(h.getScore(i)[0] + h.getScore(i)[1]); 
+			ex.repaint();
 		}
 	}
 

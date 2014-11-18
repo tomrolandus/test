@@ -1,15 +1,22 @@
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 
 /**
  * @author Kareem Horstink
  */
 public final class HighScore {
-
+	String[] arrayLines;
     public HighScore() {
         loadFromFile();
     }
 
+    public int getSize(){
+    	return arrayLines.length;
+    }
     //Keeps working score here
     private final ArrayList<String[]> FINAL_SCORE = new ArrayList<String[]>();
 
@@ -97,16 +104,27 @@ public final class HighScore {
         sortList();
 
         //Creates a string array to hold all the strings in the textfile
-        String[] arrayLines = new String[0];
+        arrayLines = new String[0];
         try {
             //need to make this relative to where the jar is located
             //creates a read object
-            ReadFile file = new ReadFile("c:/Users/Kareem/Google Drive/Project/HighScore.txt");
+            ReadFile file = new ReadFile("HighScores.txt");
             //throws away the pointer
             arrayLines = null;
             //set the pointer to location of the array of strings from the text file
             arrayLines = file.OpenFile();
         } catch (IOException e) {
+        	Writer writer = null;
+
+        	try {
+        	    writer = new BufferedWriter(new OutputStreamWriter(
+        	          new FileOutputStream("HighScores.txt"), "utf-8"));
+        	    writer.write("");
+        	} catch (IOException ex) {
+        	  // report
+        	} finally {
+        	   try {writer.close();} catch (Exception ex) {}
+        	}
             System.out.println(e.getMessage());
         }
 
@@ -134,7 +152,7 @@ public final class HighScore {
         //sorts FINAL_SCORE
         sortList();
         //creates a writer object
-        WriteFile writer = new WriteFile("c:/Users/Kareem/Google Drive/Project/HighScore.txt", true);
+        WriteFile writer = new WriteFile("HighScores.txt", true);
         try {
             //it has to first clear the text file hence the false in append
             writer.writeToFile(FINAL_SCORE.get(0)[0], false);

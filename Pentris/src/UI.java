@@ -13,7 +13,7 @@ public class UI extends javax.swing.JFrame implements Observer {
 	public void update(Observable obs, Object obj) {
 		System.out.println("update");
 		char[][] board = game.getBoard().getGrid();
-		char[][] finalBoard = game.getFinalBoard().getGrid();
+		char[][] finalBoard = game.getFinalBoard().getFinalBoard();
 		for (int row = 0; row < board1[0].length; row++)
 			for (int col = 0; col < board1.length; col++)
 				if (finalBoard[row][col] != 0)
