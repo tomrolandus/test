@@ -15,7 +15,7 @@ public final class HighScore {
     }
 
     public int getSize(){
-    	return arrayLines.length;
+    	return arrayLines.length/2;
     }
     //Keeps working score here
     private final ArrayList<String[]> FINAL_SCORE = new ArrayList<String[]>();
@@ -142,6 +142,9 @@ public final class HighScore {
             FINAL_SCORE.add(tmp);
         }
         sortList();
+        System.out.println(arrayLines.length+"size");
+        System.out.println(arrayLines[0]);
+        System.out.println(arrayLines[1]);
     }
 
     /**

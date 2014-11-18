@@ -82,11 +82,14 @@ public class UI_stan extends JFrame implements Observer {
 		ex = new UI_stan();
 		game.addObserver(ex);
 		ex.setVisible(true);
+                for(int i = 0; i < Math.min(10, h.getSize()); i++)
+				highScores[i].setText(h.getScore(i)[0] + h.getScore(i)[1]); 
 		game.start();
 		while(true){
-			game = new Game();
+                    	game = new Game();
 			game.addObserver(ex);
 			game.start();
+                        System.out.println("lkdsalkdsalksj");
 			h.addScore("Me", game.getScore());
 			for(int i = 0; i < Math.min(10, h.getSize()); i++)
 				highScores[i].setText(h.getScore(i)[0] + h.getScore(i)[1]); 
