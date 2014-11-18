@@ -9,13 +9,14 @@ import java.util.ArrayList;
  * @author Kareem Horstink
  */
 public final class HighScore {
-	String[] arrayLines;
+    String[] arrayLines;
     public HighScore() {
         loadFromFile();
     }
 
     public int getSize(){
-    	return arrayLines.length;
+        //sortList();
+    	return FINAL_SCORE.size();
     }
     //Keeps working score here
     private final ArrayList<String[]> FINAL_SCORE = new ArrayList<String[]>();
@@ -28,14 +29,22 @@ public final class HighScore {
      */
     public void addScore(String name, int score) {
         //sorts FINAL_SCORE
-        sortList();
-
+        //sortList();
+        
         //creates a StringBuilder object to convert integer to strings
         StringBuilder sb = new StringBuilder();
         sb.append(score);
+        //System.out.println(sb.toString() + " testscore add");
         //creates a String array with the name and now converted integer
         String[] tmp = {name, sb.toString()};
         //inputs it into the Array List of FINAL_SCORE
+        //System.out.println("lskmdklasmdlksamsadkl");
+        /*for (int i = 0; i < FINAL_SCORE.size(); i++) {
+            System.out.println(FINAL_SCORE.get(i)[0]);
+            System.out.println(FINAL_SCORE.get(i)[1]);
+            
+        }*/
+        
         FINAL_SCORE.add(tmp);
 
         //sorts FINAL_SCORE to ensure proper placements
@@ -61,37 +70,39 @@ public final class HighScore {
      */
     private void sortList() {
         String[] name = new String[FINAL_SCORE.size()];
-        String[] score = new String[FINAL_SCORE.size()];
-        for (int i = 0; i < FINAL_SCORE.size(); i++) {
+        int[] score = new int[FINAL_SCORE.size()];
+        
+        
+        for (int i = 0; i < FINAL_SCORE.size(); i++) 
+        {
 
             name[i] = FINAL_SCORE.get(i)[0];
-            score[i] = FINAL_SCORE.get(i)[1];
+            score[i] = Integer.parseInt(FINAL_SCORE.get(i)[1]);
         }
-        System.gc();
 
         String tmp1 = "";
-
-        for (int i = 1; i < name.length; i++) {
-            for (int j = 0; j < name.length - 1; j++) {
-                if (score[j].compareToIgnoreCase(score[i]) < 0) {
+        int tmp2 = 0;
+        for (int i = 1; i < FINAL_SCORE.size(); i++) {
+            for (int j = 0; j < (FINAL_SCORE.size() - 1); j++) {
+                if (score[j]<(score[i])) {
 
                     tmp1 = name[j];
                     name[j] = name[i];
                     name[i] = tmp1;
 
-                    tmp1 = score[j];
+                    tmp2 = score[j];
                     score[j] = score[i];
-                    score[i] = tmp1;
+                    score[i] = tmp2;
 
                 }
             }
         }
 
         FINAL_SCORE.clear();
-        System.gc();
-
+        
+        //System.out.println(FINAL_SCORE.isEmpty());
         for (int i = 0; i < name.length; i++) {
-            String[] tmp = {name[i], score[i]};
+            String[] tmp = {name[i],Integer.toString(score[i])};
             FINAL_SCORE.add(tmp);
         }
     }
@@ -101,7 +112,7 @@ public final class HighScore {
      */
     public void loadFromFile() {
         //sorts Final List
-        sortList();
+        //sortList();
 
         //Creates a string array to hold all the strings in the textfile
         arrayLines = new String[0];
@@ -150,6 +161,7 @@ public final class HighScore {
      */
     public void saveToFile() {
         //sorts FINAL_SCORE
+        System.out.println("slkmdklsajdklsajd");
         sortList();
         //creates a writer object
         WriteFile writer = new WriteFile("HighScores.txt", true);
