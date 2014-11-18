@@ -7,10 +7,15 @@ public class FinalBoardTest {
 
 	@Test
 	public void test() {
-		FinalBoard b = new FinalBoard(15,5);
-		Pentomino p = new Pentomino('f');
-		
-		b.checkFloorCollision(p,13,5);
+		FinalBoard b = new FinalBoard(5,15);
+		Pentomino i = new Pentomino('i');
+		b.putPentomino(i, new int[]{0,0});
+		b.putPentomino(i, new int[]{0,1});
+		b.putPentomino(i, new int[]{0,2});
+		b.putPentomino(i, new int[]{0,3});
+		b.putPentomino(i, new int[]{0,4});
+		b.print();
+		System.out.println(b.checkFullRow(1));
 	}
 
 }
