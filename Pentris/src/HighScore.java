@@ -70,29 +70,29 @@ public final class HighScore {
      */
     private void sortList() {
         String[] name = new String[FINAL_SCORE.size()];
-        String[] score = new String[FINAL_SCORE.size()];
+        int[] score = new int[FINAL_SCORE.size()];
         
         
         for (int i = 0; i < FINAL_SCORE.size(); i++) 
         {
 
             name[i] = FINAL_SCORE.get(i)[0];
-            score[i] = FINAL_SCORE.get(i)[1];
+            score[i] = Integer.parseInt(FINAL_SCORE.get(i)[1]);
         }
 
         String tmp1 = "";
-
+        int tmp2 = 0;
         for (int i = 1; i < FINAL_SCORE.size(); i++) {
             for (int j = 0; j < (FINAL_SCORE.size() - 1); j++) {
-                if (score[j].compareToIgnoreCase(score[i]) < 0) {
+                if (score[j]<(score[i])) {
 
                     tmp1 = name[j];
                     name[j] = name[i];
                     name[i] = tmp1;
 
-                    tmp1 = score[j];
+                    tmp2 = score[j];
                     score[j] = score[i];
-                    score[i] = tmp1;
+                    score[i] = tmp2;
 
                 }
             }
@@ -102,7 +102,7 @@ public final class HighScore {
         
         //System.out.println(FINAL_SCORE.isEmpty());
         for (int i = 0; i < name.length; i++) {
-            String[] tmp = {name[i], score[i]};
+            String[] tmp = {name[i],Integer.toString(score[i])};
             FINAL_SCORE.add(tmp);
         }
     }
