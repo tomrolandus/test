@@ -4,6 +4,7 @@ public class Board {
 	private int[] location;
 	final private static int DEFAULT_WIDTH = 5;
 	final private static int DEFAULT_HEIGHT = 15;
+        public static int debug;
 
 	public Board(int height, int width) {
 		this.width = width;
@@ -57,7 +58,7 @@ public class Board {
 		for (int row = 0; row < shape.length; row++)
 			for (int col = 0; col < shape[row].length; col++)
 				if (shape[row][col] != 0)
-					grid[row + location[0]][col + location[1]] = pent.getType();
+					grid[row + location[0]][col + location[1]-debug] = pent.getType();
 		
 		return grid;
 	}
