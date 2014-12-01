@@ -116,9 +116,12 @@ public class Game extends Observable {
         final int[] oneDown = {1, 0};
         while (!fboard.checkFloorCollision(currentPent, board.getLocation())) {
             board.movePentomino(oneDown);
+            board.debug=1;
         }
         setChanged();
+        board.debug = 0;
         notifyObservers();
+        
     }
 
     public void start() {
@@ -150,6 +153,7 @@ public class Game extends Observable {
                 this.currentPent = this.chooseNextPentomino();
                 initiatePentomino(currentPent);
                 newPent = false;
+                
             }
 
             if (!fboard.checkPlacement(currentPent, board.getLocation())) {
@@ -165,7 +169,7 @@ public class Game extends Observable {
                 public void run() {
                     int[] oneDown = {1, 0};
                     board.movePentomino(oneDown);
-
+                    
                     setChanged();
                     notifyObservers();
 
@@ -179,27 +183,29 @@ public class Game extends Observable {
             if (!fboard.checkFloorCollision(currentPent, board.getLocation())
                     && firstMove) {
                 
+
                 timer.schedule(new MoveDown(), dropSpeed);
                 firstMove = false;
             }
 
             if (fboard.checkFloorCollision(currentPent, board.getLocation())) {
                 // put pentomino on the final board
-                try {
-                    Thread.sleep(1000);
-                } catch (Exception e) {
-                    System.out.println(e);
+                if (board.debug == 0) {
+                    try {
+                        Thread.sleep(500);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
                 }
                 board.debug = 1;
                 fboard.putPentomino(currentPent, board.getLocation());
-                board.debug=0;
-                
+                board.debug = 0;
+
                 firstMove = true;
                 newPent = true;
                 timer.cancel();
                 timer.purge();
                 timer = new Timer();
-                
 
             }
             // Delete rows and count score
