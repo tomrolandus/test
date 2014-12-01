@@ -41,6 +41,7 @@ public class Board {
 		else{
 			location[0] = location[0] + relativeLocation[0];
 			location[1] = location[1] + relativeLocation[1];
+                        
 		}
 	}
 

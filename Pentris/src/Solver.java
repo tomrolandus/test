@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class Solver {
 
-	private static final int PENT_AMOUNT = 12;
 	private int gridHeight;
 	private int gridWidth;
 
@@ -10,48 +9,142 @@ public class Solver {
 		this.gridHeight = gridHeight;
 		this.gridWidth = gridWidth;
 	}
-	
-	public static void main(String[] args){
-		Solver solver = new Solver(5,12);
-		
+
+	public static void main(String[] args) {
+		Solver solver = new Solver(12, 5);
+
 		solver.solve(solver.getPentominoes());
+		int score = 0;
+		score = solver.getScore(solver.orderMaxScore(allSolutions.get(0)).get(0));
 		
-		allSolutions.get(1).print();
-		
+		System.out.println(score);
 	}
-	 
+
+	public ArrayList<ArrayList<char[][]>> orderMaxScore(Solution sol) {
+		ArrayList<char[][]> placements = sol.getPlacements();
+
+		searchOrders(placements);
+
+		int maxScore = 0;
+		ArrayList<ArrayList<char[][]>> maxOrders = new ArrayList<ArrayList<char[][]>>();
+		for(ArrayList<char[][]> order : possibleOrders){
+			int score = getScore(order);
+			if(score > maxScore)
+				maxScore = score;
+		}
+		
+		for(ArrayList<char[][]> order : possibleOrders){
+			int score = getScore(order);
+			if(score == maxScore)
+				maxOrders.add(order);
+		}
+		
+		return maxOrders;
+	}
+
+	public int getScore(ArrayList<char[][]> placements) {
+		int result = 0;
+
+		FinalBoard board = new FinalBoard(gridWidth, gridHeight);
+		for (char[][] placement : placements) {
+			board.putPentomino(placement);
+			
+			ArrayList<Integer> rowsToRemove = new ArrayList<Integer>();
+			for(int row = 0; row < board.getHeight(); row++)
+				if(board.checkFullRow(row))
+					rowsToRemove.add(row);
+			
+			result += Game.calculateScore(rowsToRemove.size());
+			System.out.println(result);
+			for(int row : rowsToRemove)
+				board.removeLine(row);
+		}
+
+		return result;
+
+	}
+
+	private ArrayList<ArrayList<char[][]>> possibleOrders = new ArrayList<ArrayList<char[][]>>();
+	private ArrayList<char[][]> currentPlacements = new ArrayList<char[][]>();
+
+	public void searchOrders(ArrayList<char[][]> placements) {
+
+		if (placements.isEmpty()) {
+			possibleOrders.add(currentPlacements);
+			return;
+		}
+
+		char[][] present = new char[gridHeight][gridWidth];
+		for (int row = 0; row < present.length; row++)
+			for (int col = 0; col < present[row].length; col++)
+				present[row][col] = 0;
+
+		for (char[][] placement : currentPlacements)
+			placePlacement(present, placement);
+
+		for (int i =0; i < placements.size(); i ++) {
+			char[][] placement = placements.get(i);
+			if (checkPlacable(present, placement)) {
+				placePlacement(present, placement);
+				currentPlacements.add(placement);
+				placements.remove(placement);
+				searchOrders(placements);
+				placements.add(placement);
+				currentPlacements.remove(placement);
+			}
+		}
+		return;
+	}
+
+	public void placePlacement(char[][] goal, char[][] source) {
+		for (int row = 0; row < goal.length; row++)
+			for (int col = 0; col < goal[row].length; col++)
+				if (source[row][col] != 0)
+					goal[row][col] = source[row][col];
+	}
+
+	public boolean checkPlacable(char[][] present, char[][] input) {
+
+		for (int row = 0; row < input.length; row++)
+			for (int col = 0; col < input[row].length; col++)
+				if (input[row][col] != 0 && row == present.length - 1)
+					return true;
+				else if (input[row][col] != 0 && present[row+1][col] != 0)
+					return true;
+		return false;
+	}
+
 	private static ArrayList<Solution> allSolutions = new ArrayList<Solution>();
 	Integer solutionCount = 0;
 	ArrayList<Integer> solutions = new ArrayList<Integer>();
-	
+
 	ArrayList<int[]> matrix;
-	
+
 	ArrayList<Integer> possibleRows = new ArrayList<Integer>();
 	ArrayList<Integer> possibleCols = new ArrayList<Integer>();
 
-	public ArrayList<Solution> solve(ArrayList<Pentomino> pentominoes){
-		
+	public ArrayList<Solution> solve(ArrayList<Pentomino> pentominoes) {
+
 		matrix = generatePossibilityMatrix(pentominoes);
 
 		for (int row = 0; row < matrix.size(); row++)
 			possibleRows.add(row);
 		for (int col = 0; col < matrix.get(0).length; col++)
 			possibleCols.add(col);
-		
-		
+
 		solveMatrix(matrix, possibleRows, possibleCols);
-		
-		
+
 		return allSolutions;
 	}
-	
-	
-	
-	private void solveMatrix(ArrayList<int[]> matrix, ArrayList<Integer> possibleRows,
-			ArrayList<Integer> possibleCols) {
-		
+	private boolean solution = false;
+	private void solveMatrix(ArrayList<int[]> matrix,
+			ArrayList<Integer> possibleRows, ArrayList<Integer> possibleCols) {
+
+		if(solution) return;
 		
 		if (possibleCols.isEmpty()) {
+
+			solution = true;
 			
 			if (solutionCount % 25 == 0) {
 				String s = "";
@@ -63,8 +156,9 @@ public class Solver {
 				s += "|\r";
 				System.out.print(s);
 			}
-			
-			allSolutions.add(new Solution(new FinalBoard(gridWidth, gridHeight), matrix, solutions));
+
+			allSolutions.add(new Solution(
+					new FinalBoard(gridWidth, gridHeight), matrix, solutions));
 			solutionCount++;
 			return;
 		}
@@ -155,8 +249,8 @@ public class Solver {
 				for (int y = 0; y < board.getHeight(); y++)
 					if (board.checkPlacement(pent, new int[] { y, x })) {
 
-						int[] newRow = new int[PENT_AMOUNT + board.getHeight()
-								* board.getWidth()];
+						int[] newRow = new int[Pentomino.PENT_AMOUNT
+								+ board.getHeight() * board.getWidth()];
 
 						for (int i = 0; i < newRow.length; i++)
 							newRow[i] = 0;
@@ -169,7 +263,8 @@ public class Solver {
 							for (int col = 0; col < shape[row].length; col++)
 								if (shape[row][col] != 0)
 									newRow[(x + col) + (y + row)
-											* board.getWidth() + PENT_AMOUNT] = 1;
+											* board.getWidth()
+											+ Pentomino.PENT_AMOUNT] = 1;
 						result.add(newRow);
 					}
 		}

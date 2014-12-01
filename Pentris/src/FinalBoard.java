@@ -1,6 +1,5 @@
 public class FinalBoard {
 
-    public int o = 0;
     private char[][] grid;
 
     /**
@@ -66,8 +65,6 @@ public class FinalBoard {
         for (int row = 0; row < shape.length; row++) {
             for (int col = 0; col < shape[row].length; col++) {
                 if (row + location[0] + 1 >= grid.length) {
-                    //System.out.println("help");
-                    o++;
                     return true;
                 }
                 if (shape[row][col] != 0
