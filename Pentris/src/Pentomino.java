@@ -141,6 +141,10 @@ public class Pentomino {
 		pent = columnSwitch;
 	}
 	
+	/**
+	 * Rotates the pentomino a specified amount of times
+	 * @param times
+	 */
 	public void rotate(int times){
 		for ( int i = 0; i < times; i ++ )
 			this.rotate();
@@ -171,9 +175,8 @@ public class Pentomino {
 	
 
 	/**
-		Returns an integer of the amount of shapes the pentomino can take.
 		
-		@return amount
+		@return amount the amount of shapes the pentomino can take.
 	*/
 	public int getAmountOfPermutations(){
 		int amount = 1;

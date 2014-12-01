@@ -83,17 +83,17 @@ public class Game extends Observable {
 	private void nextLevel() {
 		// dropSpeed *= LEVEL_INCREASE;
 		level++;
-		System.out.println("Level Up");
 	}
 
 	public void rotateCurrentPent() {
-		int outOfBound = Math.min(0, 5- (board.getLocation()[1] + currentPent.getHeight()));
-		//if (board.getLocation()[1] + currentPent.getHeight() < 5) {
-			board.movePentomino(new int[] { 0, outOfBound});
-			currentPent.rotate();
-			setChanged();
-			notifyObservers();
-		//}
+		int outOfBound = Math.min(0,
+				5 - (board.getLocation()[1] + currentPent.getHeight()));
+		// if (board.getLocation()[1] + currentPent.getHeight() < 5) {
+		board.movePentomino(new int[] { 0, outOfBound });
+		currentPent.rotate();
+		setChanged();
+		notifyObservers();
+		// }
 
 	}
 
@@ -119,8 +119,11 @@ public class Game extends Observable {
 		notifyObservers();
 	}
 
+	boolean firstMove;
+	boolean newPent;
+	
 	public void start() {
-
+		/*
 		Timer levelTimer = new Timer();
 
 		class LevelUp extends TimerTask {
@@ -135,10 +138,10 @@ public class Game extends Observable {
 
 		LevelUp levelUp = new LevelUp();
 		levelTimer.scheduleAtFixedRate(levelUp, LEVEL_INTERVAL, LEVEL_INTERVAL);
-
+		*/
 		timer = new Timer();
-		boolean firstMove = true;
-		boolean newPent = true;
+		firstMove = true;
+		newPent = true;
 		game: while (!this.checkGameOver()) {
 
 			if (newPent) {
@@ -158,7 +161,6 @@ public class Game extends Observable {
 				}
 
 				public void run() {
-					MoveDown moveDown = new MoveDown();
 					int[] oneDown = { 1, 0 };
 					board.movePentomino(oneDown);
 
@@ -167,27 +169,40 @@ public class Game extends Observable {
 
 					if (!fboard.checkFloorCollision(currentPent,
 							board.getLocation()))
-						Game.this.timer.schedule(moveDown, dropSpeed);
+						Game.this.timer.schedule(new MoveDown(), dropSpeed);
 				}
 			}
 
-			MoveDown moveDown = new MoveDown();
 
 			if (!fboard.checkFloorCollision(currentPent, board.getLocation())
 					&& firstMove) {
-				timer.schedule(moveDown, dropSpeed);
+				timer.schedule(new MoveDown(), dropSpeed);
 				firstMove = false;
 			}
 
 			if (fboard.checkFloorCollision(currentPent, board.getLocation())) {
-				// put pentomino on the final board
-				fboard.putPentomino(currentPent, board.getLocation());
 
-				firstMove = true;
-				newPent = true;
-				timer.cancel();
-				timer.purge();
-				timer = new Timer();
+				Timer delay = new Timer();
+				
+				class PutPentomino extends TimerTask {
+					public PutPentomino() {
+						super();
+					}
+
+					public void run() {
+						if (fboard.checkFloorCollision(currentPent,
+								board.getLocation())){
+							fboard.putPentomino(currentPent,
+									board.getLocation());
+							firstMove = true;
+							newPent = true;
+							timer.cancel();
+							timer.purge();
+							timer = new Timer();
+						}
+					}
+				}
+				delay.schedule(new PutPentomino(), dropSpeed);
 			}
 			// Delete rows and count score
 			ArrayList<Integer> rowsToRemove = new ArrayList<Integer>();
@@ -201,8 +216,8 @@ public class Game extends Observable {
 		}
 	}
 
+	
 	private boolean checkGameOver() {
 		return fboard.checkHitCeiling();
 	}
-
 }
