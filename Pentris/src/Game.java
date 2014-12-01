@@ -74,10 +74,15 @@ public class Game extends Observable {
 		notifyObservers();
 	}
 
-	private void countScore(int amountOfRows) {
+	public void countScore(int amountOfRows) {
 		int addScore = (int) (LINE_SCORE * amountOfRows + BONUS_SCORE
 				* (amountOfRows - 1));
 		score += addScore;
+	}
+	
+	public static int calculateScore(int amountOfRows){
+		return (int) (LINE_SCORE * amountOfRows + BONUS_SCORE
+				* (amountOfRows - 1));
 	}
 
 	private void nextLevel() {

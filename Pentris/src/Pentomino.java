@@ -6,6 +6,8 @@ The Pentomino class creates every possible pentomino.
 */
 public class Pentomino {
 	
+	public static int PENT_AMOUNT=12;
+	
 	// The following code has every possible pentomino saved as an array. The array type is integer to ensure that it would be easy to input into grid 
 	// (plus it has benefit to see a clash will occur) 
 	final private static int[][] F = {{0,1,1},{1,1,0},{0,1,0}}; //red

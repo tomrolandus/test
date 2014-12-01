@@ -95,7 +95,13 @@ public class FinalBoard {
 			for (int j = 0; j < pento[i].length; j++)
 				if (pento[i][j] == 1)
 					grid[location[0] + i][location[1] + j] = pent.getType();
-
+	}
+	
+	public void putPentomino(char[][] pent){
+		for (int i = 0; i < pent.length; i++)
+			for (int j = 0; j < pent[i].length; j++)
+				if (pent[i][j] != 0)
+					grid[i][j] = pent[i][j];
 	}
 
 	/**
