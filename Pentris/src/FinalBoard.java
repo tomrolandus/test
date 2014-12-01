@@ -136,6 +136,9 @@ public class FinalBoard {
     }
 
     public boolean checkPlacement(Pentomino pent, int[] location) {
+    	
+    	if(grid[0].length < location[1] + pent.getWidth() || grid.length < location[0] + pent.getHeight()) return false;
+    	
         int[][] shape = pent.getShape();
         for (int row = 0; row < shape.length; row++) {
             for (int col = 0; col < shape[row].length; col++) {
