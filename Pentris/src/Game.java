@@ -107,9 +107,7 @@ public class Game extends Observable {
 
     public void moveCurrentPentRight() {
         int[] oneRight = {0, 1};
-        if(board.debug !=1){
-            break;
-        }
+        
         board.movePentomino(oneRight);
         
         setChanged();
@@ -120,10 +118,10 @@ public class Game extends Observable {
         final int[] oneDown = {1, 0};
         while (!fboard.checkFloorCollision(currentPent, board.getLocation())) {
             board.movePentomino(oneDown);
-            board.debug=1;
+            board.setExtraTurn(1);
         }
         setChanged();
-        board.debug = 0;
+        board.setExtraTurn(0);
         notifyObservers();
         
     }
@@ -194,16 +192,16 @@ public class Game extends Observable {
 
             if (fboard.checkFloorCollision(currentPent, board.getLocation())) {
                 // put pentomino on the final board
-                if (board.debug == 0) {
+                if (board.getExtraTurn() == 0) {
                     try {
                         Thread.sleep(500);
                     } catch (Exception e) {
                         System.out.println(e);
                     }
                 }
-                board.debug = 1;
+                board.setExtraTurn(1);
                 fboard.putPentomino(currentPent, board.getLocation());
-                board.debug = 0;
+                board.setExtraTurn(0);
 
                 firstMove = true;
                 newPent = true;
