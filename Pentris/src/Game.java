@@ -195,6 +195,13 @@ public class Game extends Observable {
                 if (board.getExtraTurn() == 0) {
                     try {
                         Thread.sleep(500);
+                        if (!fboard.checkFloorCollision(currentPent, board.getLocation())
+                                && firstMove) {
+                            timer.schedule(new MoveDown(), dropSpeed);
+                            firstMove = false;
+                        }
+                        moveCurrentPentDown();
+                        
                     } catch (Exception e) {
                         System.out.println(e);
                     }
