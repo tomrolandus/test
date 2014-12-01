@@ -75,17 +75,11 @@ public class Game extends Observable {
         notifyObservers();
     }
 
-	public void countScore(int amountOfRows) {
-		int addScore = (int) (LINE_SCORE * amountOfRows + BONUS_SCORE
-				* (amountOfRows - 1));
-		score += addScore;
-	}
-	
-	public static int calculateScore(int amountOfRows){
-		return (int) (LINE_SCORE * amountOfRows + BONUS_SCORE
-				* (amountOfRows - 1));
-	}
-
+    private void countScore(int amountOfRows) {
+        int addScore = (int) (LINE_SCORE * amountOfRows + BONUS_SCORE
+                * (amountOfRows - 1));
+        score += addScore;
+    }
 
     private void nextLevel() {
         // dropSpeed *= LEVEL_INCREASE;
@@ -113,7 +107,11 @@ public class Game extends Observable {
 
     public void moveCurrentPentRight() {
         int[] oneRight = {0, 1};
+        if(board.debug !=1){
+            break;
+        }
         board.movePentomino(oneRight);
+        
         setChanged();
         notifyObservers();
     }

@@ -90,25 +90,24 @@ public class UI_stan extends JFrame implements Observer {
         for (int i = 0; i < Math.min(10, h.getSize()); i++) {
             highScores[i].setText(h.getScore(i)[0] + h.getScore(i)[1]);
         }
-        
+
         game.start();
-        
-        
+
         while (true) {
             h.saveToFile();
             //System.out.println(game.getScore() + " = score");
             h.addScore("Me", game.getScore());
             System.out.println("size = " + h.getSize());
             for (int i = 0; i < Math.min(10, h.getSize()); i++) {
-                highScores[i].setText(h.getScore(i)[0] +" "+ h.getScore(i)[1]);
+                highScores[i].setText(h.getScore(i)[0] + " " + h.getScore(i)[1]);
             }
             game = new Game();
             game.addObserver(ex);
             game.start();
             //System.out.println("lkdsalkdsalksj");
-            
+
             ex.repaint();
-            
+
         }
     }
 
@@ -181,6 +180,12 @@ public class UI_stan extends JFrame implements Observer {
             switch (keyCode) {
                 case KeyEvent.VK_UP:
                     game.rotateCurrentPent();
+                    break;
+                case 32:
+                    game.moveCurrentPentDown();
+                    break;
+                case 8:
+                    game.moveCurrentPentDown();
                     break;
                 case KeyEvent.VK_DOWN:
                     game.moveCurrentPentDown();
