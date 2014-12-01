@@ -108,6 +108,96 @@ public class Pentomino {
 		this.type = type;
 	}
 	
+	public static int typeToInt(char type){
+		int index;
+		switch (type) {
+		case 'f':
+			index = 0;
+			break;
+		case 'p':
+			index = 1;
+			break;
+		case 'x':
+			index = 2;
+			break;
+		case 'v':
+			index = 3;
+			break;
+		case 'w':
+			index = 4;
+			break;
+		case 'y':
+			index = 5;
+			break;
+		case 'i':
+			index = 6;
+			break;
+		case 't':
+			index = 7;
+			break;
+		case 'z':
+			index = 8;
+			break;
+		case 'u':
+			index = 9;
+			break;
+		case 'n':
+			index = 10;
+			break;
+		case 'l':
+			index = 11;
+			break;
+		default:
+			index = 0;
+		}
+		return index;
+	}
+	
+	public static char intToType(int type){
+		char index = 0;
+		switch (type) {
+		case 0:
+			index = 'f';
+			break;
+		case 1:
+			index = 'p';
+			break;
+		case 2:
+			index = 'x';
+			break;
+		case 3:
+			index = 'v';
+			break;
+		case 4:
+			index = 'w';
+			break;
+		case 5:
+			index = 'y';
+			break;
+		case 6:
+			index = 'i';
+			break;
+		case 7:
+			index = 't';
+			break;
+		case 8:
+			index = 'z';
+			break;
+		case 9:
+			index = 'u';
+			break;
+		case 10:
+			index = 'n';
+			break;
+		case 11:
+			index = 'l';
+			break;
+		default:
+			index = 0;
+		}
+		return index;
+	}
+	
 	public Object clone(){
 		Object pent = new Pentomino(this.getType());
 		return pent;
@@ -185,28 +275,6 @@ public class Pentomino {
 		else if(type == 'i') amount = 2;
 		else if(type == 'x') amount = 1;
 		return amount;
-	}
-	
-	/**
-		@return pentominoes Array of all permutations of a particular pentomino
-	*/
-	public Pentomino[] getPermutations() {
-		Pentomino[] pentominoes;
-
-		pentominoes = new Pentomino[this.getAmountOfPermutations()];
-
-		for (int i = 0; i < pentominoes.length; i++){
-			Pentomino pent = new Pentomino(this.type);
-			pent.rotate(i);
-			pentominoes[i] = pent;
-		}
-		
-		if (type == 'f' || type == 'l' || type == 'p' || type == 'z'
-				|| type == 'y' || type == 'n')
-			for (int i = pentominoes.length / 2; i < pentominoes.length; i++)
-				pentominoes[i].mirror();
-
-		return pentominoes;
 	}
 	
 

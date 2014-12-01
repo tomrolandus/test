@@ -88,12 +88,12 @@ public class Game extends Observable {
 	public void rotateCurrentPent() {
 		int outOfBound = Math.min(0,
 				5 - (board.getLocation()[1] + currentPent.getHeight()));
-		// if (board.getLocation()[1] + currentPent.getHeight() < 5) {
+		
 		board.movePentomino(new int[] { 0, outOfBound });
 		currentPent.rotate();
 		setChanged();
 		notifyObservers();
-		// }
+		
 
 	}
 
@@ -182,27 +182,13 @@ public class Game extends Observable {
 
 			if (fboard.checkFloorCollision(currentPent, board.getLocation())) {
 
-				Timer delay = new Timer();
-				
-				class PutPentomino extends TimerTask {
-					public PutPentomino() {
-						super();
-					}
+				fboard.putPentomino(currentPent, board.getLocation());
 
-					public void run() {
-						if (fboard.checkFloorCollision(currentPent,
-								board.getLocation())){
-							fboard.putPentomino(currentPent,
-									board.getLocation());
-							firstMove = true;
-							newPent = true;
-							timer.cancel();
-							timer.purge();
-							timer = new Timer();
-						}
-					}
-				}
-				delay.schedule(new PutPentomino(), dropSpeed);
+				firstMove = true;
+				newPent = true;
+				timer.cancel();
+				timer.purge();
+				timer = new Timer();
 			}
 			// Delete rows and count score
 			ArrayList<Integer> rowsToRemove = new ArrayList<Integer>();
