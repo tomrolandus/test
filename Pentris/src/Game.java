@@ -101,6 +101,8 @@ public class Game extends Observable {
     public void moveCurrentPentLeft() {
         int[] oneLeft = {0, -1};
         board.movePentomino(oneLeft);
+        int[][] x = currentPent.getShape();
+        
         setChanged();
         notifyObservers();
     }

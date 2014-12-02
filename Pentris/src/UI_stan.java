@@ -5,15 +5,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Random;
-
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class UI_stan extends JFrame implements Observer {
-
+    private static String userName;
     private static Game game;
     int width = 5;
     private static UI_stan ex;
@@ -21,6 +19,40 @@ public class UI_stan extends JFrame implements Observer {
     JLabel score;
     static JLabel[] highScores = new JLabel[10];
 
+    public static Game getGame() {
+        return game;
+    }
+
+    public static UI_stan getEx() {
+        return ex;
+    }
+
+    public static JLabel[] getHighScores() {
+        return highScores;
+    }
+
+    public static void setEx(UI_stan ex) {
+        UI_stan.ex = ex;
+    }
+
+    public static void setGame(Game game) {
+        UI_stan.game = game;
+    }
+
+    public static void setHighScores(JLabel[] highScores) {
+        UI_stan.highScores = highScores;
+    }
+    
+    
+
+    public static String getUserName() {
+        return userName;
+    }
+
+    public static void setUserName(String userName) {
+        UI_stan.userName = userName;
+    }
+    
     public UI_stan() {
         KeyListener listener = new MyKeyListener();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,9 +62,10 @@ public class UI_stan extends JFrame implements Observer {
     }
 
     private void initUI() {
-
+        
         Container contentPane = getContentPane();
-
+        
+        
         JPanel main = new JPanel();
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
 
@@ -73,14 +106,19 @@ public class UI_stan extends JFrame implements Observer {
         gameScore.add(scorePanel);
         main.add(gameScore);
         contentPane.add(main);
-
+        
         setTitle("Pentris");
-        setSize(400, 600);
+        setSize(500, 750);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     public static void main(String[] args) {
+        if (args.length !=0 && !args[0].isEmpty()){
+            userName = args[0];
+        }else{
+            userName = "Default User";
+        }
         HighScore h = new HighScore();
         game = new Game();
         ex = new UI_stan();
@@ -90,13 +128,11 @@ public class UI_stan extends JFrame implements Observer {
         for (int i = 0; i < Math.min(10, h.getSize()); i++) {
             highScores[i].setText(h.getScore(i)[0] + h.getScore(i)[1]);
         }
-
         game.start();
-
         while (true) {
             h.saveToFile();
             //System.out.println(game.getScore() + " = score");
-            h.addScore("Me", game.getScore());
+            h.addScore(userName, game.getScore());
             System.out.println("size = " + h.getSize());
             for (int i = 0; i < Math.min(10, h.getSize()); i++) {
                 highScores[i].setText(h.getScore(i)[0] + " " + h.getScore(i)[1]);
@@ -181,10 +217,14 @@ public class UI_stan extends JFrame implements Observer {
                 case KeyEvent.VK_UP:
                     game.rotateCurrentPent();
                     break;
-                case 32:
+                case 13: //enter
+                    ex.requestFocus();
+                    System.out.println(ex.hasFocus());
+                    break;
+                case 32: //space bar
                     game.moveCurrentPentDown();
                     break;
-                case 8:
+                case 8: //space bar
                     game.moveCurrentPentDown();
                     break;
                 case KeyEvent.VK_DOWN:
