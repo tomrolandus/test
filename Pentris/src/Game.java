@@ -105,32 +105,90 @@ public class Game extends Observable {
 
     public void moveCurrentPentLeft() {
         int[] oneLeft = {0, -1};
-        board.movePentomino(oneLeft);
-        setChanged();
-        notifyObservers();
+        boolean allowed = false;
+        int[][] x = currentPent.getShape();
+        for (int row = 0; row < x.length; row++) {
+            for (int col = 0; col < x[row].length; col++) {
+                if (x[row][col] != 0
+                        && ((row + oneLeft[0] + board.getLocation()[0]) < 15)
+                        && ((col + oneLeft[1] + board.getLocation()[1]) != -1)
+                        && ((col + oneLeft[1] + board.getLocation()[1]) < 5)) {
+                    if (fboard.getFinalBoard()
+                            [row + oneLeft[0] + board.getLocation()[0]]
+                            [col + oneLeft[1] + board.getLocation()[1]] 
+                            == 0) {
+                        allowed = true;
+                    }
+                }
+            }
+        
+            if (allowed){
+            board.movePentomino(oneLeft);
+            setChanged();
+            notifyObservers();
+        }
+    }
     }
 
     public void moveCurrentPentRight() {
         int[] oneRight = {0, 1};
-        
-        board.movePentomino(oneRight);
-        
-        setChanged();
-        notifyObservers();
+        boolean allowed = false;
+        int[][] x = currentPent.getShape();
+        for (int col = 0; col < x.length; col++) {
+            for (int row = 0; row < x[col].length; row++) {
+                if (x[col][row] != 0
+                        && ((col + oneRight[0] + board.getLocation()[1]) != -1)
+                        && ((col + oneRight[0] + board.getLocation()[1]) < 15)
+                        && ((row + oneRight[1] + board.getLocation()[0]) != -1)
+                        && ((row + oneRight[1] + board.getLocation()[0]) < 5)) {
+                    if (fboard.getFinalBoard()
+                            [col + oneRight[0] + board.getLocation()[1]]
+                            [row + oneRight[1] + board.getLocation()[0]] 
+                            == 0) {
+                        allowed = true;
+                    }
+                }
+            }
+        }
+        if (allowed){
+            board.movePentomino(oneRight);
+            setChanged();
+            notifyObservers();
+        }
+                
     }
 
     public void moveCurrentPentDown() {
         final int[] oneDown = {1, 0};
+         boolean allowed = false;
+        int[][] x = currentPent.getShape();
+    
+        for (int col = 0; col < x.length; col++) {
+            for (int row = 0; row < x[col].length; row++) {
+                if (x[col][row] != 0
+                        && ((col + oneDown[0] + board.getLocation()[1]) != -1)
+                        && ((col + oneDown[0] + board.getLocation()[1]) < 15)
+                        && ((row + oneDown[1] + board.getLocation()[0]) != -1)
+                        && ((row + oneDown[1] + board.getLocation()[0]) < 5)) {
+                    if (fboard.getFinalBoard()
+                            [col + oneDown[0] + board.getLocation()[1]]
+                            [row + oneDown[1] + board.getLocation()[0]] 
+                            == 0) {
+                        allowed = true;
+                    }
+                }
+            }
         while (!fboard.checkFloorCollision(currentPent, board.getLocation())) {
+            if (allowed){
             board.movePentomino(oneDown);
             board.setExtraTurn(1);
-        }
+        }}
         setChanged();
         board.setExtraTurn(0);
         notifyObservers();
         
     }
-
+    }
     public void start() {
 
         Timer levelTimer = new Timer();
