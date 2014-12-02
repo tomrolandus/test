@@ -104,35 +104,64 @@ public class Game extends Observable {
     }
 
     public void moveCurrentPentLeft() {
-        int[] oneLeft = {0, -1};
-        board.movePentomino(oneLeft);
+        System.out.println("------------------");
+        System.out.println("clicked left");
+        int[] oneLeft = {0, -1}; //row * col
+        boolean allowed = false;
         int[][] x = currentPent.getShape();
-        
-        setChanged();
-        notifyObservers();
+        System.out.println("start of loop");
+        for (int row = 0; row < x.length; row++) {
+            for (int col = 0; col < x[row].length; col++) {
+                if (x[row][col] != 0
+                        && ((col + oneLeft[1] + board.getLocation()[0]) > 0)
+                        && ((col + oneLeft[1] + board.getLocation()[0]) < 5)) {
+                    System.out.println("almost there");
+                    if (fboard.getFinalBoard()
+                            [row + oneLeft[0] + board.getLocation()[0]]
+                            [col + oneLeft[1] + board.getLocation()[0]]
+                            == 0) {
+                        System.out.println("Yay");
+                        allowed = true;
+                    }
+                }
+            }
+        }
+        if (allowed) {
+            System.out.println(" allowed left");
+            board.movePentomino(oneLeft);
+            setChanged();
+            notifyObservers();
+
+        }
     }
 
     public void moveCurrentPentRight() {
         int[] oneRight = {0, 1};
+        boolean allowed = true;
         
-        board.movePentomino(oneRight);
-        
-        setChanged();
-        notifyObservers();
+        if (allowed){
+            board.movePentomino(oneRight);
+            setChanged();
+            notifyObservers();
+        }
+                
     }
 
     public void moveCurrentPentDown() {
         final int[] oneDown = {1, 0};
+         boolean allowed = true;
+        
         while (!fboard.checkFloorCollision(currentPent, board.getLocation())) {
+            if (allowed){
             board.movePentomino(oneDown);
             board.setExtraTurn(1);
-        }
+        }}
         setChanged();
         board.setExtraTurn(0);
         notifyObservers();
         
+    
     }
-
     public void start() {
 
         Timer levelTimer = new Timer();
@@ -156,14 +185,12 @@ public class Game extends Observable {
         boolean newPent = true;
         game:
         while (!this.checkGameOver()) {
-        	
 
             if (newPent) {
                 // Initialize pentomino in the top middle of the screen
                 this.currentPent = this.chooseNextPentomino();
                 initiatePentomino(currentPent);
                 newPent = false;
-                //System.out.println(fboard.checkPlacement(currentPent, board.getLocation()));
                 
             }
 
