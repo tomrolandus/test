@@ -14,8 +14,11 @@ public class Solver {
 		Solver solver = new Solver(12, 5);
 
 		solver.solve(solver.getPentominoes());
+		System.out.println(allSolutions.size());
+		solver.pruneSolutions();
 		int score = 0;
 		int solution = 0;
+		System.out.println(allSolutions.size());
 		ArrayList<ArrayList<char[][]>> order = null;
 		for (int i = 0; i < allSolutions.size(); i++) {
 			ArrayList<ArrayList<char[][]>> temp = solver
@@ -43,6 +46,73 @@ public class Solver {
 
 	}
 
+	private void pruneSolutions() {
+		ArrayList<Solution> toRemove = new ArrayList<Solution>();
+		for (Solution sol : allSolutions) {
+			if (!verticalI(sol)) {
+				toRemove.add(sol);
+				continue;
+			}
+			if (!verticalL(sol)) {
+				toRemove.add(sol);
+				continue;
+			}
+			if (overlapLI(sol)){
+				toRemove.add(sol);
+				continue;
+			}
+				
+		}
+
+		for (Solution sol : toRemove)
+			allSolutions.remove(sol);
+	}
+
+	private boolean overlapLI(Solution sol) {
+		char[][] grid = sol.getGrid();
+		for (int row = 0; row < grid.length; row++)
+			for (int col = 0; col < grid[row].length; col++)
+				if (grid[row][col] == 'I')
+					if (checkRowFor('L', row, grid))
+						return true;
+		return false;
+	}
+
+	private boolean checkRowFor(char type, int row, char[][] grid) {
+		for (int i = 0; i < grid[row].length; i++)
+			if (grid[row][i] == type)
+				return true;
+		return false;
+	}
+
+	private boolean verticalL(Solution sol) {
+		char[][] grid = sol.getGrid();
+		for (int row = 0; row < grid.length - 2; row++)
+			for (int col = 0; col < grid[row].length; col++)
+				if (grid[row][col] == 'L' && grid[row + 1][col] == 'L'
+						&& grid[row + 2][col] == 'L')
+					return true;
+		return false;
+	}
+
+	private boolean verticalI(Solution sol) {
+		char[][] grid = sol.getGrid();
+		for (int row = 0; row < grid.length; row++)
+			for (int col = 0; col < grid[row].length; col++)
+				if (grid[row][col] == 'I')
+					if (row != grid.length - 1)
+						if (grid[row + 1][col] == 'I')
+							return true;
+						else
+							return false;
+					else if (col != grid[row].length - 1)
+						if (grid[row][col + 1] == 'I')
+							return false;
+						else
+							return true;
+		return false;
+	}
+
 	public ArrayList<ArrayList<char[][]>> orderMaxScore(Solution sol) {
 		ArrayList<char[][]> placements = sol.getPlacements();
 
@@ -51,18 +121,14 @@ public class Solver {
 
 		int maxScore = 0;
 		ArrayList<ArrayList<char[][]>> maxOrders = new ArrayList<ArrayList<char[][]>>();
-
+		
 		for (ArrayList<char[][]> order : possibleOrders) {
 			int score = getScore(order);
-			if (score > maxScore)
+			if (score > maxScore){
 				maxScore = score;
-		}
-
-		for (ArrayList<char[][]> order : possibleOrders) {
-			int score = getScore(order);
-
-			if (score == maxScore)
+				maxOrders.clear();
 				maxOrders.add(order);
+			}
 		}
 
 		return maxOrders;
@@ -169,8 +235,8 @@ public class Solver {
 	private void solveMatrix(ArrayList<int[]> matrix,
 			ArrayList<Integer> possibleRows, ArrayList<Integer> possibleCols) {
 
-		if (solution >= 20)
-			return;
+		// if (solution >= 10)
+		// return;
 
 		if (possibleCols.isEmpty()) {
 

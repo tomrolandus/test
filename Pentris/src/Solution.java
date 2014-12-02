@@ -6,7 +6,10 @@ public class Solution {
 	char[][] grid;
 	
 	public Solution(char[][] grid) {
-		this.grid = grid;
+		this.grid = new char[grid.length][grid[0].length];
+		for(int row = 0; row < grid.length; row++)
+			for(int col = 0; col < grid[row].length; col++)
+				this.grid[row][col] = Character.toUpperCase(grid[row][col]);
 	}
 	
 	public Solution(FinalBoard board,ArrayList<int[]> matrix, ArrayList<Integer> rows){
@@ -58,6 +61,10 @@ public class Solution {
 		}
 		
 		return placements;
+	}
+	
+	public char[][] getGrid(){
+		return grid;
 	}
 	
 	public void print(){

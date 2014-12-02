@@ -4,6 +4,7 @@
     <eAnnotations xmi:id="_pdzC0Hk6EeSVm5Faw75mfQ" source="http://ns.yatta.de/umllab">
       <contents xmi:type="ecore:EAnnotation" xmi:id="_pdzp4Hk6EeSVm5Faw75mfQ" source="codegen">
         <details xmi:id="_pdzp4Xk6EeSVm5Faw75mfQ" key="codegenDirectory" value="/Pentris/src"/>
+        <details xmi:id="_5f9pcHk7EeSVm5Faw75mfQ" key="AssociatedSourceCode" value="/Pentris/src/AllTests.java;3915362168/1;/Pentris/src/Board.java;35787359/1;/Pentris/src/ComputerPlayer.java;140286663/1;/Pentris/src/FinalBoard.java;1612761704/1;/Pentris/src/FinalBoardTest.java;2307375014/1;/Pentris/src/Game.java;2264494984/1;/Pentris/src/GameTest.java;723773829/1;/Pentris/src/HighScore.java;1078298553/1;/Pentris/src/ReadFile.java;542905976/1;/Pentris/src/UI_stan.java;183453128/1;/Pentris/src/WriteFile.java;3656094563/1;/Pentris/src/ViewScoreUI.java;3544847779/1;/Pentris/src/UI.java;2524759411/1;/Pentris/src/Pentomino.java;3646622976/1;"/>
       </contents>
     </eAnnotations>
     <elementImport xmi:id="_qNYssHk6EeSVm5Faw75mfQ">
@@ -346,7 +347,9 @@
         <ownedParameter xmi:id="_qkbTsnk6EeSVm5Faw75mfQ" name="height">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </ownedParameter>
-        <ownedParameter xmi:id="_qkbTs3k6EeSVm5Faw75mfQ" type="_qNuq8Hk6EeSVm5Faw75mfQ" direction="return"/>
+        <ownedParameter xmi:id="_qkbTs3k6EeSVm5Faw75mfQ" type="_qNuq8Hk6EeSVm5Faw75mfQ" direction="return">
+          <name xsi:nil="true"/>
+        </ownedParameter>
         <language>java</language>
         <body>grid = new char[height][width];
 		for (int row = 0; row &lt; height; row++) {
@@ -375,6 +378,7 @@
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </ownedParameter>
         <ownedParameter xmi:id="_qkb6xHk6EeSVm5Faw75mfQ" direction="return">
+          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
         </ownedParameter>
         <language>java</language>
@@ -391,6 +395,7 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qkch03k6EeSVm5Faw75mfQ" value="*"/>
         </ownedParameter>
         <ownedParameter xmi:id="_qkch1Hk6EeSVm5Faw75mfQ" direction="return">
+          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
         </ownedParameter>
         <language>java</language>
@@ -415,6 +420,7 @@
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </ownedParameter>
         <ownedParameter xmi:id="_qkeXBHk6EeSVm5Faw75mfQ" direction="return">
+          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
         </ownedParameter>
         <language>java</language>
@@ -439,6 +445,7 @@
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qke-EHk6EeSVm5Faw75mfQ" name="checkHitCeiling" specification="_qNzjcHk6EeSVm5Faw75mfQ">
         <ownedParameter xmi:id="_qke-EXk6EeSVm5Faw75mfQ" direction="return">
+          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
         </ownedParameter>
         <language>java</language>
@@ -455,14 +462,19 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qke-FXk6EeSVm5Faw75mfQ" value="*"/>
         </ownedParameter>
         <ownedParameter xmi:id="_qke-Fnk6EeSVm5Faw75mfQ" direction="return">
+          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
         </ownedParameter>
         <language>java</language>
         <body>int[][] shape = pent.getShape();
+		
+		if(grid.length &lt; location[1] + pent.getWidth() || grid[0].length &lt; location[0] + pent.getHeight()) return false;
+		
 		for(int row = 0; row &lt; shape.length; row++)
 			for(int col = 0; col &lt; shape[row].length; col++)
 				if(shape[row][col] != 0 &amp;&amp; grid[row + location[0]][col + location[1]] != 0)
 					return false;
+		
 		return true;
 	</body>
       </ownedBehavior>
@@ -478,6 +490,7 @@
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qkflIXk6EeSVm5Faw75mfQ" name="toString" specification="_qN0xkHk6EeSVm5Faw75mfQ">
         <ownedParameter xmi:id="_qkflInk6EeSVm5Faw75mfQ" direction="return">
+          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
         <language>java</language>
@@ -495,11 +508,28 @@
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qkflI3k6EeSVm5Faw75mfQ" name="getFinalBoard" specification="_qN1YoHk6EeSVm5Faw75mfQ">
         <ownedParameter xmi:id="_qkflJHk6EeSVm5Faw75mfQ" direction="return">
+          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qkflJXk6EeSVm5Faw75mfQ" value="*"/>
         </ownedParameter>
         <language>java</language>
         <body>return grid;
+	</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7GQfkHlAEeSVm5Faw75mfQ" name="getWidth" specification="_7GLAAHlAEeSVm5Faw75mfQ">
+        <ownedParameter xmi:id="_7GQfkXlAEeSVm5Faw75mfQ" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+        <language>java</language>
+        <body>return grid[0].length;
+	</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7GQfknlAEeSVm5Faw75mfQ" name="getHeight" specification="_7GMOIHlAEeSVm5Faw75mfQ">
+        <ownedParameter xmi:id="_7GQfk3lAEeSVm5Faw75mfQ" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+        <language>java</language>
+        <body>return grid.length;
 	</body>
       </ownedBehavior>
       <ownedOperation xmi:id="_qNv5EHk6EeSVm5Faw75mfQ" name="FinalBoard" method="_qkbTsHk6EeSVm5Faw75mfQ">
@@ -629,6 +659,16 @@
         </ownedParameter>
         <ownedParameter xmi:id="_qXttYHk6EeSVm5Faw75mfQ" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_7GLAAHlAEeSVm5Faw75mfQ" name="getWidth" method="_7GQfkHlAEeSVm5Faw75mfQ">
+        <ownedParameter xmi:id="_7GOqYHlAEeSVm5Faw75mfQ" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_7GMOIHlAEeSVm5Faw75mfQ" name="getHeight" method="_7GQfknlAEeSVm5Faw75mfQ">
+        <ownedParameter xmi:id="_7GOqYXlAEeSVm5Faw75mfQ" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </ownedParameter>
       </ownedOperation>
     </packagedElement>
@@ -1941,7 +1981,9 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
       </ownedAttribute>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rDpmUHk6EeSVm5Faw75mfQ" name="getAllPentominoes" specification="_q_VuEHk6EeSVm5Faw75mfQ">
-        <ownedParameter xmi:id="_rDqNYHk6EeSVm5Faw75mfQ" type="_qWBrUHk6EeSVm5Faw75mfQ" direction="return"/>
+        <ownedParameter xmi:id="_rDqNYHk6EeSVm5Faw75mfQ" type="_qWBrUHk6EeSVm5Faw75mfQ" direction="return">
+          <name xsi:nil="true"/>
+        </ownedParameter>
         <language>java</language>
         <body>return getAllPentominoes(true);
 	</body>
@@ -1950,7 +1992,9 @@
         <ownedParameter xmi:id="_rDqNYnk6EeSVm5Faw75mfQ" name="mirrors">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
         </ownedParameter>
-        <ownedParameter xmi:id="_rDqNY3k6EeSVm5Faw75mfQ" type="_qWBrUHk6EeSVm5Faw75mfQ" direction="return"/>
+        <ownedParameter xmi:id="_rDqNY3k6EeSVm5Faw75mfQ" type="_qWBrUHk6EeSVm5Faw75mfQ" direction="return">
+          <name xsi:nil="true"/>
+        </ownedParameter>
         <language>java</language>
         <body>ArrayList&lt;Pentomino> result = new ArrayList&lt;Pentomino>();
 		Pentomino[] pentominoes;
@@ -2008,7 +2052,9 @@
         <ownedParameter xmi:id="_rDqNZXk6EeSVm5Faw75mfQ" name="type">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
         </ownedParameter>
-        <ownedParameter xmi:id="_rDqNZnk6EeSVm5Faw75mfQ" type="_qXbZgHk6EeSVm5Faw75mfQ" direction="return"/>
+        <ownedParameter xmi:id="_rDqNZnk6EeSVm5Faw75mfQ" type="_qXbZgHk6EeSVm5Faw75mfQ" direction="return">
+          <name xsi:nil="true"/>
+        </ownedParameter>
         <language>java</language>
         <body>if(type == 'f') this.pent = F;
 		else if(type == 'p') this.pent = P;
@@ -2028,7 +2074,9 @@
 	</body>
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rDqNZ3k6EeSVm5Faw75mfQ" name="clone" specification="_q_W8MXk6EeSVm5Faw75mfQ">
-        <ownedParameter xmi:id="_rDqNaHk6EeSVm5Faw75mfQ" type="_qXjVUXk6EeSVm5Faw75mfQ" direction="return"/>
+        <ownedParameter xmi:id="_rDqNaHk6EeSVm5Faw75mfQ" type="_qXjVUXk6EeSVm5Faw75mfQ" direction="return">
+          <name xsi:nil="true"/>
+        </ownedParameter>
         <language>java</language>
         <body>Object pent = new Pentomino(this.getType());
 		return pent;
@@ -2037,6 +2085,7 @@
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rDq0cHk6EeSVm5Faw75mfQ" name="equals" specification="_q_XjQHk6EeSVm5Faw75mfQ">
         <ownedParameter xmi:id="_rDq0cXk6EeSVm5Faw75mfQ" name="pent" type="_qXbZgHk6EeSVm5Faw75mfQ"/>
         <ownedParameter xmi:id="_rDq0cnk6EeSVm5Faw75mfQ" direction="return">
+          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
         </ownedParameter>
         <language>java</language>
@@ -2082,6 +2131,7 @@
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rDrbgHk6EeSVm5Faw75mfQ" name="getShape" specification="_q_YKUHk6EeSVm5Faw75mfQ">
         <ownedParameter xmi:id="_rDrbgXk6EeSVm5Faw75mfQ" direction="return">
+          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDrbgnk6EeSVm5Faw75mfQ" value="*"/>
         </ownedParameter>
@@ -2091,6 +2141,7 @@
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rDrbg3k6EeSVm5Faw75mfQ" name="getAmountOfPermutations" specification="_q_YKVHk6EeSVm5Faw75mfQ">
         <ownedParameter xmi:id="_rDrbhHk6EeSVm5Faw75mfQ" direction="return">
+          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </ownedParameter>
         <language>java</language>
@@ -2102,31 +2153,9 @@
 		return amount;
 	</body>
       </ownedBehavior>
-      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rDrbhXk6EeSVm5Faw75mfQ" name="getPermutations" specification="_q_YKVXk6EeSVm5Faw75mfQ">
-        <ownedParameter xmi:id="_rDrbhnk6EeSVm5Faw75mfQ" type="_qXbZgHk6EeSVm5Faw75mfQ" direction="return">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDrbh3k6EeSVm5Faw75mfQ" value="*"/>
-        </ownedParameter>
-        <language>java</language>
-        <body>Pentomino[] pentominoes;
-
-		pentominoes = new Pentomino[this.getAmountOfPermutations()];
-
-		for (int i = 0; i &lt; pentominoes.length; i++){
-			Pentomino pent = new Pentomino(this.type);
-			pent.rotate(i);
-			pentominoes[i] = pent;
-		}
-		
-		if (type == 'f' || type == 'l' || type == 'p' || type == 'z'
-				|| type == 'y' || type == 'n')
-			for (int i = pentominoes.length / 2; i &lt; pentominoes.length; i++)
-				pentominoes[i].mirror();
-
-		return pentominoes;
-	</body>
-      </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rDrbiHk6EeSVm5Faw75mfQ" name="getWidth" specification="_q_YxYnk6EeSVm5Faw75mfQ">
         <ownedParameter xmi:id="_rDrbiXk6EeSVm5Faw75mfQ" direction="return">
+          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </ownedParameter>
         <language>java</language>
@@ -2135,6 +2164,7 @@
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rDsCkHk6EeSVm5Faw75mfQ" name="getHeight" specification="_q_YxY3k6EeSVm5Faw75mfQ">
         <ownedParameter xmi:id="_rDsCkXk6EeSVm5Faw75mfQ" direction="return">
+          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </ownedParameter>
         <language>java</language>
@@ -2179,14 +2209,6 @@
         </ownedComment>
         <ownedParameter xmi:id="_rAMCoHk6EeSVm5Faw75mfQ" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-        </ownedParameter>
-      </ownedOperation>
-      <ownedOperation xmi:id="_q_YKVXk6EeSVm5Faw75mfQ" name="getPermutations" method="_rDrbhXk6EeSVm5Faw75mfQ">
-        <ownedComment xmi:id="_rDt3xnk6EeSVm5Faw75mfQ">
-          <body>@return pentominoes Array of all permutations of a particular pentomino</body>
-        </ownedComment>
-        <ownedParameter xmi:id="_q_YKVnk6EeSVm5Faw75mfQ" type="_qXbZgHk6EeSVm5Faw75mfQ" direction="return">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_q_YxYHk6EeSVm5Faw75mfQ" value="*"/>
         </ownedParameter>
       </ownedOperation>
       <ownedOperation xmi:id="_q_YxYnk6EeSVm5Faw75mfQ" name="getWidth" method="_rDrbiHk6EeSVm5Faw75mfQ">
@@ -8454,7 +8476,6 @@
   <UMLLabProfile:Reference xmi:id="_qlWgwHk6EeSVm5Faw75mfQ" base_Element="_qlV5s3k6EeSVm5Faw75mfQ"/>
   <UMLLabProfile:Generics xmi:id="_q_W8MHk6EeSVm5Faw75mfQ" genericsValue="Pentomino" base_Element="_q_VuEHk6EeSVm5Faw75mfQ"/>
   <UMLLabProfile:Array xmi:id="_q_YKU3k6EeSVm5Faw75mfQ" dimensions="2" base_Element="_q_YKUHk6EeSVm5Faw75mfQ"/>
-  <UMLLabProfile:Array xmi:id="_q_YxYXk6EeSVm5Faw75mfQ" base_Element="_q_YKVXk6EeSVm5Faw75mfQ"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_q_vWs3k6EeSVm5Faw75mfQ" base_Element="_q_vWsnk6EeSVm5Faw75mfQ"/>
   <UMLLabProfile:Annotations xmi:id="_q_v9wHk6EeSVm5Faw75mfQ" base_Element="_q_vWsnk6EeSVm5Faw75mfQ">
     <annotations xmi:id="_q_v9wXk6EeSVm5Faw75mfQ" name="SuppressWarnings">
