@@ -48,14 +48,51 @@ public class Solver {
 
 	private void pruneSolutions() {
 		ArrayList<Solution> toRemove = new ArrayList<Solution>();
-		for (Solution sol : allSolutions)
-			if (!verticalI(sol)){
+		for (Solution sol : allSolutions) {
+			if (!verticalI(sol)) {
 				toRemove.add(sol);
 				continue;
 			}
+			if (!verticalL(sol)) {
+				toRemove.add(sol);
+				continue;
+			}
+			if (overlapLI(sol)){
+				toRemove.add(sol);
+				continue;
+			}
+				
+		}
 
 		for (Solution sol : toRemove)
 			allSolutions.remove(sol);
+	}
+
+	private boolean overlapLI(Solution sol) {
+		char[][] grid = sol.getGrid();
+		for (int row = 0; row < grid.length; row++)
+			for (int col = 0; col < grid[row].length; col++)
+				if (grid[row][col] == 'I')
+					if (checkRowFor('L', row, grid))
+						return true;
+		return false;
+	}
+
+	private boolean checkRowFor(char type, int row, char[][] grid) {
+		for (int i = 0; i < grid[row].length; i++)
+			if (grid[row][i] == type)
+				return true;
+		return false;
+	}
+
+	private boolean verticalL(Solution sol) {
+		char[][] grid = sol.getGrid();
+		for (int row = 0; row < grid.length - 2; row++)
+			for (int col = 0; col < grid[row].length; col++)
+				if (grid[row][col] == 'L' && grid[row + 1][col] == 'L'
+						&& grid[row + 2][col] == 'L')
+					return true;
+		return false;
 	}
 
 	private boolean verticalI(Solution sol) {
@@ -84,18 +121,14 @@ public class Solver {
 
 		int maxScore = 0;
 		ArrayList<ArrayList<char[][]>> maxOrders = new ArrayList<ArrayList<char[][]>>();
-
+		
 		for (ArrayList<char[][]> order : possibleOrders) {
 			int score = getScore(order);
-			if (score > maxScore)
+			if (score > maxScore){
 				maxScore = score;
-		}
-
-		for (ArrayList<char[][]> order : possibleOrders) {
-			int score = getScore(order);
-
-			if (score == maxScore)
+				maxOrders.clear();
 				maxOrders.add(order);
+			}
 		}
 
 		return maxOrders;
@@ -202,8 +235,8 @@ public class Solver {
 	private void solveMatrix(ArrayList<int[]> matrix,
 			ArrayList<Integer> possibleRows, ArrayList<Integer> possibleCols) {
 
-		if (solution >= 10)
-			return;
+		// if (solution >= 10)
+		// return;
 
 		if (possibleCols.isEmpty()) {
 
