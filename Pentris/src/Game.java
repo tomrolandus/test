@@ -17,7 +17,7 @@ public class Game extends Observable {
 
     private static final double LEVEL_INCREASE = 0.8;
     private static final int LINE_SCORE = 1;
-    private static final double BONUS_SCORE = 1;
+    private static final double BONUS_SCORE = 5;
     private static final long LEVEL_INTERVAL = 40000; // twenty seconds
     private static final long INITIAL_DROP_SPEED = 500; // 2 seconds
 
@@ -75,6 +75,11 @@ public class Game extends Observable {
         notifyObservers();
     }
 
+    public static int calculateScore(int amountOfRows){
+    	return (int) (LINE_SCORE * amountOfRows + BONUS_SCORE
+                * (amountOfRows - 1));
+    }
+    
     private void countScore(int amountOfRows) {
         int addScore = (int) (LINE_SCORE * amountOfRows + BONUS_SCORE
                 * (amountOfRows - 1));
@@ -101,6 +106,8 @@ public class Game extends Observable {
     public void moveCurrentPentLeft() {
         int[] oneLeft = {0, -1};
         board.movePentomino(oneLeft);
+        int[][] x = currentPent.getShape();
+        
         setChanged();
         notifyObservers();
     }
