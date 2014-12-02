@@ -75,17 +75,11 @@ public class Game extends Observable {
         notifyObservers();
     }
 
-	public void countScore(int amountOfRows) {
-		int addScore = (int) (LINE_SCORE * amountOfRows + BONUS_SCORE
-				* (amountOfRows - 1));
-		score += addScore;
-	}
-	
-	public static int calculateScore(int amountOfRows){
-		return (int) (LINE_SCORE * amountOfRows + BONUS_SCORE
-				* (amountOfRows - 1));
-	}
-
+    private void countScore(int amountOfRows) {
+        int addScore = (int) (LINE_SCORE * amountOfRows + BONUS_SCORE
+                * (amountOfRows - 1));
+        score += addScore;
+    }
 
     private void nextLevel() {
         // dropSpeed *= LEVEL_INCREASE;
@@ -113,7 +107,9 @@ public class Game extends Observable {
 
     public void moveCurrentPentRight() {
         int[] oneRight = {0, 1};
+        
         board.movePentomino(oneRight);
+        
         setChanged();
         notifyObservers();
     }
@@ -122,10 +118,10 @@ public class Game extends Observable {
         final int[] oneDown = {1, 0};
         while (!fboard.checkFloorCollision(currentPent, board.getLocation())) {
             board.movePentomino(oneDown);
-            board.debug=1;
+            board.setExtraTurn(1);
         }
         setChanged();
-        board.debug = 0;
+        board.setExtraTurn(0);
         notifyObservers();
         
     }
@@ -196,16 +192,23 @@ public class Game extends Observable {
 
             if (fboard.checkFloorCollision(currentPent, board.getLocation())) {
                 // put pentomino on the final board
-                if (board.debug == 0) {
+                if (board.getExtraTurn() == 0) {
                     try {
                         Thread.sleep(500);
+                        if (!fboard.checkFloorCollision(currentPent, board.getLocation())
+                                && firstMove) {
+                            timer.schedule(new MoveDown(), dropSpeed);
+                            firstMove = false;
+                        }
+                        moveCurrentPentDown();
+                        
                     } catch (Exception e) {
                         System.out.println(e);
                     }
                 }
-                board.debug = 1;
+                board.setExtraTurn(1);
                 fboard.putPentomino(currentPent, board.getLocation());
-                board.debug = 0;
+                board.setExtraTurn(0);
 
                 firstMove = true;
                 newPent = true;

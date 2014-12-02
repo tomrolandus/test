@@ -1,6 +1,5 @@
 public class FinalBoard {
 
-    public int o = 0;
     private char[][] grid;
 
     /**
@@ -16,14 +15,6 @@ public class FinalBoard {
                 grid[row][col] = 0;
             }
         }
-    }
-    
-    public int getHeight(){
-    	return grid.length;
-    }
-    
-    public int getWidth(){
-    	return grid[0].length;
     }
 
     /**
@@ -74,8 +65,6 @@ public class FinalBoard {
         for (int row = 0; row < shape.length; row++) {
             for (int col = 0; col < shape[row].length; col++) {
                 if (row + location[0] + 1 >= grid.length) {
-                    //System.out.println("help");
-                    o++;
                     return true;
                 }
                 if (shape[row][col] != 0
@@ -94,31 +83,24 @@ public class FinalBoard {
 
     }
 
-	/**
-	 * This method places the pentomino on the finalBoard
-	 * 
-	 * @param pent
-	 *            The pentomino that has to be placed.
-	 * @param row
-	 *            The row of the pentomino that has to be placed.
-	 * @param col
-	 *            The column of the pentomino that has to be placed.
-	 */
-	public void putPentomino(Pentomino pent, int[] location) {
-		int[][] pento = pent.getShape();
-		for (int i = 0; i < pento.length; i++)
-			for (int j = 0; j < pento[i].length; j++)
-				if (pento[i][j] == 1)
-					grid[location[0] + i][location[1] + j] = pent.getType();
-	}
-	
-	public void putPentomino(char[][] pent){
-		for (int i = 0; i < pent.length; i++)
-			for (int j = 0; j < pent[i].length; j++)
-				if (pent[i][j] != 0)
-					grid[i][j] = pent[i][j];
-	}
+    /**
+     * This method places the pentomino on the finalBoard
+     *
+     * @param pent The pentomino that has to be placed.
+     * @param row The row of the pentomino that has to be placed.
+     * @param col The column of the pentomino that has to be placed.
+     */
+    public void putPentomino(Pentomino pent, int[] location) {
+        int[][] pento = pent.getShape();
+        for (int i = 0; i < pento.length; i++) {
+            for (int j = 0; j < pento[i].length; j++) {
+                if (pento[i][j] == 1) {
+                    grid[location[0] + i][location[1] + j] = pent.getType();
+                }
+            }
+        }
 
+    }
 
     /**
      * Checks if the top of the board has been reached by a pentomino.
@@ -136,9 +118,6 @@ public class FinalBoard {
     }
 
     public boolean checkPlacement(Pentomino pent, int[] location) {
-    	
-    	if(grid[0].length < location[1] + pent.getWidth() || grid.length < location[0] + pent.getHeight()) return false;
-    	
         int[][] shape = pent.getShape();
         for (int row = 0; row < shape.length; row++) {
             for (int col = 0; col < shape[row].length; col++) {
