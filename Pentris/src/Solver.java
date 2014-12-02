@@ -13,19 +13,27 @@ public class Solver {
 	public static void main(String[] args) {
 		Solver solver = new Solver(12, 5);
 
+		// solve exact cover problem
 		solver.solve(solver.getPentominoes());
+
+		// prune solutions
 		System.out.println(allSolutions.size());
 		solver.pruneSolutions();
+		System.out.println(allSolutions.size());
+
+		// find solution index and relevant max score
 		int score = 0;
 		int solution = 0;
-		System.out.println(allSolutions.size());
+
 		ArrayList<ArrayList<char[][]>> order = null;
 		for (int i = 0; i < allSolutions.size(); i++) {
 			ArrayList<ArrayList<char[][]>> temp = solver
 					.orderMaxScore(allSolutions.get(i));
+			allSolutions.get(i).print();
 			for (int j = 0; j < temp.size(); j++) {
 				int newScore = solver.getScore(temp.get(j));
-				if (newScore > score) {
+				System.out.println(newScore);
+				if (newScore >= score) {
 					score = newScore;
 					solution = i;
 					order = temp;
@@ -33,8 +41,7 @@ public class Solver {
 			}
 		}
 
-		// score = solver.getScore();
-
+		// print one of the solutions
 		System.out.println(score);
 		allSolutions.get(solution).print();
 		for (int k = 0; k < 12; k++)
@@ -48,69 +55,46 @@ public class Solver {
 
 	private void pruneSolutions() {
 		ArrayList<Solution> toRemove = new ArrayList<Solution>();
-		for (Solution sol : allSolutions) {
-			if (!verticalI(sol)) {
+		for (Solution sol : allSolutions)
+			if (prune(sol))
 				toRemove.add(sol);
-				continue;
-			}
-			if (!verticalL(sol)) {
-				toRemove.add(sol);
-				continue;
-			}
-			if (overlapLI(sol)){
-				toRemove.add(sol);
-				continue;
-			}
-				
-		}
 
 		for (Solution sol : toRemove)
 			allSolutions.remove(sol);
 	}
 
-	private boolean overlapLI(Solution sol) {
+	private boolean prune(Solution sol) {
 		char[][] grid = sol.getGrid();
-		for (int row = 0; row < grid.length; row++)
-			for (int col = 0; col < grid[row].length; col++)
-				if (grid[row][col] == 'I')
-					if (checkRowFor('L', row, grid))
-						return true;
-		return false;
-	}
 
-	private boolean checkRowFor(char type, int row, char[][] grid) {
-		for (int i = 0; i < grid[row].length; i++)
-			if (grid[row][i] == type)
-				return true;
-		return false;
-	}
+		ArrayList<Integer> r = new ArrayList<Integer>();
+		for (int i = 0; i < grid.length; i++)
+			r.add(i);
 
-	private boolean verticalL(Solution sol) {
-		char[][] grid = sol.getGrid();
-		for (int row = 0; row < grid.length - 2; row++)
+		rowLoop: for (int row = 0; row < grid.length; row++)
 			for (int col = 0; col < grid[row].length; col++)
-				if (grid[row][col] == 'L' && grid[row + 1][col] == 'L'
-						&& grid[row + 2][col] == 'L')
-					return true;
-		return false;
-	}
+				if (grid[row][col] == 'L' || grid[row][col] == 'I') {
+					r.remove((Integer) row);
+					continue rowLoop;
+				}
 
-	private boolean verticalI(Solution sol) {
-		char[][] grid = sol.getGrid();
-		for (int row = 0; row < grid.length; row++)
-			for (int col = 0; col < grid[row].length; col++)
-				if (grid[row][col] == 'I')
-					if (row != grid.length - 1)
-						if (grid[row + 1][col] == 'I')
-							return true;
-						else
-							return false;
-					else if (col != grid[row].length - 1)
-						if (grid[row][col + 1] == 'I')
-							return false;
-						else
-							return true;
-		return false;
+		// should be pruned if I and L are not upright or overlapping
+		if (r.size() > 3)
+			return true;
+
+		// rows cannot be spanned by a single piece if the rows are
+		// discontinuous
+		if (r.get(2) - r.get(0) > 2)
+			return true;
+
+		for (int col = 0; col < grid[0].length; col++) {
+			int row = r.get(0);
+			char type = grid[row][col];
+			if (grid[row + 1][col] == type && grid[row + 2][col] == type)
+				return false;
+		}
+
+		return true;
+
 	}
 
 	public ArrayList<ArrayList<char[][]>> orderMaxScore(Solution sol) {
@@ -121,37 +105,58 @@ public class Solver {
 
 		int maxScore = 0;
 		ArrayList<ArrayList<char[][]>> maxOrders = new ArrayList<ArrayList<char[][]>>();
-		
+
 		for (ArrayList<char[][]> order : possibleOrders) {
 			int score = getScore(order);
-			if (score > maxScore){
+			if (score > maxScore) {
 				maxScore = score;
 				maxOrders.clear();
 				maxOrders.add(order);
 			}
 		}
-
+		for(int i = 0; i < 12; i++){
+			for(int j = 0; j < 12; j++){
+				for(int k = 0; k < 5; k++)
+					System.out.print(maxOrders.get(0).get(i)[j][k]);
+				System.out.println();
+			}
+			System.out.println();
+		}
 		return maxOrders;
 	}
 
 	public int getScore(ArrayList<char[][]> placements) {
+		
+		
+		
 		int result = 0;
-
+		int count = 0;
 		FinalBoard board = new FinalBoard(gridWidth, gridHeight);
+		
+		ArrayList<Integer> openRows = new ArrayList<Integer>();
+		for(int i = 0; i < board.getHeight(); i++)
+			openRows.add(i);
+		
 		for (char[][] placement : placements) {
 			board.putPentomino(placement);
-
+			
+			
+			
 			ArrayList<Integer> rowsToRemove = new ArrayList<Integer>();
-			for (int row = 0; row < board.getHeight(); row++)
-				if (board.checkFullRow(row))
+			
+			for (int row : openRows)
+				if (board.checkFullRow(row)){
+					count++;
 					rowsToRemove.add(row);
-			if (!rowsToRemove.isEmpty())
-				result += Game.calculateScore(rowsToRemove.size());
-
-			for (int row : rowsToRemove)
-				board.removeLine(row);
+				}
+			
+			if (!rowsToRemove.isEmpty()) {
+				int score = Game.calculateScore(rowsToRemove.size());
+				result += score;
+				for(int row : rowsToRemove)
+					openRows.remove((Integer) row);
+			}
 		}
-
 		return result;
 
 	}
