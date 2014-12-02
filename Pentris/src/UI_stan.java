@@ -94,7 +94,7 @@ public class UI_stan extends JFrame implements Observer {
         game.start();
 
         while (true) {
-            h.saveToFile();
+        	h.saveToFile();
             //System.out.println(game.getScore() + " = score");
             h.addScore("Me", game.getScore());
             System.out.println("size = " + h.getSize());

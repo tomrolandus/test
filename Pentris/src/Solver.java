@@ -14,8 +14,11 @@ public class Solver {
 		Solver solver = new Solver(12, 5);
 
 		solver.solve(solver.getPentominoes());
+		System.out.println(allSolutions.size());
+		solver.pruneSolutions();
 		int score = 0;
 		int solution = 0;
+		System.out.println(allSolutions.size());
 		ArrayList<ArrayList<char[][]>> order = null;
 		for (int i = 0; i < allSolutions.size(); i++) {
 			ArrayList<ArrayList<char[][]>> temp = solver
@@ -41,6 +44,36 @@ public class Solver {
 				System.out.println();
 			}
 
+	}
+
+	private void pruneSolutions() {
+		ArrayList<Solution> toRemove = new ArrayList<Solution>();
+		for (Solution sol : allSolutions)
+			if (!verticalI(sol)){
+				toRemove.add(sol);
+				continue;
+			}
+
+		for (Solution sol : toRemove)
+			allSolutions.remove(sol);
+	}
+
+	private boolean verticalI(Solution sol) {
+		char[][] grid = sol.getGrid();
+		for (int row = 0; row < grid.length; row++)
+			for (int col = 0; col < grid[row].length; col++)
+				if (grid[row][col] == 'I')
+					if (row != grid.length - 1)
+						if (grid[row + 1][col] == 'I')
+							return true;
+						else
+							return false;
+					else if (col != grid[row].length - 1)
+						if (grid[row][col + 1] == 'I')
+							return false;
+						else
+							return true;
+		return false;
 	}
 
 	public ArrayList<ArrayList<char[][]>> orderMaxScore(Solution sol) {
@@ -169,7 +202,7 @@ public class Solver {
 	private void solveMatrix(ArrayList<int[]> matrix,
 			ArrayList<Integer> possibleRows, ArrayList<Integer> possibleCols) {
 
-		if (solution >= 20)
+		if (solution >= 10)
 			return;
 
 		if (possibleCols.isEmpty()) {
