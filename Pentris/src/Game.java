@@ -17,7 +17,7 @@ public class Game extends Observable {
 
     private static final double LEVEL_INCREASE = 0.8;
     private static final int LINE_SCORE = 1;
-    private static final double BONUS_SCORE = 1;
+    private static final double BONUS_SCORE = 5;
     private static final long LEVEL_INTERVAL = 40000; // twenty seconds
     private static final long INITIAL_DROP_SPEED = 500; // 2 seconds
 

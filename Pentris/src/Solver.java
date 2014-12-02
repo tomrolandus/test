@@ -16,15 +16,16 @@ public class Solver {
 		solver.solve(solver.getPentominoes());
 		int score = 0;
 		int solution = 0;
-		int order = 0;
-		for(int i = 0; i < allSolutions.size(); i ++){
-			ArrayList<ArrayList<char[][]>> temp = solver.orderMaxScore(allSolutions.get(i));
-			for(int j = 0; j < temp.size(); j++){
-				int newScore = solver.getScore(solver.orderMaxScore(allSolutions.get(i)).get(j));
-				if(newScore > score){
+		ArrayList<ArrayList<char[][]>> order = null;
+		for (int i = 0; i < allSolutions.size(); i++) {
+			ArrayList<ArrayList<char[][]>> temp = solver
+					.orderMaxScore(allSolutions.get(i));
+			for (int j = 0; j < temp.size(); j++) {
+				int newScore = solver.getScore(temp.get(j));
+				if (newScore > score) {
 					score = newScore;
 					solution = i;
-					order = j;
+					order = temp;
 				}
 			}
 		}
@@ -33,7 +34,13 @@ public class Solver {
 
 		System.out.println(score);
 		allSolutions.get(solution).print();
-		
+		for (int k = 0; k < 12; k++)
+			for (int i = 0; i < 12; i++) {
+				for (int j = 0; j < 5; j++)
+					System.out.print(order.get(0).get(k)[i][j]);
+				System.out.println();
+			}
+
 	}
 
 	public ArrayList<ArrayList<char[][]>> orderMaxScore(Solution sol) {
@@ -50,16 +57,14 @@ public class Solver {
 			if (score > maxScore)
 				maxScore = score;
 		}
-		
-		
 
 		for (ArrayList<char[][]> order : possibleOrders) {
 			int score = getScore(order);
-			
+
 			if (score == maxScore)
 				maxOrders.add(order);
 		}
-		
+
 		return maxOrders;
 	}
 
@@ -74,13 +79,13 @@ public class Solver {
 			for (int row = 0; row < board.getHeight(); row++)
 				if (board.checkFullRow(row))
 					rowsToRemove.add(row);
-			if(!rowsToRemove.isEmpty())
+			if (!rowsToRemove.isEmpty())
 				result += Game.calculateScore(rowsToRemove.size());
-			
+
 			for (int row : rowsToRemove)
 				board.removeLine(row);
 		}
-		
+
 		return result;
 
 	}
@@ -159,17 +164,17 @@ public class Solver {
 		return allSolutions;
 	}
 
-	private boolean solution = false;
+	private int solution = 0;
 
 	private void solveMatrix(ArrayList<int[]> matrix,
 			ArrayList<Integer> possibleRows, ArrayList<Integer> possibleCols) {
 
-		if (solution)
+		if (solution >= 20)
 			return;
 
 		if (possibleCols.isEmpty()) {
 
-			solution = true;
+			solution++;
 
 			if (solutionCount % 25 == 0) {
 				String s = "";
