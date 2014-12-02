@@ -109,6 +109,7 @@ public class FinalBoard {
         for (int i = 0; i < pento.length; i++) {
             for (int j = 0; j < pento[i].length; j++) {
                 if (pento[i][j] == 1) {
+                	System.out.println(grid[location[0] + i][location[1] + j] = pent.getType());
                     grid[location[0] + i][location[1] + j] = pent.getType();
                 }
             }
@@ -149,8 +150,10 @@ public class FinalBoard {
         
         for (int row = 0; row < shape.length; row++) {
             for (int col = 0; col < shape[row].length; col++) {
+            	if(grid[location[0]][location[1]] == 0)
+            	System.out.print("0");
             	//System.out.println(shape[row][col] != 0);
-            	System.out.println(grid[row + location[0]][col + location[1]] != 0);
+            	//System.out.println(grid[row + location[0]][col + location[1]] != 0);
                 if (shape[row][col] != 0 && grid[row + location[0]][col + location[1]] != 0) {
                 	System.out.println("test");
                     return false;
