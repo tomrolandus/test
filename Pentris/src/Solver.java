@@ -1,0 +1,227 @@
+import java.util.ArrayList;
+
+public class Solver {
+
+	private static final int PENT_AMOUNT = 12;
+	private int gridHeight;
+	private int gridWidth;
+
+	public Solver(int gridHeight, int gridWidth) {
+		this.gridHeight = gridHeight;
+		this.gridWidth = gridWidth;
+	}
+	
+	public static void main(String[] args){
+		Solver solver = new Solver(5,12);
+		
+		solver.solve(solver.getPentominoes());
+		
+		allSolutions.get(1).print();
+		
+	}
+	 
+	private static ArrayList<Solution> allSolutions = new ArrayList<Solution>();
+	Integer solutionCount = 0;
+	ArrayList<Integer> solutions = new ArrayList<Integer>();
+	
+	ArrayList<int[]> matrix;
+	
+	ArrayList<Integer> possibleRows = new ArrayList<Integer>();
+	ArrayList<Integer> possibleCols = new ArrayList<Integer>();
+
+	public ArrayList<Solution> solve(ArrayList<Pentomino> pentominoes){
+		
+		matrix = generatePossibilityMatrix(pentominoes);
+
+		for (int row = 0; row < matrix.size(); row++)
+			possibleRows.add(row);
+		for (int col = 0; col < matrix.get(0).length; col++)
+			possibleCols.add(col);
+		
+		
+		solveMatrix(matrix, possibleRows, possibleCols);
+		
+		
+		return allSolutions;
+	}
+	
+	
+	
+	private void solveMatrix(ArrayList<int[]> matrix, ArrayList<Integer> possibleRows,
+			ArrayList<Integer> possibleCols) {
+		
+		
+		if (possibleCols.isEmpty()) {
+			
+			if (solutionCount % 25 == 0) {
+				String s = "";
+				s += "|";
+				for (int i = 0; i < solutionCount / 25; i++)
+					s += "*";
+				for (int i = solutionCount / 25; i < 40; i++)
+					s += " ";
+				s += "|\r";
+				System.out.print(s);
+			}
+			
+			allSolutions.add(new Solution(new FinalBoard(gridWidth, gridHeight), matrix, solutions));
+			solutionCount++;
+			return;
+		}
+
+		if (possibleRows.isEmpty())
+			return;
+
+		// select one column
+		int selectedCol = 0;
+		int minCol = matrix.size();
+		for (Integer col : possibleCols) {
+			int colCount = 0;
+
+			// count rows with one
+			for (Integer row : possibleRows)
+				if (matrix.get(row)[col] == 1)
+					colCount++;
+
+			// update mincol and selected col
+			if (colCount < minCol) {
+				minCol = colCount;
+				selectedCol = col;
+			}
+		}
+
+		ArrayList<Integer> rowsWithOne = new ArrayList<Integer>();
+
+		for (Integer row : possibleRows)
+			if (matrix.get(row)[selectedCol] == 1)
+				rowsWithOne.add((Integer) row);
+
+		for (Integer selectedRow : rowsWithOne) {
+			ArrayList<Integer> rowsToRemove = new ArrayList<Integer>();
+			ArrayList<Integer> colsToRemove = new ArrayList<Integer>();
+
+			// find all intersecting columns and rows to remove
+			// check all columns
+
+			for (Integer col : possibleCols) {
+
+				if (matrix.get(selectedRow)[col] == 1) {
+					colsToRemove.add((Integer) col);
+					// check all rows in the selected columns
+					for (Integer row : possibleRows)
+						if (matrix.get(row)[col] == 1)
+							if (!rowsToRemove.contains((Integer) row))
+								rowsToRemove.add(row);
+
+				}
+			}
+
+			// add row to solution
+			solutions.add(selectedRow);
+
+			// remove rows and columns to remove
+			for (Integer row : rowsToRemove)
+				possibleRows.remove(row);
+			for (Integer col : colsToRemove)
+				possibleCols.remove(col);
+
+			// recursive step
+			solveMatrix(matrix, possibleRows, possibleCols);
+
+			for (Integer row : rowsToRemove)
+				possibleRows.add(row);
+			for (Integer col : colsToRemove)
+				possibleCols.add(col);
+
+			solutions.remove((solutions.size() - 1));
+		}
+
+	}
+
+	public ArrayList<int[]> generatePossibilityMatrix(
+			ArrayList<Pentomino> pentominoes) {
+
+		FinalBoard board = new FinalBoard(gridWidth, gridHeight);
+
+		ArrayList<int[]> result = new ArrayList<int[]>();
+
+		ArrayList<Pentomino> pents = getPentominoes();
+
+		for (Pentomino pent : pents) {
+			int[][] shape = pent.getShape();
+			char type = pent.getType();
+
+			for (int x = 0; x < board.getWidth(); x++)
+				for (int y = 0; y < board.getHeight(); y++)
+					if (board.checkPlacement(pent, new int[] { y, x })) {
+
+						int[] newRow = new int[PENT_AMOUNT + board.getHeight()
+								* board.getWidth()];
+
+						for (int i = 0; i < newRow.length; i++)
+							newRow[i] = 0;
+
+						int index = Pentomino.typeToInt(type);
+
+						newRow[index] = 1;
+
+						for (int row = 0; row < shape.length; row++)
+							for (int col = 0; col < shape[row].length; col++)
+								if (shape[row][col] != 0)
+									newRow[(x + col) + (y + row)
+											* board.getWidth() + PENT_AMOUNT] = 1;
+						result.add(newRow);
+					}
+		}
+
+		return result;
+	}
+
+	public ArrayList<Pentomino> getPentominoes() {
+		ArrayList<Pentomino> result = new ArrayList<Pentomino>();
+
+		Pentomino f = new Pentomino('f');
+		Pentomino p = new Pentomino('p');
+		Pentomino x = new Pentomino('x');
+		Pentomino v = new Pentomino('v');
+		Pentomino w = new Pentomino('w');
+		Pentomino y = new Pentomino('y');
+		Pentomino i = new Pentomino('i');
+		Pentomino t = new Pentomino('t');
+		Pentomino z = new Pentomino('z');
+		Pentomino u = new Pentomino('u');
+		Pentomino n = new Pentomino('n');
+		Pentomino l = new Pentomino('l');
+
+		Pentomino[][] pentses = new Pentomino[][] { getPermutations(f),
+				getPermutations(p), getPermutations(x), getPermutations(v),
+				getPermutations(w), getPermutations(y), getPermutations(i),
+				getPermutations(t), getPermutations(z), getPermutations(u),
+				getPermutations(n), getPermutations(l) };
+
+		for (Pentomino[] pents : pentses)
+			for (Pentomino pent : pents)
+				result.add(pent);
+
+		return result;
+	}
+
+	public Pentomino[] getPermutations(Pentomino pent) {
+		Pentomino[] pentominoes;
+		char type = pent.getType();
+		pentominoes = new Pentomino[pent.getAmountOfPermutations()];
+
+		for (int i = 0; i < pentominoes.length; i++) {
+			Pentomino newPent = new Pentomino(type);
+			newPent.rotate(i);
+			pentominoes[i] = newPent;
+		}
+
+		if (type == 'f' || type == 'l' || type == 'p' || type == 'z'
+				|| type == 'y' || type == 'n')
+			for (int i = pentominoes.length / 2; i < pentominoes.length; i++)
+				pentominoes[i].mirror();
+
+		return pentominoes;
+	}
+}

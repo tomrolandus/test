@@ -15,7 +15,7 @@ Me
 Me
 5
 Me
-3
+4
 Me
 3
 Me
@@ -25,16 +25,20 @@ Me
 Me
 3
 Me
+<<<<<<< HEAD
 3
+Me
+3
+Me
+3
+=======
+2
+>>>>>>> branch 'master' of https://github.com/Stan-Kerstjens/Pentris.git
 Me
 2
 Tom
 2
 Me
-2
-Me
-2
-Me
 1
 Me
 1
@@ -56,6 +60,20 @@ Me
 1
 Me
 1
+Me
+1
+Me
+1
+Me
+0
+Me
+0
+Me
+0
+Me
+0
+Me
+0
 Me
 0
 Me
