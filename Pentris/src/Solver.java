@@ -15,27 +15,48 @@ public class Solver {
 
 		solver.solve(solver.getPentominoes());
 		int score = 0;
-		score = solver.getScore(solver.orderMaxScore(allSolutions.get(0)).get(0));
-		
+		int solution = 0;
+		int order = 0;
+		for(int i = 0; i < allSolutions.size(); i ++){
+			ArrayList<ArrayList<char[][]>> temp = solver.orderMaxScore(allSolutions.get(i));
+			for(int j = 0; j < temp.size(); j++){
+				int newScore = solver.getScore(solver.orderMaxScore(allSolutions.get(i)).get(j));
+				if(newScore > score){
+					score = newScore;
+					solution = i;
+					order = j;
+				}
+			}
+		}
+
+		// score = solver.getScore();
+
 		System.out.println(score);
+		allSolutions.get(solution).print();
+		
 	}
 
 	public ArrayList<ArrayList<char[][]>> orderMaxScore(Solution sol) {
 		ArrayList<char[][]> placements = sol.getPlacements();
 
+		possibleOrders = new ArrayList<ArrayList<char[][]>>();
 		searchOrders(placements);
 
 		int maxScore = 0;
 		ArrayList<ArrayList<char[][]>> maxOrders = new ArrayList<ArrayList<char[][]>>();
-		for(ArrayList<char[][]> order : possibleOrders){
+
+		for (ArrayList<char[][]> order : possibleOrders) {
 			int score = getScore(order);
-			if(score > maxScore)
+			if (score > maxScore)
 				maxScore = score;
 		}
 		
-		for(ArrayList<char[][]> order : possibleOrders){
+		
+
+		for (ArrayList<char[][]> order : possibleOrders) {
 			int score = getScore(order);
-			if(score == maxScore)
+			
+			if (score == maxScore)
 				maxOrders.add(order);
 		}
 		
@@ -48,18 +69,18 @@ public class Solver {
 		FinalBoard board = new FinalBoard(gridWidth, gridHeight);
 		for (char[][] placement : placements) {
 			board.putPentomino(placement);
-			
+
 			ArrayList<Integer> rowsToRemove = new ArrayList<Integer>();
-			for(int row = 0; row < board.getHeight(); row++)
-				if(board.checkFullRow(row))
+			for (int row = 0; row < board.getHeight(); row++)
+				if (board.checkFullRow(row))
 					rowsToRemove.add(row);
+			if(!rowsToRemove.isEmpty())
+				result += Game.calculateScore(rowsToRemove.size());
 			
-			result += Game.calculateScore(rowsToRemove.size());
-			System.out.println(result);
-			for(int row : rowsToRemove)
+			for (int row : rowsToRemove)
 				board.removeLine(row);
 		}
-
+		
 		return result;
 
 	}
@@ -70,7 +91,8 @@ public class Solver {
 	public void searchOrders(ArrayList<char[][]> placements) {
 
 		if (placements.isEmpty()) {
-			possibleOrders.add(currentPlacements);
+			possibleOrders.add((ArrayList<char[][]>) currentPlacements.clone());
+
 			return;
 		}
 
@@ -82,10 +104,9 @@ public class Solver {
 		for (char[][] placement : currentPlacements)
 			placePlacement(present, placement);
 
-		for (int i =0; i < placements.size(); i ++) {
+		for (int i = 0; i < placements.size(); i++) {
 			char[][] placement = placements.get(i);
 			if (checkPlacable(present, placement)) {
-				placePlacement(present, placement);
 				currentPlacements.add(placement);
 				placements.remove(placement);
 				searchOrders(placements);
@@ -93,6 +114,7 @@ public class Solver {
 				currentPlacements.remove(placement);
 			}
 		}
+
 		return;
 	}
 
@@ -109,7 +131,7 @@ public class Solver {
 			for (int col = 0; col < input[row].length; col++)
 				if (input[row][col] != 0 && row == present.length - 1)
 					return true;
-				else if (input[row][col] != 0 && present[row+1][col] != 0)
+				else if (input[row][col] != 0 && present[row + 1][col] != 0)
 					return true;
 		return false;
 	}
@@ -136,16 +158,19 @@ public class Solver {
 
 		return allSolutions;
 	}
+
 	private boolean solution = false;
+
 	private void solveMatrix(ArrayList<int[]> matrix,
 			ArrayList<Integer> possibleRows, ArrayList<Integer> possibleCols) {
 
-		if(solution) return;
-		
+		if (solution)
+			return;
+
 		if (possibleCols.isEmpty()) {
 
 			solution = true;
-			
+
 			if (solutionCount % 25 == 0) {
 				String s = "";
 				s += "|";
