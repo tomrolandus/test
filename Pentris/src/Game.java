@@ -104,30 +104,9 @@ public class Game extends Observable {
     }
 
     public void moveCurrentPentLeft() {
-        System.out.println("------------------");
-        System.out.println("clicked left");
         int[] oneLeft = {0, -1}; //row * col
-        boolean allowed = false;
-        int[][] x = currentPent.getShape();
-        System.out.println("start of loop");
-        for (int row = 0; row < x.length; row++) {
-            for (int col = 0; col < x[row].length; col++) {
-                if (x[row][col] != 0
-                        && ((col + oneLeft[1] + board.getLocation()[0]) > 0)
-                        && ((col + oneLeft[1] + board.getLocation()[0]) < 5)) {
-                    System.out.println("almost there");
-                    if (fboard.getFinalBoard()
-                            [row + oneLeft[0] + board.getLocation()[0]]
-                            [col + oneLeft[1] + board.getLocation()[0]]
-                            == 0) {
-                        System.out.println("Yay");
-                        allowed = true;
-                    }
-                }
-            }
-        }
+        boolean allowed = fboard.checkifLegal(currentPent, board.getLocation(), oneLeft);
         if (allowed) {
-            System.out.println(" allowed left");
             board.movePentomino(oneLeft);
             setChanged();
             notifyObservers();
@@ -137,7 +116,7 @@ public class Game extends Observable {
 
     public void moveCurrentPentRight() {
         int[] oneRight = {0, 1};
-        boolean allowed = true;
+        boolean allowed = fboard.checkifLegal(currentPent, board.getLocation(), oneRight);
         
         if (allowed){
             board.movePentomino(oneRight);
@@ -149,8 +128,7 @@ public class Game extends Observable {
 
     public void moveCurrentPentDown() {
         final int[] oneDown = {1, 0};
-         boolean allowed = true;
-        
+        boolean allowed = fboard.checkifLegal(currentPent, board.getLocation(), oneDown);        
         while (!fboard.checkFloorCollision(currentPent, board.getLocation())) {
             if (allowed){
             board.movePentomino(oneDown);
