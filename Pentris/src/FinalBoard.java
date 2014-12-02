@@ -76,7 +76,13 @@ public class FinalBoard {
         
         return false;
     }
-
+/**
+ * This method checks whether the pentomino hits something beneath it 
+ * @param pent Is the pent that is sliding down
+ * @param row Is the row at which the pentomino is located
+ * @param col Is the column of the leftmost point of the pentomino
+ * @return
+ */
     public boolean checkFloorCollision(Pentomino pent, int row, int col) {
         int[] location = {row, col};
         return checkFloorCollision(pent, location);
@@ -121,14 +127,20 @@ public class FinalBoard {
         int[][] shape = pent.getShape();
         for (int row = 0; row < shape.length; row++) {
             for (int col = 0; col < shape[row].length; col++) {
+            	//System.out.println(shape[row][col] != 0);
+            	System.out.println(grid[row + location[0]][col + location[1]] != 0);
                 if (shape[row][col] != 0 && grid[row + location[0]][col + location[1]] != 0) {
+                	System.out.println("test");
                     return false;
                 }
             }
         }
+        
         return true;
     }
-
+/**
+ * This method prints out the board in the console
+ */
     public void print() {
         for (int row = 0; row < grid.length; row++) {
             for (int col = 0; col < grid[row].length; col++) {
@@ -141,7 +153,9 @@ public class FinalBoard {
             System.out.println();
         }
     }
-
+/**
+ * This method represent the board as an array of chars 
+ */
     public String toString() {
         String result = "";
 

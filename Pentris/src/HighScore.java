@@ -161,7 +161,6 @@ public final class HighScore {
      */
     public void saveToFile() {
         //sorts FINAL_SCORE
-        System.out.println("slkmdklsajdklsajd");
         sortList();
         //creates a writer object
         WriteFile writer = new WriteFile("HighScores.txt", true);

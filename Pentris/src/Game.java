@@ -149,12 +149,14 @@ public class Game extends Observable {
         boolean newPent = true;
         game:
         while (!this.checkGameOver()) {
+        	
 
             if (newPent) {
                 // Initialize pentomino in the top middle of the screen
                 this.currentPent = this.chooseNextPentomino();
                 initiatePentomino(currentPent);
                 newPent = false;
+                //System.out.println(fboard.checkPlacement(currentPent, board.getLocation()));
                 
             }
 
