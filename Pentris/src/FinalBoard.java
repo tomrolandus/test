@@ -17,6 +17,14 @@ public class FinalBoard {
         }
     }
 
+    
+    public int getWidth(){
+    	return grid[0].length;
+    }
+    
+    public int getHeight(){
+    	return grid.length;
+    }
     /**
      * This method will remove a row and drop rows above it down accordingly.
      *
@@ -96,6 +104,17 @@ public class FinalBoard {
             for (int j = 0; j < pento[i].length; j++) {
                 if (pento[i][j] == 1) {
                     grid[location[0] + i][location[1] + j] = pent.getType();
+                }
+            }
+        }
+
+    }
+    
+    public void putPentomino(char[][] pento) {
+        for (int i = 0; i < pento.length; i++) {
+            for (int j = 0; j < pento[i].length; j++) {
+                if (pento[i][j] != 0) {
+                    grid[i][j] = pento[i][j];
                 }
             }
         }
