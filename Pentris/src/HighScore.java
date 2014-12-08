@@ -29,22 +29,15 @@ public final class HighScore {
      */
     public void addScore(String name, int score) {
         //sorts FINAL_SCORE
-        //sortList();
         
         //creates a StringBuilder object to convert integer to strings
         StringBuilder sb = new StringBuilder();
         sb.append(score);
-        //System.out.println(sb.toString() + " testscore add");
+
         //creates a String array with the name and now converted integer
         String[] tmp = {name, sb.toString()};
+
         //inputs it into the Array List of FINAL_SCORE
-        //System.out.println("lskmdklasmdlksamsadkl");
-        /*for (int i = 0; i < FINAL_SCORE.size(); i++) {
-            System.out.println(FINAL_SCORE.get(i)[0]);
-            System.out.println(FINAL_SCORE.get(i)[1]);
-            
-        }*/
-        
         FINAL_SCORE.add(tmp);
 
         //sorts FINAL_SCORE to ensure proper placements
@@ -61,27 +54,33 @@ public final class HighScore {
     public String[] getScore(int position) {
         //Sorts the array
         sortList();
+        
         //returns a string array which contains the name and the score of index location
         return FINAL_SCORE.get(position);
     }
 
     /**
-     * Sorts the arrayList (currently buggy)
+     * Sorts the HighScore
      */
     private void sortList() {
+        //creaates a 2 array
+        //one array contains the usernames
+        //one array contains the said user score
         String[] name = new String[FINAL_SCORE.size()];
         int[] score = new int[FINAL_SCORE.size()];
         
-        
+        //inputs the data into said arrays 
         for (int i = 0; i < FINAL_SCORE.size(); i++) 
         {
-
             name[i] = FINAL_SCORE.get(i)[0];
             score[i] = Integer.parseInt(FINAL_SCORE.get(i)[1]);
         }
 
-        String tmp1 = "";
-        int tmp2 = 0;
+        //empty tempory variables to store the data when sorting
+        String tmp1;
+        int tmp2;
+        
+        //simple bubble sort (i know its inefficient but it simple to understand
         for (int i = 1; i < FINAL_SCORE.size(); i++) {
             for (int j = 0; j < (FINAL_SCORE.size() - 1); j++) {
                 if (score[j]<(score[i])) {
@@ -97,10 +96,11 @@ public final class HighScore {
                 }
             }
         }
-
+        
+        //clears the old array lists
         FINAL_SCORE.clear();
         
-        //System.out.println(FINAL_SCORE.isEmpty());
+        //add the sorted data into the array lists
         for (int i = 0; i < name.length; i++) {
             String[] tmp = {name[i],Integer.toString(score[i])};
             FINAL_SCORE.add(tmp);
@@ -111,19 +111,19 @@ public final class HighScore {
      * Loads previous scores into the system. Uses the object ReadFile
      */
     public void loadFromFile() {
-        //sorts Final List
-        //sortList();
-
         //Creates a string array to hold all the strings in the textfile
         arrayLines = new String[0];
+        
         try {
-            //need to make this relative to where the jar is located
             //creates a read object
             ReadFile file = new ReadFile("HighScores.txt");
+            
             //throws away the pointer
             arrayLines = null;
+            
             //set the pointer to location of the array of strings from the text file
             arrayLines = file.OpenFile();
+            
         } catch (IOException e) {
         	Writer writer = null;
 
@@ -132,7 +132,7 @@ public final class HighScore {
         	          new FileOutputStream("HighScores.txt"), "utf-8"));
         	    writer.write("");
         	} catch (IOException ex) {
-        	  // report
+        	// report
         	} finally {
         	   try {writer.close();} catch (Exception ex) {}
         	}
@@ -144,11 +144,9 @@ public final class HighScore {
         //and calls the grabge collectors
         FINAL_SCORE.clear();
         System.gc();
-        //System.out.println(arrayLines.length+ " dsadsad");
+        
         for (int i = 0; i < arrayLines.length; i = i + 2) {
             //creates the string array that is to be added to FINAL_SCORE
-            //System.out.println(arrayLines[i]);
-            //System.out.println(arrayLines[i+1]);
             String[] tmp = {arrayLines[i], arrayLines[i + 1]};
             FINAL_SCORE.add(tmp);
         }
@@ -162,17 +160,18 @@ public final class HighScore {
     public void saveToFile() {
         //sorts FINAL_SCORE
         sortList();
+        
         //creates a writer object
         WriteFile writer = new WriteFile("HighScores.txt", true);
+        
         try {
             //it has to first clear the text file hence the false in append
             writer.writeToFile(FINAL_SCORE.get(0)[0], false);
+        
             //then we want append the text file with the rest of the data
             writer.writeToFile(FINAL_SCORE.get(0)[1], true);
             for (int i = 1; i < FINAL_SCORE.size(); i++) {
-                //debug code; ignore
-                //System.out.println(FINAL_SCORE.get(i)[0]);
-                //System.out.println(FINAL_SCORE.get(i)[1]);
+
                 //puts the rest of the data into the text file
                 writer.writeToFile(FINAL_SCORE.get(i)[0]);
                 writer.writeToFile(FINAL_SCORE.get(i)[1]);
@@ -184,7 +183,11 @@ public final class HighScore {
         //sorts FINAL_SCORE
         sortList();
     }
-
+    
+    /**
+     * Returns number of items in the highscore list as an integer
+     * @return The size of the highscore list
+     */
     public int scorelength() {
         return FINAL_SCORE.size();
     }

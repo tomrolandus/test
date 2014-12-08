@@ -17,11 +17,19 @@ public class FinalBoard {
             }
         }
     }
-
+	/** 
+	 * This method returns the width of the board.
+	 * 
+	 * @return the width of the board.
+	 */
     public int getWidth() {
         return grid[0].length;
     }
-
+    /**
+     * This method will return the height of the board.
+     * 
+     * @return the height of the grid.
+     */
     public int getHeight() {
         return grid.length;
     }
@@ -48,7 +56,7 @@ public class FinalBoard {
      * Checks if a given row is full or not.
      *
      * @param row the row to check for fullness
-     * @return boolean false if the row is not full and true if the row is full.
+     * @return false if the row is not full and true if the row is full.
      */
     public boolean checkFullRow(int row) {
         for (int c = 0; c < grid[row].length; c++) {
@@ -66,7 +74,7 @@ public class FinalBoard {
      * @param pent Is the pent that is sliding down.
      * @param location is the location of the top left corner of the Pentomino.
      * The first number is the row and the second number is the column.
-     * @return boolean True if it collides. False if it doesn't collide.
+     * @return True if it collides. False if it doesn't collide.
      */
     public boolean checkFloorCollision(Pentomino pent, int[] location) {
 
@@ -85,7 +93,15 @@ public class FinalBoard {
 
         return false;
     }
-
+    /** 
+     * This method calls the other checkFloorCollision method by converting the arguments it receives to match the ones from the other method.
+     * 
+     * @param pent is the pentomino sliding down.
+     * @param row is the uppermost row of the pentomino.
+     * @param col is the leftmost column of the pentomino.
+     * 
+     * @return True if it collides. False if it doesn't collide.
+     */
     public boolean checkFloorCollision(Pentomino pent, int row, int col) {
         int[] location = {row, col};
         return checkFloorCollision(pent, location);
@@ -110,7 +126,11 @@ public class FinalBoard {
         }
 
     }
-
+    /**
+     * This method places the pentomino on the board.
+     * 
+     * @param pento is the pentomino we want to place on the board.
+     */
     public void putPentomino(char[][] pento) {
         for (int i = 0; i < pento.length; i++) {
             for (int j = 0; j < pento[i].length; j++) {
@@ -136,7 +156,15 @@ public class FinalBoard {
         }
         return false;
     }
-
+    /**
+     * This method checks if the pentomino can move left or right depending on whether there is a pentomino next to it.
+     * 
+     * @param pent is the pentomino we want to move.
+     * @param location is the current position of the pentomino.
+     * @param movement is an array that expresses the movement we want to make.
+     * 
+     * @return TRUE if the pentomino can do the requested movement and FALSE if it can't.
+     */
     public boolean checkIfCanMove(Pentomino pent, int[] location, int[] movement) {
         int[][] shape = pent.getShape();//shape[row][col]
         boolean canMove = true;
@@ -158,7 +186,14 @@ public class FinalBoard {
         }
         return canMove;
     }
-
+    /** 
+     * This method check if the pentomino can be placed.
+     * 
+     * @param pent is the pentomino we want to check.
+     * @param location is the location of the pentomino.
+     * 
+     * @return TRUE if the pentomino can be placed and false if it can't be placed.
+     */
     public boolean checkPlacement(Pentomino pent, int[] location) {
         int[][] shape = pent.getShape();
 
@@ -175,7 +210,10 @@ public class FinalBoard {
         }
         return true;
     }
-
+    /**
+     * This method prints out the board.
+     * 
+     */
     public void print() {
         for (int row = 0; row < grid.length; row++) {
             for (int col = 0; col < grid[row].length; col++) {
@@ -188,7 +226,11 @@ public class FinalBoard {
             System.out.println();
         }
     }
-
+    /** 
+     * This method represents the objects as a string.
+     * 
+     * @return a String representing the objects.
+     */
     public String toString() {
         String result = "";
 
@@ -205,7 +247,7 @@ public class FinalBoard {
 
         return result;
     }
-
+    /** This method
     public char[][] getFinalBoard() {
         return grid;
     }
